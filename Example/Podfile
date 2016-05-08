@@ -1,0 +1,8 @@
+use_frameworks!
+
+
+target 'segment-appsflyer-ios_Tests', :exclusive => true do
+  pod 'segment-appsflyer-ios', :path => '../'
+
+  
+end
