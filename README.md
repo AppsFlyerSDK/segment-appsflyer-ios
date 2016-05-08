@@ -27,3 +27,4 @@ Golan, golan@appsflyer.com
 ## License
 
 segment-appsflyer-ios is available under the MIT license. See the LICENSE file for more info.
+# segment-appsflyer-ios
