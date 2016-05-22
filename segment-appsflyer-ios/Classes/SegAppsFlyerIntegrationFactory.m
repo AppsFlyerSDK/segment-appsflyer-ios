@@ -1,27 +1,40 @@
 //
-//  SegAppsFlyerIntegrationFactory.m
-//  SegmentAppsFlyeriOS
+//  SEGAppsFlyerIntegrationFactory.m
+//  AppsFlyerSegmentiOS
 //
-//  Created by Golan on 5/5/16.
+//  Created by Golan on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
-#import "SegAppsFlyerIntegrationFactory.h"
-#import <Analytics/SEGAnalytics.h>
+#import "SEGAppsFlyerIntegrationFactory.h"
+#import "SEGAppsFlyerIntegration.h"
 
 
-@implementation SegAppsFlyerIntegrationFactory : NSObject 
+@implementation SEGAppsFlyerIntegrationFactory : NSObject
 
++ (instancetype)instance
+{
+    static dispatch_once_t once;
+    static SEGAppsFlyerIntegrationFactory *sharedInstance;
+    dispatch_once(&once, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    return sharedInstance;
+}
 
--(id) createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics
+- (instancetype)init
+{
+    self = [super init];
+    return self;
+}
+
+- (id<SEGIntegration>)createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics
 {
     return [[SEGAppsFlyerIntegration alloc] initWithSettings:settings];
 }
 
--(NSString *)key
+- (NSString *)key
 {
-    return @"APPSFLYER";
+    return @"AppsFlyer";
 }
-
 @end
-

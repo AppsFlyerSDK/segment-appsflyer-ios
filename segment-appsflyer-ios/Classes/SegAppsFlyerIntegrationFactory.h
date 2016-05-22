@@ -1,26 +1,16 @@
 //
-//  SegAppsFlyerIntegrationFactory.h
-//  SegmentAppsFlyeriOS
+//  SEGAppsFlyerIntegrationFactory.h
+//  AppsFlyerSegmentiOS
 //
-//  Created by Golan on 5/5/16.
+//  Created by Golan on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "SEGAppsFlyerIntegration.h"
+#import <Analytics/SEGIntegrationFactory.h>
 
-@class SEGAnalytics;
+@interface SEGAppsFlyerIntegrationFactory : NSObject <SEGIntegrationFactory>
 
-@protocol SEGIntegrationFactory
-
-
--(id<SEGAnalyticsIntegration>) createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics;
--(NSString *)key;
-
-@end
-
-@interface SegAppsFlyerIntegrationFactory : NSObject <SEGIntegrationFactory>
-
-
++ (instancetype)instance;
 
 @end

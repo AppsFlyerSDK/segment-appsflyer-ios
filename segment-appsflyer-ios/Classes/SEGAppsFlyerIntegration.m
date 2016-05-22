@@ -1,106 +1,134 @@
 //
 //  SEGAppsFlyerIntegration.m
-//  SegmentAppsFlyeriOS
+//  AppsFlyerSegmentiOS
 //
-//  Created by Golan on 5/2/16.
+//  Created by Golan on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
 #import "SEGAppsFlyerIntegration.h"
-#import "SEGAnalyticsUtils.h"
-
+#import <Analytics/SEGAnalyticsUtils.h>
 
 @implementation SEGAppsFlyerIntegration
 
-+ (void)load
-{
-    [SEGAnalytics registerIntegration:self withIdentifier:@"AppsFlyer"];
-}
-
-#pragma mark - Initialization
-
-- (id)init
-{
-    if (self = [super init]) {
-        self.name = @"Appsflyer";
-        self.valid = NO;
-        self.initialized = NO;
-        self.appsflyer = [AppsFlyerTracker sharedTracker];
-    }
-    return self;
-}
-
 
 - (instancetype)initWithSettings:(NSDictionary *)settings {
- 
     if (self = [super init]) {
         self.settings = settings;
-        self.name = @"Appsflyer";
-        self.valid = NO;
-        self.initialized = NO;
-        self.appsflyer = [AppsFlyerTracker sharedTracker];
-        NSString *devKey = self.settings[@"devKey"];
-        NSString *appleAppId = self.settings[@"appleAppId"];
+        NSString *afDevKey = [self.settings objectForKey:@"devKey"];
+        NSString *appleAppId = [self.settings objectForKey:@"appleAppId"];
         
-        [self.appsflyer setAppsFlyerDevKey:devKey];
+        self.appsflyer = [AppsFlyerTracker sharedTracker];
+        [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
-
     }
     return self;
 }
 
-- (void)start
-{
-    NSString *devKey = self.settings[@"devKey"];
-    NSString *appleAppId = self.settings[@"appleAppId"];
+- (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerTracker *)aAppsflyer {
     
-    [self.appsflyer setAppsFlyerDevKey:devKey];
-    [self.appsflyer setAppleAppID:appleAppId];
-    
-
-    SEGLog(@"AppsFyer Start.");
-    [super start];
+    if (self = [super init]) {
+        self.settings = settings;
+        self.appsflyer = aAppsflyer;
+    }
+    return self;
 }
 
-#pragma mark - Settings
-
-- (void)validate
+- (void)identify:(SEGIdentifyPayload *)payload
 {
-    BOOL isValid = [self.settings objectForKey:@"devKey"] != nil;
-    self.valid = isValid;
+    NSMutableDictionary *afTraits = [NSMutableDictionary dictionary];
+    
+    if (payload.userId != nil && [payload.userId length] != 0) {
+        
+        if ([NSThread isMainThread]) {
+            [self.appsflyer setCustomerUserID:payload.userId];
+            SEGLog(@"setCustomerUserID:%@]", payload.userId);
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.appsflyer setCustomerUserID:payload.userId];
+                SEGLog(@"setCustomerUserID:%@]", payload.userId);
+            });
+        }
+    }
+    
+    if ([payload.traits[@"currencyCode"] isKindOfClass:[NSString class]]) {
+        self.appsflyer.currencyCode = payload.traits[@"currencyCode"];
+        SEGLog(@"self.appsflyer.currencyCode: %@", payload.traits[@"currencyCode"]);
+    }
+    
+    if ([payload.traits[@"email"] isKindOfClass:[NSString class]]) {
+        [afTraits setObject:payload.traits[@"email"] forKey:@"email"];
+    }
+    
+    if ([payload.traits[@"firstName"] isKindOfClass:[NSString class]]) {
+        [afTraits setObject:payload.traits[@"firstName"] forKey:@"firstName"];
+    }
+    
+    if ([payload.traits[@"lastName"] isKindOfClass:[NSString class]]) {
+        [afTraits setObject:payload.traits[@"lastName"] forKey:@"lastName"];
+    }
+    
+    if ([payload.traits[@"username"] isKindOfClass:[NSString class]]) {
+        [afTraits setObject:payload.traits[@"username"] forKey:@"username"];
+    }
+    
+    [self.appsflyer setAdditionalData:afTraits];
+    
 }
 
-#pragma mark - Analytics API
-
-- (void)identify:(NSString *)userId traits:(NSDictionary *)traits options:(NSDictionary *)options
+- (void)track:(SEGTrackPayload *)payload
 {
-    if (userId) {
-        [self.appsflyer setCustomerUserID:userId];
+    if (payload.properties != nil){
+        SEGLog(@"trackEvent: %@", payload.properties);
+    }
+    
+    // Extract the revenue from the properties passed in to us.
+    NSNumber *revenue = [SEGAppsFlyerIntegration extractRevenue:payload.properties withKey:@"revenue"];
+    if (revenue) {
+        // Track purchase event.
+        NSDictionary *values = @{AFEventParamRevenue : revenue, AFEventParam1 : payload.properties};
+        [self.appsflyer trackEvent:AFEventPurchase withValues:values];
+        
+    }
+    else {
+        // Track the raw event.
+        [self.appsflyer trackEvent:payload.event withValues:payload.properties];
     }
     
 }
 
-- (void)track:(NSString *)event properties:(NSDictionary *)properties options:(NSDictionary *)options
++ (NSDecimalNumber *)extractRevenue:(NSDictionary *)dictionary withKey:(NSString *)revenueKey
 {
-    [self.appsflyer trackEvent:event withValues:properties];
-}
-
-- (void)screen:(NSString *)screenTitle properties:(NSDictionary *)properties options:(NSDictionary *)options
-{
-    [self.appsflyer trackEvent:screenTitle withValues:properties];
+    id revenueProperty = dictionary[revenueKey];
+    if (revenueProperty) {
+        if ([revenueProperty isKindOfClass:[NSString class]]) {
+            return [NSDecimalNumber decimalNumberWithString:revenueProperty];
+        } else if ([revenueProperty isKindOfClass:[NSDecimalNumber class]]) {
+            return revenueProperty;
+        }
+    }
+    return nil;
 }
 
 - (void)flush
 {
+    SEGLog(@"flush called, nothing to do..");
+}
+
+- (void)registeredForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+     SEGLog(@"registerPushToken");
 }
 
 
-#pragma mark - Callbacks for app state changes
+- (void)receivedRemoteNotification:(NSDictionary *)userInfo {
+    
+    [self.appsflyer handlePushNotification:userInfo];
+    SEGLog(@"[self.appsflyer handlePushNotification]");
+}
 
-
-- (void)applicationDidBecomeActive
-{
-    [self.appsflyer trackAppLaunch];
+-(void) reset {
+    SEGLog(@"reset");
 }
 
 @end

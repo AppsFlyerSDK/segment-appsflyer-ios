@@ -1,22 +1,24 @@
 //
 //  SEGAppsFlyerIntegration.h
-//  SegmentAppsFlyeriOS
+//  AppsFlyerSegmentiOS
 //
-//  Created by Golan on 5/2/16.
+//  Created by Golan on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <Analytics/SEGIntegration.h>
 #import <AppsFlyer/AppsFlyer.h>
-#import <Analytics/SEGAnalyticsIntegration.h>
-#import <Analytics/SEGAnalytics.h>
 
-@interface SEGAppsFlyerIntegration : SEGAnalyticsIntegration
+@interface SEGAppsFlyerIntegration : NSObject <SEGIntegration>
+
+@property (nonatomic, strong) NSDictionary *settings;
+@property (nonatomic, strong) AppsFlyerTracker *appsflyer;
+
 
 
 - (instancetype)initWithSettings:(NSDictionary *)settings;
+- (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerTracker *)aAppsflyer;
 
-@property AppsFlyerTracker *appsflyer;
 
 @end
-
