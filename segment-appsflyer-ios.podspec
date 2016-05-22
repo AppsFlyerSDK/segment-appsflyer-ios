@@ -18,7 +18,8 @@ s.summary            = "AppsFlyer Integration for Segment's analytics-ios librar
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-    AppsFlyer is the market leader in mobile advertising attribution & analytics, helping marketers to pinpoint their targeting, optimize their ad spend and boost their ROI.                       DESC
+    AppsFlyer is the market leader in mobile advertising attribution & analytics, helping marketers to pinpoint their targeting, optimize their ad spend and boost their ROI.
+DESC
 
   s.homepage         = "https://github.com/AppsFlyerSDK/segment-appsflyer-ios"
   s.license          = 'MIT'
