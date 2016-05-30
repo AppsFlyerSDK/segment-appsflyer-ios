@@ -110,25 +110,5 @@
     return nil;
 }
 
-- (void)flush
-{
-    SEGLog(@"flush called, nothing to do..");
-}
-
-- (void)registeredForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-     SEGLog(@"registerPushToken");
-}
-
-
-- (void)receivedRemoteNotification:(NSDictionary *)userInfo {
-    
-    [self.appsflyer handlePushNotification:userInfo];
-    SEGLog(@"[self.appsflyer handlePushNotification]");
-}
-
--(void) reset {
-    SEGLog(@"reset");
-}
 
 @end
