@@ -1,0 +1,1 @@
+../../../segment-appsflyer-ios/segment-appsflyer-ios/Classes/SEGAppsFlyerIntegration.h
