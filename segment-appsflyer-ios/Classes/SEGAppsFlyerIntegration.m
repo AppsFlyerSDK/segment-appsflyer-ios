@@ -15,7 +15,7 @@
 - (instancetype)initWithSettings:(NSDictionary *)settings {
     if (self = [super init]) {
         self.settings = settings;
-        NSString *afDevKey = [self.settings objectForKey:@"devKey"];
+        NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
         NSString *appleAppId = [self.settings objectForKey:@"appleAppId"];
         
         self.appsflyer = [AppsFlyerTracker sharedTracker];
