@@ -10,15 +10,13 @@
 #import <Analytics/SEGIntegration.h>
 #import <AppsFlyer/AppsFlyer.h>
 
-@interface SEGAppsFlyerIntegration : NSObject <SEGIntegration>
+@interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerTrackerDelegate>
 
 @property (nonatomic, strong) NSDictionary *settings;
 @property (nonatomic, strong) AppsFlyerTracker *appsflyer;
+@property (nonatomic, strong) SEGAnalytics *analytics;
 
 
-
-- (instancetype)initWithSettings:(NSDictionary *)settings;
-- (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerTracker *)aAppsflyer;
-
+- (instancetype)initWithSettings:(NSDictionary *)settings withAnalytics:(SEGAnalytics *) analytics;
 
 @end
