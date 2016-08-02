@@ -30,7 +30,7 @@
 
 - (id<SEGIntegration>)createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics
 {
-    return [[SEGAppsFlyerIntegration alloc] initWithSettings:settings];
+    return [[SEGAppsFlyerIntegration alloc] initWithSettings:settings withAnalytics:analytics];
 }
 
 - (NSString *)key
