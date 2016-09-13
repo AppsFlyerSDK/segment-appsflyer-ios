@@ -80,6 +80,10 @@
     
 }
 
+- (void) trackLaunch {
+    [self.appsflyer trackAppLaunch];
+}
+
 - (void)track:(SEGTrackPayload *)payload
 {
     if (payload.properties != nil){

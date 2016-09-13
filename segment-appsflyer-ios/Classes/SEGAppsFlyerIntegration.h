@@ -18,5 +18,5 @@
 
 
 - (instancetype)initWithSettings:(NSDictionary *)settings withAnalytics:(SEGAnalytics *) analytics;
-
+- (void) trackLaunch;
 @end
