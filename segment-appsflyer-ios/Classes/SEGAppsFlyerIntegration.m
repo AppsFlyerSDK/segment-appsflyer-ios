@@ -120,9 +120,9 @@
 
 -(void)onConversionDataReceived:(NSDictionary *)installData {
       NSDictionary *campaign = @{
-                @"source": installData[@"media_source"],
-                @"name": installData[@"campaign"],
-                @"adGroup": installData[@"adgroup"]
+                @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
+                @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
+                @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
       };
 
       NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
