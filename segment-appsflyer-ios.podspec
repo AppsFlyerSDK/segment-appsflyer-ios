@@ -19,8 +19,5 @@ DESC
   s.dependency 'Analytics', '~> 3.1'
   s.dependency 'AppsFlyerFramework', '~> 4.5.6'
 
-  s.pod_target_xcconfig = {
-     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/AppsFlyerFramework/AppsFlyer.framework',
-     'OTHER_LDFLAGS'          => '$(inherited) -undefined dynamic_lookup'
 }
 end
