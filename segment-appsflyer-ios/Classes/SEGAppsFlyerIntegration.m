@@ -16,7 +16,7 @@
     if (self = [super init]) {
         self.settings = settings;
         NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
-        NSString *appleAppId = [self.settings objectForKey:@"appleAppId"];
+        NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
         
         self.appsflyer = [AppsFlyerTracker sharedTracker];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
