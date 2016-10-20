@@ -77,11 +77,8 @@
     }
     
     [self.appsflyer setAdditionalData:afTraits];
+    [self.appsFlyer trackAppLaunch];
     
-}
-
-- (void) trackLaunch {
-    [self.appsflyer trackAppLaunch];
 }
 
 - (void)track:(SEGTrackPayload *)payload
