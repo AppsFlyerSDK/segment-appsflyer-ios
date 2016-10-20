@@ -77,7 +77,7 @@
     }
     
     [self.appsflyer setAdditionalData:afTraits];
-    [self.appsFlyer trackAppLaunch];
+    [self.appsflyer trackAppLaunch];
     
 }
 
