@@ -34,8 +34,24 @@
     if (self = [super init]) {
         self.settings = settings;
         self.appsflyer = aAppsflyer;
+        
+        NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
+        NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
+        [self.appsflyer setAppsFlyerDevKey:afDevKey];
+        [self.appsflyer setAppleAppID:appleAppId];
+        
+        if ([self trackAttributionData]) {
+            self.appsflyer.delegate = self;
+        }
+        
     }
     return self;
+}
+
+
+
+-(void) applicationDidBecomeActive {
+    [self trackLaunch];
 }
 
 - (void)identify:(SEGIdentifyPayload *)payload
@@ -77,7 +93,6 @@
     }
     
     [self.appsflyer setAdditionalData:afTraits];
-    [self trackLaunch];
     
 }
 
@@ -121,33 +136,33 @@
 }
 
 -(void)onConversionDataReceived:(NSDictionary *)installData {
-      NSDictionary *campaign = @{
-                @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
-                @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
-                @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
-      };
-
-      NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
-                @"provider": @"AppsFlyer",
-                @"campaign": campaign,
-      }];
-      [properties addEntriesFromDictionary:installData];
-
-      // Delete already mapped special fields.
-      [properties removeObjectForKey:@"media_source"];
-      [properties removeObjectForKey:@"campagin"];
-      [properties removeObjectForKey:@"adgroup"];
-      
-      [self.analytics track:@"Install Attributed" properties:[properties copy]];
+    NSDictionary *campaign = @{
+                               @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
+                               @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
+                               @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
+                               };
+    
+    NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                      @"provider": @"AppsFlyer",
+                                                                                      @"campaign": campaign,
+                                                                                      }];
+    [properties addEntriesFromDictionary:installData];
+    
+    // Delete already mapped special fields.
+    [properties removeObjectForKey:@"media_source"];
+    [properties removeObjectForKey:@"campagin"];
+    [properties removeObjectForKey:@"adgroup"];
+    
+    [self.analytics track:@"Install Attributed" properties:[properties copy]];
 }
-                  
+
 -(void)onConversionDataRequestFailure:(NSError *) error {
-      SEGLog(@"[Appsflyer] onConversionDataRequestFailure:%@]", error);
+    SEGLog(@"[Appsflyer] onConversionDataRequestFailure:%@]", error);
 }
 
 - (BOOL)trackAttributionData
 {
-      return [(NSNumber *)[self.settings objectForKey:@"trackAttributionData"] boolValue];
+    return [(NSNumber *)[self.settings objectForKey:@"trackAttributionData"] boolValue];
 }
 
 @end
