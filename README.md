@@ -14,7 +14,7 @@ pod "segment-appsflyer-ios"
 First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (itunes) and client secret in Segment's dashboard for AppsFlyer integration, then import Segment-AppsFlyer:
 
 ```objective-c
-#import <segment-appsflyer-ios/SEGAppsFlyerIntegration.h>
+#import <segment-appsflyer-ios/SEGAppsFlyerIntegrationFactory.h>
 
 ```
 
