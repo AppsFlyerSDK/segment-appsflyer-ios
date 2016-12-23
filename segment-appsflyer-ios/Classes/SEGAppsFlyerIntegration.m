@@ -150,7 +150,7 @@
     
     // Delete already mapped special fields.
     [properties removeObjectForKey:@"media_source"];
-    [properties removeObjectForKey:@"campagin"];
+    [properties removeObjectForKey:@"campaign"];
     [properties removeObjectForKey:@"adgroup"];
     
     [self.analytics track:@"Install Attributed" properties:[properties copy]];
