@@ -1,4 +1,4 @@
-pod::Spec.new do |s|
+Pod::Spec.new do |s|
   s.name             = "segment-appsflyer-ios"
   s.version          = "1.1.8"
   s.summary          = "AppsFlyer Integration for Segment's analytics-ios library."
