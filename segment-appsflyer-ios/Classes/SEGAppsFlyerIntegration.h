@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Analytics/SEGAnalytics.h>
-#import <AppsFlyerDynamicFramework/AppsFlyerTracker/AppsFlyerTracker.h>
+#import <AppsFlyerTracker/AppsFlyerTracker.h>
 
 @interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerTrackerDelegate>
 
