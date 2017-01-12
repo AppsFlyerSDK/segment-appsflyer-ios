@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/Appsflyer'
 
   s.ios.deployment_target = '8.0'
-  s.tvos.deployment_target = '9.0'
-
+  
   s.framework = 'Security', 'SystemConfiguration'
 
   s.source_files = 'segment-appsflyer-ios/Classes/**/*'
