@@ -1,58 +1,107 @@
-##AppsFlyer integration for Segment.
+<img src="https://www.appsflyer.com/wp-content/uploads/2016/11/logo-1.svg"  width="200">
 
-## Installation
+# AppsFlyer integration for Segment.
+This is a Segment wrapper for AppsFlyer SDK framework.
 
-Segment-AppsFlyer is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your `Podfile`:
+
+## Table of content
+
+- [Installation](#installation)
+- [Usage](#usage) 
+ - [Objective-C](#usage-obj-c)
+ - [Swift](#swift)
+- [Examples](#examples) 
+
+## <a id="installation">Installation
+
+Segment AppsFlyer uses AppsFlyer static framework from Cocoapods.
+Add the `appsFlyerFramework` to `podfile` and run `pod install`.
+
+
+Example:
+     
+```
+  pod 'AppsFlyerFramework'
+  pod 'Analytics', '~> 3.5'
 
 ```
-pod "segment-appsflyer-ios"
-```
 
-## Usage
+Next step, copy manually 5 files to your project:
+  
+ - `SEGAppsFlyerIntegration.h`
+ - `SEGAppsFlyerIntegration.m`
+ - `SegAppsFlyerIntegrationFactory.h`
+ - `SegAppsFlyerIntegrationFactory.m`
+ - `SegmentAppsFlyeriOS.h`
 
-First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (itunes) and client secret in Segment's dashboard for AppsFlyer integration, then import Segment-AppsFlyer:
+You can find them here: [segment appsflyer ios wrapper](github.com/AppsFlyerSDK/segment-appsflyer-ios%7Chttps://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/segment-appsflyer-ios/Classes)
+
+To use SDK from a Swift source just follow the instructions from Apple [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html).
+
+
+## <a id="usage"> Usage
+
+First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (iTunes) and client secret in Segment's **dashboard** for AppsFlyer integration
+
+### <a id="usage-obj-c"> Usage - Objective-C
+
+Open `AppDelegate.h` and add:
 
 ```objective-c
-#import <segment-appsflyer-ios/SEGAppsFlyerIntegrationFactory.h>
-
+#import "SEGAppsFlyerIntegrationFactory.h"
+#import <Analytics/SEGAnalytics.h>
 ```
 
-You can now init the Analytics with AppsFlyer integration:
+In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 
 ```objective-c
-SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"YOUR_WRITE_KEY"];
-SEGAppsFlyerIntegrationFactory *afFactory = [SEGAppsFlyerIntegrationFactory instance];
-[config use:afFactory];
-[SEGAnalytics setupWithConfiguration:config];
+SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
+    
+    [config use:[SEGAppsFlyerIntegrationFactory instance]];
+    
+    config.enableAdvertisingTracking = YES;       //OPTIONAL
+    config.trackApplicationLifecycleEvents = YES; //OPTIONAL
+    config.trackDeepLinks = YES;                  //OPTIONAL
+    config.trackPushNotifications = YES;          //OPTIONAL
+    config.trackAttributionData = YES;            //OPTIONAL   
+    [SEGAnalytics debug:YES];                     //OPTIONAL
+    [SEGAnalytics setupWithConfiguration:config];
 ```
+
+### <a id="usage-obj-c"> Usage - Swift
+
+Open/Create `<Your-App-name>-Bridging-Header.h`  and add:
+
+```objective-c
+#import "SEGAppsFlyerIntegrationFactory.h"
+```
+
+Open `AppDelegate.swift` ➜ `didFinishLaunchingWithOptions` and add:
+
+```objective-c
+
+import Analytics
+
+//...
+
+let config:Analytics.SEGAnalyticsConfiguration = SEGAnalyticsConfiguration(writeKey: "SEGMENT_KEY")
+        
+        config.use(SEGAppsFlyerIntegrationFactory())
+        config.enableAdvertisingTracking = true       //OPTIONAL
+        config.trackApplicationLifecycleEvents = true //OPTIONAL
+        config.trackDeepLinks = true                  //OPTIONAL
+        config.trackPushNotifications = true          //OPTIONAL
+        config.trackAttributionData = true            //OPTIONAL
+
+        Analytics.SEGAnalytics.debug(true)
+        Analytics.SEGAnalytics.setup(with: config)
+```
+
+
 
 AppsFlyer integration responds to ```identify``` call.  To read more about it, visit [Segment identify method documentation](https://segment.com/docs/libraries/ios/#identify).
 In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currencyCode```
 
+## <a id="examples"> Examples
 
-## License
-
-```
-The MIT License (MIT)
-
-Copyright (c) 2016 AppsFlyer
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+This project  has [2 examples](github.com/AppsFlyerSDK/segment-appsflyer-ios%7Chttps://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/examples) for objective-C and Swift. To give it a try , clone this repo and from each example first run `pod install` to install project dependancies.
