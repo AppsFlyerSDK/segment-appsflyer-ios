@@ -28,7 +28,6 @@
     config.trackPushNotifications = YES;
     config.trackAttributionData = YES;
     
-    
     [SEGAnalytics debug:YES];
     
     [SEGAnalytics setupWithConfiguration:config];
