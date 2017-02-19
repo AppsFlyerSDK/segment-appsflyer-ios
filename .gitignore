@@ -21,12 +21,10 @@ DerivedData
 
 *.xcworkspace
 
-examples/TestAppSegmentObjC/Pods/
-examples/TestAppSegmentSwift/Pods/
+Pods/
 
-examples/TestAppSegmentObjC/Podfile.lock
-examples/TestAppSegmentSwift/Podfile.lock
 
+Podfile.lock
 
 # Bundler
 .bundle
