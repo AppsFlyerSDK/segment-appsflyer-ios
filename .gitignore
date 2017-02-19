@@ -19,6 +19,15 @@ DerivedData
 *.hmap
 *.ipa
 
+*.xcworkspace
+
+examples/TestAppSegmentObjC/Pods/
+examples/TestAppSegmentSwift/Pods/
+
+examples/TestAppSegmentObjC/Podfile.lock
+examples/TestAppSegmentSwift/Podfile.lock
+
+
 # Bundler
 .bundle
 
