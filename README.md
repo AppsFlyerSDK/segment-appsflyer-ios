@@ -11,6 +11,7 @@ This is a Segment wrapper for AppsFlyer SDK framework.
  - [Objective-C](#usage-obj-c)
  - [Swift](#swift)
 - [Examples](#examples) 
+- [TODO](#todo) 
 
 ## <a id="installation">Installation
 
@@ -105,3 +106,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
 ## <a id="examples"> Examples
 
 This project  has [2 examples](github.com/AppsFlyerSDK/segment-appsflyer-ios%7Chttps://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/examples) for objective-C and Swift. To give it a try , clone this repo and from each example first run `pod install` to install project dependancies.
+
+## <a id="todo"> TODO
+
+- Create Podspec with sybspec for  users who are unable to bundle static libraries as dependencies (mostly for Swift users)
