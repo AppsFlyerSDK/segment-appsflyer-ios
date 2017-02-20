@@ -35,7 +35,7 @@ Next step, copy manually 5 files to your project:
  - `SegAppsFlyerIntegrationFactory.m`
  - `SegmentAppsFlyeriOS.h`
 
-You can find them here: [segment appsflyer ios wrapper](github.com/AppsFlyerSDK/segment-appsflyer-ios%7Chttps://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/segment-appsflyer-ios/Classes)
+You can find them here: [segment appsflyer ios wrapper](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/segment-appsflyer-ios/Classes)
 
 To use SDK from a Swift source just follow the instructions from Apple [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html).
 
