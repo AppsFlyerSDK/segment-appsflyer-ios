@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <Analytics/SEGAnalytics.h>
 
 @interface ViewController ()
 
@@ -23,6 +24,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onTrackEventClick:(id)sender {
+    
+    [[SEGAnalytics sharedAnalytics] track:@"Item Purchased"
+                               properties:@{
+                                            @"item": @"Sword of Heracles",
+                                            @"revenue": @"2.95" }];
+    
+        
+    
+
 }
 
 

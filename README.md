@@ -9,7 +9,7 @@ This is a Segment wrapper for AppsFlyer SDK framework.
 - [Installation](#installation)
 - [Usage](#usage) 
  - [Objective-C](#usage-obj-c)
- - [Swift](#swift)
+ - [Swift](#usage-swift)
 - [Examples](#examples) 
 - [TODO](#todo) 
 
@@ -69,7 +69,7 @@ SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWith
     [SEGAnalytics setupWithConfiguration:config];
 ```
 
-### <a id="usage-obj-c"> Usage - Swift
+### <a id="usage-swift"> Usage - Swift
 
 Open/Create `<Your-App-name>-Bridging-Header.h`  and add:
 
