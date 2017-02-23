@@ -10,6 +10,9 @@
 #import <Analytics/SEGAnalytics.h>
 #import <AppsFlyerLib/AppsFlyerTracker.h>
 
+@protocol SEGAppsFlyerDelegate <AppsFlyerTrackerDelegate>
+
+@end
 
 @interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerTrackerDelegate>
 

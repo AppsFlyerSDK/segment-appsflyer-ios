@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Analytics/SEGIntegrationFactory.h>
+#import "SEGAppsFlyerIntegration.h"
 
 @interface SEGAppsFlyerIntegrationFactory : NSObject <SEGIntegrationFactory>
 

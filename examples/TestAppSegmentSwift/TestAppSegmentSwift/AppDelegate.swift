@@ -11,7 +11,7 @@ import Analytics
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SEGAppsFlyerDelegate {
 
     var window: UIWindow?
 
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
-        let config:Analytics.SEGAnalyticsConfiguration = SEGAnalyticsConfiguration(writeKey: "SEGMENT_KEY")
+        let config:Analytics.SEGAnalyticsConfiguration = SEGAnalyticsConfiguration(writeKey: "GRN6QWnSb8tbDETvKXwLQDEVomHmHuDO")
         
         config.use(SEGAppsFlyerIntegrationFactory())
         config.enableAdvertisingTracking = true
@@ -27,13 +27,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.trackDeepLinks = true
         config.trackPushNotifications = true
         config.trackAttributionData = true
-
         Analytics.SEGAnalytics.debug(true)
         
-       Analytics.SEGAnalytics.setup(with: config)
+        Analytics.SEGAnalytics.setup(with: config)
 
+       // AppsFlyerTracker.shared().delegate = self;
         
         return true
+    }
+    
+    func onConversionDataReceived(_ installData: [AnyHashable: Any]) {
+        
+//        SEGAppsFlyerIntegrationFactory.instance().onConversionDataReceive
+        
+        let status: String? = (installData["af_status"] as? String)
+        if (status == "Non-organic") {
+            let sourceID: String? = (installData["media_source"] as? String)
+            let campaign: String? = (installData["campaign"] as? String)
+            print("This is a none organic install. Media source: \(sourceID)  Campaign: \(campaign)")
+        }
+        else if (status == "Organic") {
+            print("This is an organic install.")
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

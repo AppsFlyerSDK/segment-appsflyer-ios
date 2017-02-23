@@ -9,6 +9,12 @@
 #import "SEGAppsFlyerIntegration.h"
 #import <Analytics/SEGAnalyticsUtils.h>
 
+@interface SEGAppsFlyerIntegration () {
+    id<SEGAppsFlyerDelegate> __unsafe_unretained _delegate;
+}
+@end
+
+
 @implementation SEGAppsFlyerIntegration
 
 
@@ -23,7 +29,7 @@
         [self.appsflyer setAppleAppID:appleAppId];
         self.analytics = analytics;
         if ([self trackAttributionData]) {
-            self.appsflyer.delegate = self;
+           //self.appsflyer.delegate = self;
         }
     }
     return self;
@@ -154,6 +160,11 @@
     [properties removeObjectForKey:@"adgroup"];
     
     [self.analytics track:@"Install Attributed" properties:[properties copy]];
+    
+    if (_delegate != nil || [_delegate respondsToSelector:@selector(onConversionDataReceived:)]){
+       [_delegate onConversionDataReceived:installData];
+    }
+    
 }
 
 -(void)onConversionDataRequestFailure:(NSError *) error {
