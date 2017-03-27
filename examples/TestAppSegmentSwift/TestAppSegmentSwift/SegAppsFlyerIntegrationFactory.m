@@ -6,7 +6,7 @@
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
-#import "SEGAppsFlyerIntegrationFactory.h"
+#import "SegAppsFlyerIntegrationFactory.h"
 #import "SEGAppsFlyerIntegration.h"
 
 

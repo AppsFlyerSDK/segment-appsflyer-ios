@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SEGAppsFlyerIntegrationFactory.h"
+#import "SegAppsFlyerIntegrationFactory.h"
 #import <Analytics/SEGAnalytics.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
