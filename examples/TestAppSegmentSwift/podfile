@@ -1,5 +1,7 @@
+platform :ios, '7.0'
+#source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 target 'TestAppSegmentSwift' do
-  pod 'AppsFlyerFramework'
+  pod 'AppsFlyerFramework', '~>4.7.0'
   pod 'Analytics', '~> 3.5'
 end
