@@ -16,7 +16,7 @@ This is a Segment wrapper for AppsFlyer SDK framework.
 ## <a id="installation">Installation
 
 Segment AppsFlyer uses AppsFlyer static framework from Cocoapods.
-Add the `appsFlyerFramework` to `podfile` and run `pod install`.
+Add the `AppsFlyerFramework` to `podfile` and run `pod install`.
 
 
 Example:
