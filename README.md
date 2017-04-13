@@ -55,11 +55,6 @@ First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (iTune
 
 Open `AppDelegate.h` and add:
 
-```objective-c
-#import "SEGAppsFlyerIntegrationFactory.h"
-#import <Analytics/SEGAnalytics.h>
-```
-
 In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 
 ```objective-c
