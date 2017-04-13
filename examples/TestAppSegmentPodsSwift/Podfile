@@ -1,0 +1,6 @@
+use_frameworks!
+target 'TestAppSegmentPodsSwift' do
+  pod 'AppsFlyerFramework'
+  pod 'segment-appsflyer-ios/StaticLibWorkaround'
+  pod 'Analytics', '~> 3.5'
+end
