@@ -7,7 +7,7 @@ This is a Segment wrapper for AppsFlyer SDK framework.
 ## Table of content
 
 - [Installation](#installation)
- - [troubleshooting](#troubleshooting-inst)  
+  - [troubleshooting](#troubleshooting-inst)  
 - [Usage](#usage) 
  - [Objective-C](#usage-obj-c)
  - [Swift](#usage-swift)
