@@ -15,7 +15,7 @@
 		945440961E599D89002880B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945440941E599D89002880B3 /* LaunchScreen.storyboard */; };
 		945440A81E59A69D002880B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945440A71E59A69D002880B3 /* StoreKit.framework */; };
 		946AA2C51E59AAB000359B07 /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2C11E59AAB000359B07 /* SEGAppsFlyerIntegration.m */; };
-		946AA2C61E59AAB000359B07 /* SegAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2C31E59AAB000359B07 /* SegAppsFlyerIntegrationFactory.m */; };
+		946AA2C61E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2C31E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +34,8 @@
 		946AA2BF1E59AAAF00359B07 /* TestAppSegmentSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestAppSegmentSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		946AA2C01E59AAB000359B07 /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegration.h; sourceTree = "<group>"; };
 		946AA2C11E59AAB000359B07 /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
-		946AA2C21E59AAB000359B07 /* SegAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
-		946AA2C31E59AAB000359B07 /* SegAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
+		946AA2C21E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
+		946AA2C31E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
 		946AA2C41E59AAB000359B07 /* SegmentAppsFlyeriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentAppsFlyeriOS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,8 +108,8 @@
 			children = (
 				946AA2C01E59AAB000359B07 /* SEGAppsFlyerIntegration.h */,
 				946AA2C11E59AAB000359B07 /* SEGAppsFlyerIntegration.m */,
-				946AA2C21E59AAB000359B07 /* SegAppsFlyerIntegrationFactory.h */,
-				946AA2C31E59AAB000359B07 /* SegAppsFlyerIntegrationFactory.m */,
+				946AA2C21E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.h */,
+				946AA2C31E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m */,
 				946AA2C41E59AAB000359B07 /* SegmentAppsFlyeriOS.h */,
 				946AA2BF1E59AAAF00359B07 /* TestAppSegmentSwift-Bridging-Header.h */,
 			);
@@ -252,7 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				946AA2C61E59AAB000359B07 /* SegAppsFlyerIntegrationFactory.m in Sources */,
+				946AA2C61E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */,
 				946AA2C51E59AAB000359B07 /* SEGAppsFlyerIntegration.m in Sources */,
 				9454408E1E599D89002880B3 /* ViewController.swift in Sources */,
 				9454408C1E599D89002880B3 /* AppDelegate.swift in Sources */,

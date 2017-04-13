@@ -31,8 +31,8 @@ Next step, copy manually 5 files to your project:
   
  - `SEGAppsFlyerIntegration.h`
  - `SEGAppsFlyerIntegration.m`
- - `SegAppsFlyerIntegrationFactory.h`
- - `SegAppsFlyerIntegrationFactory.m`
+ - `SEGAppsFlyerIntegrationFactory.h`
+ - `SEGAppsFlyerIntegrationFactory.m`
  - `SegmentAppsFlyeriOS.h`
 
 You can find them here: [segment appsflyer ios wrapper](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/segment-appsflyer-ios/Classes)

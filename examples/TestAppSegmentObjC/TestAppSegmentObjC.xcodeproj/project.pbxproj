@@ -14,7 +14,7 @@
 		946AA2E31E59BCED00359B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946AA2E21E59BCED00359B07 /* Assets.xcassets */; };
 		946AA2E61E59BCED00359B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946AA2E41E59BCED00359B07 /* LaunchScreen.storyboard */; };
 		946AA2F31E59BD4900359B07 /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2EF1E59BD4900359B07 /* SEGAppsFlyerIntegration.m */; };
-		946AA2F41E59BD4900359B07 /* SegAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2F11E59BD4900359B07 /* SegAppsFlyerIntegrationFactory.m */; };
+		946AA2F41E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2F11E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m */; };
 		BA70FD6EECBF0406BC8848FD /* Pods_TestAppSegmentObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800EFC047308B591C234350 /* Pods_TestAppSegmentObjC.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +33,8 @@
 		946AA2E71E59BCED00359B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		946AA2EE1E59BD4900359B07 /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegration.h; sourceTree = "<group>"; };
 		946AA2EF1E59BD4900359B07 /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
-		946AA2F01E59BD4900359B07 /* SegAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
-		946AA2F11E59BD4900359B07 /* SegAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
+		946AA2F01E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
+		946AA2F11E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
 		946AA2F21E59BD4900359B07 /* SegmentAppsFlyeriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentAppsFlyeriOS.h; sourceTree = "<group>"; };
 		D396E81FA8A2350B23551F3E /* Pods-TestAppSegmentObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppSegmentObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppSegmentObjC/Pods-TestAppSegmentObjC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,8 +107,8 @@
 			children = (
 				946AA2EE1E59BD4900359B07 /* SEGAppsFlyerIntegration.h */,
 				946AA2EF1E59BD4900359B07 /* SEGAppsFlyerIntegration.m */,
-				946AA2F01E59BD4900359B07 /* SegAppsFlyerIntegrationFactory.h */,
-				946AA2F11E59BD4900359B07 /* SegAppsFlyerIntegrationFactory.m */,
+				946AA2F01E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.h */,
+				946AA2F11E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m */,
 				946AA2F21E59BD4900359B07 /* SegmentAppsFlyeriOS.h */,
 			);
 			name = af_bridge;
@@ -221,7 +221,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F26F6AB022D501E38C3B2D85 /* [CP] Embed Pods Frameworks */ = {
@@ -247,7 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				946AA2DE1E59BCED00359B07 /* ViewController.m in Sources */,
-				946AA2F41E59BD4900359B07 /* SegAppsFlyerIntegrationFactory.m in Sources */,
+				946AA2F41E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */,
 				946AA2F31E59BD4900359B07 /* SEGAppsFlyerIntegration.m in Sources */,
 				946AA2DB1E59BCED00359B07 /* AppDelegate.m in Sources */,
 				946AA2D81E59BCED00359B07 /* main.m in Sources */,
