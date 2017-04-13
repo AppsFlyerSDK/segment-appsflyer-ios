@@ -24,9 +24,8 @@ Pod::Spec.new do |s|
   s.subspec 'StaticLibWorkaround' do |workaround|
     # For users who are unable to bundle static libraries as dependencies
     # you can choose this subspec, but be sure to include the following in your Podfile:
-    # pod 'GoogleAnalytics'
     # pod 'AppsFlyerFramework','~> 4'
-    # Please manually add the following file preserved by Cocoapods to your your xcodeproj file
+    # Please manually add the following file preserved by Cocoapods to your xcodeproj file
     workaround.preserve_paths = 'segment-appsflyer-ios/Classes/**/*'
   end
 end

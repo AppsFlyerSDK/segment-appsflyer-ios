@@ -1,0 +1,6 @@
+#use_frameworks!
+target 'TestAppSegmentPodsObjC' do
+  pod 'segment-appsflyer-ios'
+  pod 'Analytics', '~> 3.5'
+end
+

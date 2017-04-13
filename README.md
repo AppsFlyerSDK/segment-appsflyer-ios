@@ -7,27 +7,33 @@ This is a Segment wrapper for AppsFlyer SDK framework.
 ## Table of content
 
 - [Installation](#installation)
+ - [troubleshooting](#troubleshooting-inst)  
 - [Usage](#usage) 
  - [Objective-C](#usage-obj-c)
  - [Swift](#usage-swift)
 - [Examples](#examples) 
-- [TODO](#todo) 
+
 
 ## <a id="installation">Installation
 
-Segment AppsFlyer uses AppsFlyer static framework from Cocoapods.
-Add the `AppsFlyerFramework` to `podfile` and run `pod install`.
+To install the segment-appsflyer-ios integration, simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
 
+```ruby
+pod 'segment-appsflyer-ios'
+```
+### <a id="troubleshooting-inst">Troubleshooting
+
+For users who are unable to bundle static libraries as dependencies (Swift project for example)
+     you can choose `StaticLibWorkaround` subspec, but be sure to include `AppsFlyerFramework` to  in your Podfile:
 
 Example:
      
-```
+```ruby
   pod 'AppsFlyerFramework'
-  pod 'Analytics', '~> 3.5'
-
+  pod 'segment-appsflyer-ios/StaticLibWorkaround'
 ```
 
-Next step, copy manually 5 files to your project:
+Next step, add manually 5 files to your project (located under `<YOUR_APP>/Pods/segment-appsflyer-ios/segment-appsflyer-ios/Classes`):
   
  - `SEGAppsFlyerIntegration.h`
  - `SEGAppsFlyerIntegration.m`
@@ -35,9 +41,10 @@ Next step, copy manually 5 files to your project:
  - `SEGAppsFlyerIntegrationFactory.m`
  - `SegmentAppsFlyeriOS.h`
 
-You can find them here: [segment appsflyer ios wrapper](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/segment-appsflyer-ios/Classes)
+Xcode will ask you to generate `<YOUR_APP_NAME>-Bridging-Header.h`
+Add to this file `#import "SEGAppsFlyerIntegrationFactory.h"`
 
-To use SDK from a Swift source just follow the instructions from Apple [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html).
+For more details follow the instructions from Apple [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html).
 
 
 ## <a id="usage"> Usage
@@ -105,8 +112,5 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
 
 ## <a id="examples"> Examples
 
-This project  has [2 examples](github.com/AppsFlyerSDK/segment-appsflyer-ios%7Chttps://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/examples) for objective-C and Swift. To give it a try , clone this repo and from each example first run `pod install` to install project dependancies.
+This project  has [4 examples](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/examples) for objective-C and Swift (with troubleshooting). To give it a try , clone this repo and from each example first run `pod install` to install project dependancies.
 
-## <a id="todo"> TODO
-
-- Create Podspec with sybspec for  users who are unable to bundle static libraries as dependencies (mostly for Swift users)
