@@ -4,6 +4,14 @@
 This is a Segment wrapper for AppsFlyer SDK framework.
 
 
+----------
+In order for us to provide optimal support, we would kindly ask you to submit any issues to support@appsflyer.com
+
+*When submitting an issue please specify your AppsFlyer sign-up (account) email , your app ID , production steps, logs, code snippets and any additional relevant information.*
+
+----------
+
+
 ## Table of content
 
 - [Installation](#installation)
