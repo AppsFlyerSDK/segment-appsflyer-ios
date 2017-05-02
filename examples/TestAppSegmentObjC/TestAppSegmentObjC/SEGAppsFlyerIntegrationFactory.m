@@ -7,7 +7,6 @@
 //
 
 #import "SEGAppsFlyerIntegrationFactory.h"
-//#import "SEGAppsFlyerIntegration.h"
 
 
 @implementation SEGAppsFlyerIntegrationFactory : NSObject
@@ -44,7 +43,6 @@
 
 - (id<SEGIntegration>)createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics
 {
-    //return [[SEGAppsFlyerIntegration alloc] initWithSettings:settings withAnalytics:analytics];
     return [[SEGAppsFlyerIntegration alloc] initWithSettings:settings withAnalytics:analytics
                                             andDelegate:self.delegate];
 }

@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <Analytics/SEGAnalytics.h>
 #import <AppsFlyerLib/AppsFlyerTracker.h>
-//#import "SEGAppsFlyerIntegrationFactory.h"
 
 @protocol SEGAppsFlyerTrackerDelegate <AppsFlyerTrackerDelegate>
 
