@@ -26,7 +26,7 @@
         if ([self trackAttributionData]) {
             self.appsflyer.delegate = self;
         }
-        self.appsflyer.isDebug = YES;
+        //self.appsflyer.isDebug = YES;
     }
     return self;
 }
