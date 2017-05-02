@@ -1,5 +1,5 @@
 use_frameworks!
 target 'TestAppSegmentObjC' do
-  pod 'AppsFlyerFramework'
+  pod 'AppsFlyerFramework', '4.7.3'
   pod 'Analytics', '~> 3.5'
 end

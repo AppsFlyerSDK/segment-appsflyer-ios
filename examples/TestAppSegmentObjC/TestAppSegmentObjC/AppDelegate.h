@@ -10,7 +10,7 @@
 #import "SEGAppsFlyerIntegrationFactory.h"
 #import <Analytics/SEGAnalytics.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, SEGAppsFlyerTrackerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

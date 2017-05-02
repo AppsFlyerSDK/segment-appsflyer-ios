@@ -8,6 +8,7 @@
 
 #import "SEGAppsFlyerIntegration.h"
 #import <Analytics/SEGAnalyticsUtils.h>
+#import "SEGAppsFlyerIntegrationFactory.h"
 
 @implementation SEGAppsFlyerIntegration
 
@@ -28,6 +29,15 @@
         self.appsflyer.isDebug = YES;
     }
     return self;
+}
+
+
+- (instancetype)initWithSettings:(NSDictionary *)settings
+                   withAnalytics:(SEGAnalytics *)analytics
+                andDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate
+{
+    self.segDelegate = delegate;
+    return [self initWithSettings:settings withAnalytics:analytics];
 }
 
 - (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerTracker *)aAppsflyer {
@@ -136,29 +146,67 @@
     return nil;
 }
 
--(void)onConversionDataReceived:(NSDictionary *)installData {
-    NSDictionary *campaign = @{
-                               @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
-                               @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
-                               @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
-                               };
+-(void)onConversionDataReceived:(NSDictionary *)installData
+{
     
-    NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                      @"provider": @"AppsFlyer",
-                                                                                      @"campaign": campaign,
-                                                                                      }];
-    [properties addEntriesFromDictionary:installData];
+    if(self.segDelegate)
+    {
+        [self.segDelegate onConversionDataReceived:installData];
+    }
     
-    // Delete already mapped special fields.
-    [properties removeObjectForKey:@"media_source"];
-    [properties removeObjectForKey:@"campaign"];
-    [properties removeObjectForKey:@"adgroup"];
+    NSString *const key = @"AF_Install_Attr_Sent";
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL installAttrSent = [userDefaults boolForKey:key];
     
-    [self.analytics track:@"Install Attributed" properties:[properties copy]];
+    if(!installAttrSent){
+        NSDictionary *campaign = @{
+                                   @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
+                                   @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
+                                   @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
+                                   };
+        
+        NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                          @"provider": @"AppsFlyer",
+                                                                                          @"campaign": campaign,
+                                                                                          }];
+        [properties addEntriesFromDictionary:installData];
+        
+        // Delete already mapped special fields.
+        [properties removeObjectForKey:@"media_source"];
+        [properties removeObjectForKey:@"campaign"];
+        [properties removeObjectForKey:@"adgroup"];
+        
+        [self.analytics track:@"Install Attributed" properties:[properties copy]];
+        
+        [userDefaults setBool:YES forKey:key];
+    }
 }
 
--(void)onConversionDataRequestFailure:(NSError *) error {
+-(void)onConversionDataRequestFailure:(NSError *) error
+{
+    if(self.segDelegate)
+    {
+        [self.segDelegate onConversionDataRequestFailure:error];
+    }
     SEGLog(@"[Appsflyer] onConversionDataRequestFailure:%@]", error);
+}
+
+- (void) onAppOpenAttribution:(NSDictionary*) attributionData
+{
+    if(self.segDelegate)
+    {
+        [self.segDelegate onAppOpenAttribution:attributionData];
+    }
+    SEGLog(@"[Appsflyer] onAppOpenAttribution data: %@", attributionData);
+}
+
+- (void) onAppOpenAttributionFailure:(NSError *)error
+{
+    if(self.segDelegate)
+    {
+        [self.segDelegate onAppOpenAttributionFailure:error];
+    }
+    SEGLog(@"[Appsflyer] onAppOpenAttribution failure data: %@", error);
 }
 
 - (BOOL)trackAttributionData
