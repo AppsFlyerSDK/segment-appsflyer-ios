@@ -16,10 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"GRN6QWnSb8tbDETvKXwLQDEVomHmHuDO"];
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
     
-    [config use:[SEGAppsFlyerIntegrationFactory instance]];
-    
+    [config use:[SEGAppsFlyerIntegrationFactory instance]];    
     config.enableAdvertisingTracking = YES;
     config.trackApplicationLifecycleEvents = YES;
     config.trackDeepLinks = YES;
