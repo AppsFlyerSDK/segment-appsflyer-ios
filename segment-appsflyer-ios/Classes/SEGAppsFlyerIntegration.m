@@ -2,12 +2,13 @@
 //  SEGAppsFlyerIntegration.m
 //  AppsFlyerSegmentiOS
 //
-//  Created by Golan on 5/17/16.
+//  Created by Golan/Maxim Shoustin on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
 #import "SEGAppsFlyerIntegration.h"
 #import <Analytics/SEGAnalyticsUtils.h>
+#import "SEGAppsFlyerIntegrationFactory.h"
 
 @implementation SEGAppsFlyerIntegration
 
@@ -25,8 +26,18 @@
         if ([self trackAttributionData]) {
             self.appsflyer.delegate = self;
         }
+        //self.appsflyer.isDebug = YES;
     }
     return self;
+}
+
+
+- (instancetype)initWithSettings:(NSDictionary *)settings
+                   withAnalytics:(SEGAnalytics *)analytics
+                andDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate
+{
+    self.segDelegate = delegate;
+    return [self initWithSettings:settings withAnalytics:analytics];
 }
 
 - (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerTracker *)aAppsflyer {
@@ -135,7 +146,13 @@
     return nil;
 }
 
--(void)onConversionDataReceived:(NSDictionary *)installData {
+-(void)onConversionDataReceived:(NSDictionary *)installData
+{
+    
+    if(self.segDelegate)
+    {
+        [self.segDelegate onConversionDataReceived:installData];
+    }
     
     NSString *const key = @"AF_Install_Attr_Sent";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -165,9 +182,31 @@
     }
 }
 
-
--(void)onConversionDataRequestFailure:(NSError *) error {
+-(void)onConversionDataRequestFailure:(NSError *) error
+{
+    if(self.segDelegate)
+    {
+        [self.segDelegate onConversionDataRequestFailure:error];
+    }
     SEGLog(@"[Appsflyer] onConversionDataRequestFailure:%@]", error);
+}
+
+- (void) onAppOpenAttribution:(NSDictionary*) attributionData
+{
+    if(self.segDelegate)
+    {
+        [self.segDelegate onAppOpenAttribution:attributionData];
+    }
+    SEGLog(@"[Appsflyer] onAppOpenAttribution data: %@", attributionData);
+}
+
+- (void) onAppOpenAttributionFailure:(NSError *)error
+{
+    if(self.segDelegate)
+    {
+        [self.segDelegate onAppOpenAttributionFailure:error];
+    }
+    SEGLog(@"[Appsflyer] onAppOpenAttribution failure data: %@", error);
 }
 
 - (BOOL)trackAttributionData

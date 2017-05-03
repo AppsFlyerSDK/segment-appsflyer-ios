@@ -136,24 +136,32 @@
 }
 
 -(void)onConversionDataReceived:(NSDictionary *)installData {
-    NSDictionary *campaign = @{
-                               @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
-                               @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
-                               @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
-                               };
+    NSString *const key = @"AF_Install_Attr_Sent";
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL installAttrSent = [userDefaults boolForKey:key];
     
-    NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                      @"provider": @"AppsFlyer",
-                                                                                      @"campaign": campaign,
-                                                                                      }];
-    [properties addEntriesFromDictionary:installData];
-    
-    // Delete already mapped special fields.
-    [properties removeObjectForKey:@"media_source"];
-    [properties removeObjectForKey:@"campaign"];
-    [properties removeObjectForKey:@"adgroup"];
-    
-    [self.analytics track:@"Install Attributed" properties:[properties copy]];
+    if(!installAttrSent){
+        NSDictionary *campaign = @{
+                                   @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
+                                   @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
+                                   @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
+                                   };
+        
+        NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
+                                                                                          @"provider": @"AppsFlyer",
+                                                                                          @"campaign": campaign,
+                                                                                          }];
+        [properties addEntriesFromDictionary:installData];
+        
+        // Delete already mapped special fields.
+        [properties removeObjectForKey:@"media_source"];
+        [properties removeObjectForKey:@"campaign"];
+        [properties removeObjectForKey:@"adgroup"];
+        
+        [self.analytics track:@"Install Attributed" properties:[properties copy]];
+        
+        [userDefaults setBool:YES forKey:key];
+    }
 }
 
 -(void)onConversionDataRequestFailure:(NSError *) error {
