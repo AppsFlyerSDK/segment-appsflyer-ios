@@ -34,7 +34,7 @@
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *)analytics
-                andDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate
+                     andDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate
 {
     self.segDelegate = delegate;
     return [self initWithSettings:settings withAnalytics:analytics];
@@ -63,6 +63,11 @@
 
 -(void) applicationDidBecomeActive {
     [self trackLaunch];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    [[AppsFlyerTracker sharedTracker] registerUninstall:deviceToken];
 }
 
 - (void)identify:(SEGIdentifyPayload *)payload
@@ -165,16 +170,16 @@
                                    @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
                                    };
         
-        NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{
-                                                                                          @"provider": @"AppsFlyer",
-                                                                                          @"campaign": campaign,
-                                                                                          }];
+        NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{@"provider": @"AppsFlyer"}];
         [properties addEntriesFromDictionary:installData];
         
         // Delete already mapped special fields.
         [properties removeObjectForKey:@"media_source"];
-        [properties removeObjectForKey:@"campaign"];
         [properties removeObjectForKey:@"adgroup"];
+        
+        // replace original campaign with new created
+        [properties removeObjectForKey:@"campaign"];
+        [properties setObject:campaign forKey:@"campaign"];
         
         [self.analytics track:@"Install Attributed" properties:[properties copy]];
         
