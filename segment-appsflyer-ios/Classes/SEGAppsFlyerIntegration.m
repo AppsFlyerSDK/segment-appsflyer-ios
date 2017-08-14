@@ -65,10 +65,6 @@
     [self trackLaunch];
 }
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
-    [[AppsFlyerTracker sharedTracker] registerUninstall:deviceToken];
-}
 
 - (void)identify:(SEGIdentifyPayload *)payload
 {
