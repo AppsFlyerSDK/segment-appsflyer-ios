@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "segment-appsflyer-ios"
-  s.version          = "1.2.1"
+  s.version          = "1.2.2"
   s.summary          = "AppsFlyer Integration for Segment's analytics-ios library."
 
   s.description      = <<-DESC
@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
   
 
   s.platform     = :ios, '7.0'
+  s.platform     = :tvos, '10.2'
   s.requires_arc = true
 
   s.dependency 'Analytics', '~> 3.5'
