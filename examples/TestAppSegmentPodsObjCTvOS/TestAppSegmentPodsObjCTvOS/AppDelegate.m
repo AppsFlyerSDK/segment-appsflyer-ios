@@ -17,6 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"GRN6QWnSb8tbDETvKXwLQDEVomHmHuDO"];
+    
+    //[config use:[SEGAppsFlyerIntegrationFactory instance]];
+    [config use:[SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self]];
+    config.enableAdvertisingTracking = YES;
+    config.trackApplicationLifecycleEvents = YES;
+    config.trackDeepLinks = YES;
+    config.trackPushNotifications = YES;
+    config.trackAttributionData = YES;
+    
+    [SEGAnalytics debug:YES];
+    
+    [SEGAnalytics setupWithConfiguration:config];
+    
     return YES;
 }
 
@@ -46,6 +61,45 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)onConversionDataReceived:(NSDictionary*) installData {
+    
+    NSLog(@"FESS :: onConversionDataReceived is called");
+    
+    id status = [installData objectForKey:@"af_status"];
+    
+    if([status isEqualToString:@"Non-organic"]) {
+        
+        id sourceID = [installData objectForKey:@"media_source"];
+        
+        id campaign = [installData objectForKey:@"campaign"];
+        
+        NSLog(@"This is a none organic install. Media source: %@  Campaign: %@",sourceID,campaign);
+        
+    } else if([status isEqualToString:@"Organic"]) {
+        
+        NSLog(@"This is an organic install.");
+        
+    }
+    
+}
+
+-(void)onConversionDataRequestFailure:(NSError *) error {
+    
+    NSLog(@"%@",error);
+}
+
+
+- (void) onAppOpenAttribution:(NSDictionary*) attributionData {
+    
+    NSLog(@"attribution data: %@", attributionData);
+}
+
+- (void) onAppOpenAttributionFailure:(NSError *)error {
+    NSLog(@"%@",error);
+    
+}
+
 
 
 @end
