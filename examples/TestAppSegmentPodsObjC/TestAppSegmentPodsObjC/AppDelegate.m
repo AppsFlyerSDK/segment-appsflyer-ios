@@ -63,6 +63,11 @@
     
     NSLog(@"FESS :: onConversionDataReceived is called");
     
+    [[SEGAnalytics sharedAnalytics] track:@"Item Purchased"
+                               properties:@{
+                                            @"item": @"Sword of Heracles",
+                                            @"revenue": @10 }];
+    
     id status = [installData objectForKey:@"af_status"];
     
     if([status isEqualToString:@"Non-organic"]) {

@@ -140,7 +140,7 @@
     if (revenueProperty) {
         if ([revenueProperty isKindOfClass:[NSString class]]) {
             return [NSDecimalNumber decimalNumberWithString:revenueProperty];
-        } else if ([revenueProperty isKindOfClass:[NSDecimalNumber class]]) {
+        } else if ([revenueProperty isKindOfClass:[NSNumber class]]) {
             return revenueProperty;
         }
     }
