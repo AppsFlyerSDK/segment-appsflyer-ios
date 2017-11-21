@@ -19,6 +19,7 @@ In order for us to provide optimal support, we would kindly ask you to submit an
 - [Usage](#usage) 
  - [Objective-C](#usage-obj-c)
  - [Swift](#usage-swift)
+ - [Install Attributed event](#install_attributed)
 - [Examples](#examples) 
 
 
@@ -112,6 +113,13 @@ let config:Analytics.SEGAnalyticsConfiguration = SEGAnalyticsConfiguration(write
 
 AppsFlyer integration responds to ```identify``` call.  To read more about it, visit [Segment identify method documentation](https://segment.com/docs/libraries/ios/#identify).
 In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currencyCode```
+
+## <a id="install_attributed"> Install Attributed event
+
+If you are working with networks that don't allow passing user level data to 3rd parties, you will need to apply code to filter out these networks before calling
+```
+// [self.analytics track:@"Install Attributed" properties:[properties copy]];
+```
 
 ## <a id="examples"> Examples
 
