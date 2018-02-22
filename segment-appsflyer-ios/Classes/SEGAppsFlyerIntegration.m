@@ -121,17 +121,32 @@
     
     // Extract the revenue from the properties passed in to us.
     NSNumber *revenue = [SEGAppsFlyerIntegration extractRevenue:payload.properties withKey:@"revenue"];
+    NSString *currency = [SEGAppsFlyerIntegration extractCurrency:payload.properties withKey:@"currency"];
+    
     if (revenue) {
         // Track purchase event.
-        NSDictionary *values = @{AFEventParamRevenue : revenue, AFEventParam1 : payload.properties};
+        NSDictionary *values = @{AFEventParamRevenue : revenue, AFEventParamCurrency: currency,  AFEventParam1 : payload.properties};
         [self.appsflyer trackEvent:AFEventPurchase withValues:values];
         
     }
+    
     else {
         // Track the raw event.
         [self.appsflyer trackEvent:payload.event withValues:payload.properties];
     }
     
+}
+
++ (NSString *)extractCurrency:(NSDictionary *)dictionary withKey:(NSString *)currencyKey
+{
+    id currencyProperty = dictionary[currencyKey];
+    if (currencyProperty) {
+        if ([currencyProperty isKindOfClass:[NSString class]]) {
+            return currencyProperty;
+        }
+    }
+    // If currency not set, return default USD
+    return @"USD";
 }
 
 + (NSDecimalNumber *)extractRevenue:(NSDictionary *)dictionary withKey:(NSString *)revenueKey
