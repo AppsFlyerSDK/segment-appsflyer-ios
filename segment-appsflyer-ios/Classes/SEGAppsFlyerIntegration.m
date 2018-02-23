@@ -150,9 +150,8 @@
 -(void)onConversionDataReceived:(NSDictionary *)installData
 {
     
-    if(self.segDelegate)
-    {
-        [self.segDelegate onConversionDataReceived:installData];
+    if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataReceived:)]) {
+        [_segDelegate onConversionDataReceived:installData];
     }
     
     NSString *const key = @"AF_Install_Attr_Sent";
@@ -188,27 +187,24 @@
 
 -(void)onConversionDataRequestFailure:(NSError *) error
 {
-    if(self.segDelegate)
-    {
-        [self.segDelegate onConversionDataRequestFailure:error];
+    if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataRequestFailure:)]) {
+        [_segDelegate onConversionDataRequestFailure:error];
     }
     SEGLog(@"[Appsflyer] onConversionDataRequestFailure:%@]", error);
 }
 
 - (void) onAppOpenAttribution:(NSDictionary*) attributionData
 {
-    if(self.segDelegate)
-    {
-        [self.segDelegate onAppOpenAttribution:attributionData];
+    if(_segDelegate && [_segDelegate respondsToSelector:@selector(onAppOpenAttribution:)]) {
+        [_segDelegate onAppOpenAttribution:attributionData];
     }
     SEGLog(@"[Appsflyer] onAppOpenAttribution data: %@", attributionData);
 }
 
 - (void) onAppOpenAttributionFailure:(NSError *)error
 {
-    if(self.segDelegate)
-    {
-        [self.segDelegate onAppOpenAttributionFailure:error];
+    if(_segDelegate && [_segDelegate respondsToSelector:@selector(onAppOpenAttributionFailure:)]) {
+        [_segDelegate onAppOpenAttributionFailure:error];
     }
     SEGLog(@"[Appsflyer] onAppOpenAttribution failure data: %@", error);
 }
