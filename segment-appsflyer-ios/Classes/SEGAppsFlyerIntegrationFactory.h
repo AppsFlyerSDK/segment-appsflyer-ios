@@ -16,6 +16,6 @@
 + (instancetype)instance;
 + (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate;
 
-@property (unsafe_unretained, nonatomic) id<SEGAppsFlyerTrackerDelegate> delegate;
+@property (weak, nonatomic) id<SEGAppsFlyerTrackerDelegate> delegate;
 
 @end

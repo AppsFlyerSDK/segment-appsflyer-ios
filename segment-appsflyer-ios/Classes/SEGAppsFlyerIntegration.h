@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSDictionary *settings;
 @property (nonatomic, strong) AppsFlyerTracker *appsflyer;
 @property (nonatomic, strong) SEGAnalytics *analytics;
-@property (unsafe_unretained, nonatomic) id<SEGAppsFlyerTrackerDelegate> segDelegate;
+@property (weak, nonatomic) id<SEGAppsFlyerTrackerDelegate> segDelegate;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *) analytics;
