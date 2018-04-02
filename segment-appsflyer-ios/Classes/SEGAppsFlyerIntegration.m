@@ -119,22 +119,25 @@
         SEGLog(@"trackEvent: %@", payload.properties);
     }
     
-    // Extract the revenue from the properties passed in to us.
+    // Extract the revenue / currency from the properties passed in to us with an "af_" prefix
     NSNumber *revenue = [SEGAppsFlyerIntegration extractRevenue:payload.properties withKey:@"revenue"];
     NSString *currency = [SEGAppsFlyerIntegration extractCurrency:payload.properties withKey:@"currency"];
     
     if (revenue) {
-        // Track purchase event.
-        NSDictionary *values = @{AFEventParamRevenue : revenue, AFEventParamCurrency: currency,  AFEventParam1 : payload.properties};
-        [self.appsflyer trackEvent:AFEventPurchase withValues:values];
+        NSMutableDictionary* af_payload_properties = [NSMutableDictionary dictionaryWithDictionary: payload.properties];
+        [af_payload_properties setObject:revenue forKey:@"af_revenue"];
         
+        if (currency) {
+            [af_payload_properties setObject:currency forKey:@"af_currency"];
+        }
+        
+        [self.appsflyer trackEvent:payload.event withValues:af_payload_properties];
     }
     
     else {
         // Track the raw event.
         [self.appsflyer trackEvent:payload.event withValues:payload.properties];
     }
-    
 }
 
 + (NSString *)extractCurrency:(NSDictionary *)dictionary withKey:(NSString *)currencyKey
