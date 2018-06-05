@@ -167,16 +167,16 @@
 
 -(void)onConversionDataReceived:(NSDictionary *)installData
 {
-    
-    if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataReceived:)]) {
-        [_segDelegate onConversionDataReceived:installData];
-    }
-    
     NSString *const key = @"AF_Install_Attr_Sent";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL installAttrSent = [userDefaults boolForKey:key];
     
     if(!installAttrSent){
+
+        if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataReceived:)]) {
+          [_segDelegate onConversionDataReceived:installData];
+        }
+
         NSDictionary *campaign = @{
                                    @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
                                    @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
