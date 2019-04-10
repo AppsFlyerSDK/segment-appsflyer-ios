@@ -20,6 +20,7 @@ In order for us to provide optimal support, we would kindly ask you to submit an
  - [Objective-C](#usage-obj-c)
  - [Swift](#usage-swift)
  - [Install Attributed event](#install_attributed)
+ - [Additional AppsFlyer SDK setup](#additional_setup)
 - [Examples](#examples) 
 
 
@@ -94,6 +95,39 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
 If you are working with networks that don't allow passing user level data to 3rd parties, you will need to apply code to filter out these networks before calling
 ```
 // [self.analytics track:@"Install Attributed" properties:[properties copy]];
+```
+
+## <a id="additional_setup"> Additional AppsFlyer SDK setup
+
+```objective-c
+@import AppsFlyerLib;
+
+...
+@implementation AppDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(integrationDidStart:) name:SEGAnalyticsIntegrationDidStart object:nil];
+    ...
+}
+
+...
+
+- (void)integrationDidStart:(nonnull NSNotification *)notification {
+    NSString *integration = notification.object;
+    if ([integration isEqualToString:@"AppsFlyer"]) {
+        /// Additional AppsFlyer SDK setup goes below
+        /// All setup is optional and is not mandatory
+        /// To set Apple App ID and AppsFlyer Dev Key use Segment dashboard
+        /// ...
+        /// Enable ESP support for specific URLs
+        [[AppsFlyerTracker sharedTracker] setResolveDeepLinkURLs:@[@"afsdktests.com"]];
+        /// Disable printing SDK messages to the console log
+        [[AppsFlyerTracker sharedTracker] setIsDebug:NO];
+        /// `OneLink ID` from OneLink configuration
+        [[AppsFlyerTracker sharedTracker] setAppInviteOneLink:@"one_link_id"];
+    }
+}
 ```
 
 ## <a id="examples"> Examples
