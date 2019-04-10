@@ -117,7 +117,7 @@ If you are working with networks that don't allow passing user level data to 3rd
     NSString *integration = notification.object;
     if ([integration isEqualToString:@"AppsFlyer"]) {
         /// Additional AppsFlyer SDK setup goes below
-        /// All setup is optional and is not mandatory
+        /// All setup is optional
         /// To set Apple App ID and AppsFlyer Dev Key use Segment dashboard
         /// ...
         /// Enable ESP support for specific URLs
