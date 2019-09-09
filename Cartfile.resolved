@@ -1,0 +1,2 @@
+binary "https://raw.githubusercontent.com/AppsFlyerSDK/AppsFlyerFramework/master/AppsFlyerTracker.json" "4.10.3"
+github "segmentio/analytics-ios" "3.7.0"

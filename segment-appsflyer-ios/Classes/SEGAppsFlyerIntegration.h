@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <Analytics/SEGAnalytics.h>
+#ifdef COCOAPODS
 #import <AppsFlyerLib/AppsFlyerTracker.h>
+#else
+#import <AppsFlyerTracker/AppsFlyerTracker.h>
+#endif
 
 @protocol SEGAppsFlyerTrackerDelegate <AppsFlyerTrackerDelegate>
 
