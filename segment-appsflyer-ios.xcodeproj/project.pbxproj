@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C979B8542326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B84F2326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h */; };
-		C979B8552326E6FC003E9671 /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8502326E6FC003E9671 /* SEGAppsFlyerIntegration.h */; };
+		C979B8542326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B84F2326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C979B8552326E6FC003E9671 /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8502326E6FC003E9671 /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C979B8562326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8512326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.m */; };
 		C979B8582326E6FC003E9671 /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8532326E6FC003E9671 /* SEGAppsFlyerIntegration.m */; };
-		C979B85A2326E71B003E9671 /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8592326E71B003E9671 /* SegmentAppsFlyeriOS.h */; };
+		C979B85A2326E71B003E9671 /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8592326E71B003E9671 /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C979B85E2326E7A4003E9671 /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C979B85C2326E7A4003E9671 /* Analytics.framework */; };
 		C979B85F2326E7A4003E9671 /* AppsFlyerTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C979B85D2326E7A4003E9671 /* AppsFlyerTracker.framework */; };
 /* End PBXBuildFile section */
