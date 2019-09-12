@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C979B8542326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B84F2326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C979B8552326E6FC003E9671 /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8502326E6FC003E9671 /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C979B8562326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8512326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.m */; };
-		C979B8582326E6FC003E9671 /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8532326E6FC003E9671 /* SEGAppsFlyerIntegration.m */; };
-		C979B85A2326E71B003E9671 /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8592326E71B003E9671 /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C979B85E2326E7A4003E9671 /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C979B85C2326E7A4003E9671 /* Analytics.framework */; };
-		C979B85F2326E7A4003E9671 /* AppsFlyerTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C979B85D2326E7A4003E9671 /* AppsFlyerTracker.framework */; };
+		C969CFF6232AC17200173DFE /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8502326E6FC003E9671 /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C969CFF7232AC17200173DFE /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B84F2326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C969CFF8232AC17200173DFE /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8592326E71B003E9671 /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C969CFF9232AC17700173DFE /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8532326E6FC003E9671 /* SEGAppsFlyerIntegration.m */; };
+		C969CFFA232AC17700173DFE /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8512326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.m */; };
+		C969CFFB232AC19D00173DFE /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C979B85C2326E7A4003E9671 /* Analytics.framework */; };
+		C969CFFC232AC19D00173DFE /* AppsFlyerTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C979B85D2326E7A4003E9671 /* AppsFlyerTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C979B8442326E6D6003E9671 /* segment_appsflyer_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = segment_appsflyer_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C969CFE9232AC0F500173DFE /* SegmentAppsFlyeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentAppsFlyeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C979B8482326E6D6003E9671 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C979B84F2326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGAppsFlyerIntegrationFactory.h; path = Classes/SEGAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
 		C979B8502326E6FC003E9671 /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGAppsFlyerIntegration.h; path = Classes/SEGAppsFlyerIntegration.h; sourceTree = "<group>"; };
@@ -29,12 +29,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C979B8412326E6D6003E9671 /* Frameworks */ = {
+		C969CFE6232AC0F500173DFE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C979B85E2326E7A4003E9671 /* Analytics.framework in Frameworks */,
-				C979B85F2326E7A4003E9671 /* AppsFlyerTracker.framework in Frameworks */,
+				C969CFFB232AC19D00173DFE /* Analytics.framework in Frameworks */,
+				C969CFFC232AC19D00173DFE /* AppsFlyerTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 		C979B8452326E6D6003E9671 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C979B8442326E6D6003E9671 /* segment_appsflyer_ios.framework */,
+				C969CFE9232AC0F500173DFE /* SegmentAppsFlyeriOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,35 +83,35 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		C979B83F2326E6D6003E9671 /* Headers */ = {
+		C969CFE4232AC0F500173DFE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C979B8552326E6FC003E9671 /* SEGAppsFlyerIntegration.h in Headers */,
-				C979B8542326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h in Headers */,
-				C979B85A2326E71B003E9671 /* SegmentAppsFlyeriOS.h in Headers */,
+				C969CFF6232AC17200173DFE /* SEGAppsFlyerIntegration.h in Headers */,
+				C969CFF7232AC17200173DFE /* SEGAppsFlyerIntegrationFactory.h in Headers */,
+				C969CFF8232AC17200173DFE /* SegmentAppsFlyeriOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C979B8432326E6D6003E9671 /* segment-appsflyer-ios */ = {
+		C969CFE8232AC0F500173DFE /* Segment-AppsFlyer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C979B84C2326E6D6003E9671 /* Build configuration list for PBXNativeTarget "segment-appsflyer-ios" */;
+			buildConfigurationList = C969CFF1232AC0F500173DFE /* Build configuration list for PBXNativeTarget "Segment-AppsFlyer" */;
 			buildPhases = (
-				C979B83F2326E6D6003E9671 /* Headers */,
-				C979B8402326E6D6003E9671 /* Sources */,
-				C979B8412326E6D6003E9671 /* Frameworks */,
-				C979B8422326E6D6003E9671 /* Resources */,
+				C969CFE4232AC0F500173DFE /* Headers */,
+				C969CFE5232AC0F500173DFE /* Sources */,
+				C969CFE6232AC0F500173DFE /* Frameworks */,
+				C969CFE7232AC0F500173DFE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "segment-appsflyer-ios";
-			productName = "segment-appsflyer-ios";
-			productReference = C979B8442326E6D6003E9671 /* segment_appsflyer_ios.framework */;
+			name = "Segment-AppsFlyer";
+			productName = "Segment-AppsFlyer";
+			productReference = C969CFE9232AC0F500173DFE /* SegmentAppsFlyeriOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -120,11 +120,12 @@
 		C979B83B2326E6D6003E9671 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Segment;
 				TargetAttributes = {
-					C979B8432326E6D6003E9671 = {
-						CreatedOnToolsVersion = 10.2.1;
+					C969CFE8232AC0F500173DFE = {
+						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
@@ -134,19 +135,20 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = C979B83A2326E6D6003E9671;
 			productRefGroup = C979B8452326E6D6003E9671 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C979B8432326E6D6003E9671 /* segment-appsflyer-ios */,
+				C969CFE8232AC0F500173DFE /* Segment-AppsFlyer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C979B8422326E6D6003E9671 /* Resources */ = {
+		C969CFE7232AC0F500173DFE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -156,18 +158,74 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C979B8402326E6D6003E9671 /* Sources */ = {
+		C969CFE5232AC0F500173DFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C979B8562326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.m in Sources */,
-				C979B8582326E6FC003E9671 /* SEGAppsFlyerIntegration.m in Sources */,
+				C969CFF9232AC17700173DFE /* SEGAppsFlyerIntegration.m in Sources */,
+				C969CFFA232AC17700173DFE /* SEGAppsFlyerIntegrationFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		C969CFF2232AC0F500173DFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "segment-appsflyer-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.segment.segment-appsflyer-ios";
+				PRODUCT_NAME = SegmentAppsFlyeriOS;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C969CFF3232AC0F500173DFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "segment-appsflyer-ios/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.segment.segment-appsflyer-ios";
+				PRODUCT_NAME = SegmentAppsFlyeriOS;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		C979B84A2326E6D6003E9671 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -220,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -290,81 +348,23 @@
 			};
 			name = Release;
 		};
-		C979B84D2326E6D6003E9671 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = "segment-appsflyer-ios/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.segment.segment-appsflyer-ios";
-				PRODUCT_MODULE_NAME = SegmentAppsFlyer;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		C979B84E2326E6D6003E9671 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
-				INFOPLIST_FILE = "segment-appsflyer-ios/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.segment.segment-appsflyer-ios";
-				PRODUCT_MODULE_NAME = SegmentAppsFlyer;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C969CFF1232AC0F500173DFE /* Build configuration list for PBXNativeTarget "Segment-AppsFlyer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C969CFF2232AC0F500173DFE /* Debug */,
+				C969CFF3232AC0F500173DFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C979B83E2326E6D6003E9671 /* Build configuration list for PBXProject "segment-appsflyer-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C979B84A2326E6D6003E9671 /* Debug */,
 				C979B84B2326E6D6003E9671 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C979B84C2326E6D6003E9671 /* Build configuration list for PBXNativeTarget "segment-appsflyer-ios" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C979B84D2326E6D6003E9671 /* Debug */,
-				C979B84E2326E6D6003E9671 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
