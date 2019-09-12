@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C969CFF6232AC17200173DFE /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8502326E6FC003E9671 /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C969CFF7232AC17200173DFE /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B84F2326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C969CFF6232AC17200173DFE /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8502326E6FC003E9671 /* SEGAppsFlyerIntegration.h */; };
+		C969CFF7232AC17200173DFE /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B84F2326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.h */; };
 		C969CFF8232AC17200173DFE /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = C979B8592326E71B003E9671 /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C969CFF9232AC17700173DFE /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8532326E6FC003E9671 /* SEGAppsFlyerIntegration.m */; };
 		C969CFFA232AC17700173DFE /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C979B8512326E6FC003E9671 /* SEGAppsFlyerIntegrationFactory.m */; };
@@ -87,9 +87,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C969CFF8232AC17200173DFE /* SegmentAppsFlyeriOS.h in Headers */,
 				C969CFF6232AC17200173DFE /* SEGAppsFlyerIntegration.h in Headers */,
 				C969CFF7232AC17200173DFE /* SEGAppsFlyerIntegrationFactory.h in Headers */,
-				C969CFF8232AC17200173DFE /* SegmentAppsFlyeriOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
