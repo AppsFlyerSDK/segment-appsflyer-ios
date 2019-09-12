@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.dependency 'Analytics', '~> 3.5'
-  s.source_files = 'segment-appsflyer-ios/Classes/**/*'
+  s.source_files = 'SegmentAppsFlyeriOS/**/*.{h,m}'
   s.ios.dependency 'AppsFlyerFramework', '4.10.0' 
   s.tvos.dependency 'AppsFlyerFramework', '4.10.0'    
 end
