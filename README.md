@@ -99,9 +99,9 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
 
 ## <a id="getconversiondata"> Get Conversion Data
   
-  In order for Conversion Data to be sent to Segment, make sure you have enabled "Track Attribution Data" in AppsFlyer destination settings:
+  In order for Conversion Data to be sent to Segment, make sure you have enabled "Track Attribution Data" and specified App ID in AppsFlyer destination settings:
   
-  <img width="741" alt="Xnip2019-05-11_19-19-31" src="https://user-images.githubusercontent.com/18286267/57572409-8fb19200-7422-11e9-832f-fdd343af3137.png">
+![image](https://user-images.githubusercontent.com/50541317/69795158-51b86780-11d4-11ea-9ab3-be3e669e4e3b.png)
   
 ### <a id="gcd-obj-c"> Objective-C
   
