@@ -170,9 +170,9 @@
     NSString *const key = @"AF_Install_Attr_Sent";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL installAttrSent = [userDefaults boolForKey:key];
-    
+   
     if(!installAttrSent){
-
+        [userDefaults setBool:YES forKey:key];
         if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataReceived:)]) {
           [_segDelegate onConversionDataReceived:installData];
         }
@@ -198,8 +198,6 @@
         // you will need to apply code to filter out these networks before calling
         // `[self.analytics track:@"Install Attributed" properties:[properties copy]];`
         [self.analytics track:@"Install Attributed" properties:[properties copy]];
-        
-        [userDefaults setBool:YES forKey:key];
     }
 }
 
