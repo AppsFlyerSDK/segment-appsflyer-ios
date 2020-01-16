@@ -172,7 +172,7 @@
     BOOL installAttrSent = [userDefaults boolForKey:key];
     
     if(!installAttrSent){
-
+        [userDefaults setBool:YES forKey:key];
         if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataSuccess:)]) {
           [_segDelegate onConversionDataSuccess:conversionInfo];
         }
@@ -199,7 +199,7 @@
         // `[self.analytics track:@"Install Attributed" properties:[properties copy]];`
         [self.analytics track:@"Install Attributed" properties: [properties copy]];
         
-        [userDefaults setBool:YES forKey:key];
+      
     }
 }
 
