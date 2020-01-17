@@ -172,16 +172,16 @@
     BOOL installAttrSent = [userDefaults boolForKey:key];
     
     if(!installAttrSent){
-        [userDefaults setBool:YES forKey:key];
+  [userDefaults setBool:YES forKey:key];
         if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataSuccess:)]) {
           [_segDelegate onConversionDataSuccess:conversionInfo];
         }
-
         NSDictionary *campaign = @{
-                                   @"source": conversionInfo[@"media_source"] ? conversionInfo[@"media_source"] : @"",
-                                   @"name": conversionInfo[@"campaign"] ? conversionInfo[@"campaign"] : @"",
-                                   @"ad_group": conversionInfo[@"adgroup"] ? conversionInfo[@"adgroup"] : @""
+            @"source": conversionInfo[@"media_source"] ?((conversionInfo[@"media_source"] != (id)[NSNull null]) ?  conversionInfo[@"media_source"] : @"" ): @"",
+                                   @"name": conversionInfo[@"campaign"] ? ((conversionInfo[@"campaign"] != (id)[NSNull null]) ?  conversionInfo[@"campaign"] : @"" ): @"",
+                                   @"ad_group": conversionInfo[@"adgroup"] ? ((conversionInfo[@"adgroup"] != (id)[NSNull null]) ?  conversionInfo[@"adgroup"] : @"" ): @"",
                                    };
+        
         
         NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{@"provider": @"AppsFlyer"}];
         [properties addEntriesFromDictionary:conversionInfo];
