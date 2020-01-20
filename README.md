@@ -29,10 +29,20 @@ In order for us to provide optimal support, we would kindly ask you to submit an
 
 ## <a id="installation">Installation
 
+### Cocoapods
+
 To install the segment-appsflyer-ios integration, simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
 
 ```ruby
 pod 'segment-appsflyer-ios'
+```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate AppsFlyer and Segment into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "AppsFlyerSDK/segment-appsflyer-ios" "5.1.1"
 ```
 
 ## <a id="usage"> Usage
