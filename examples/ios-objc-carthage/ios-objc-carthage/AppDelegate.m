@@ -16,7 +16,18 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
+    
+    [config use:[SEGAppsFlyerIntegrationFactory instance]];
+    
+    config.enableAdvertisingTracking = YES;       //OPTIONAL
+    config.trackApplicationLifecycleEvents = YES; //OPTIONAL
+    config.trackDeepLinks = YES;                  //OPTIONAL
+    config.trackPushNotifications = YES;          //OPTIONAL
+    config.trackAttributionData = YES;            //OPTIONAL
+    [SEGAnalytics debug:YES];                     //OPTIONAL
+    [SEGAnalytics setupWithConfiguration:config];
     return YES;
 }
 

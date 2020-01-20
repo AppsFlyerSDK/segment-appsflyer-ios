@@ -6,7 +6,8 @@
 //  Copyright © 2020 Andrii Hahan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import SegmentAppsFlyeriOS;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
