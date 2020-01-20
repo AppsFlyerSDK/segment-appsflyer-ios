@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		47A0A8DF23D5B13500FE781F /* segment_appsflyer_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8DD23D5B13500FE781F /* segment_appsflyer_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47A0A8F623D5CA7A00FE781F /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0A8F123D5CA7A00FE781F /* SEGAppsFlyerIntegration.m */; };
+		47A0A8F723D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0A8F223D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m */; };
+		47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */; };
+		47A0A8F923D5CA7A00FE781F /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */; };
+		47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		47A0A8DA23D5B13500FE781F /* segment_appsflyer_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = segment_appsflyer_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47A0A8DD23D5B13500FE781F /* segment_appsflyer_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = segment_appsflyer_ios.h; sourceTree = "<group>"; };
 		47A0A8DE23D5B13500FE781F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47A0A8F123D5CA7A00FE781F /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
+		47A0A8F223D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
+		47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentAppsFlyeriOS.h; sourceTree = "<group>"; };
+		47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegration.h; sourceTree = "<group>"; };
+		47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +54,22 @@
 		47A0A8DC23D5B13500FE781F /* segment-appsflyer-ios */ = {
 			isa = PBXGroup;
 			children = (
-				47A0A8DD23D5B13500FE781F /* segment_appsflyer_ios.h */,
+				47A0A8F023D5CA7A00FE781F /* Classes */,
 				47A0A8DE23D5B13500FE781F /* Info.plist */,
 			);
 			path = "segment-appsflyer-ios";
+			sourceTree = "<group>";
+		};
+		47A0A8F023D5CA7A00FE781F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */,
+				47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */,
+				47A0A8F123D5CA7A00FE781F /* SEGAppsFlyerIntegration.m */,
+				47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */,
+				47A0A8F223D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,7 +79,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47A0A8DF23D5B13500FE781F /* segment_appsflyer_ios.h in Headers */,
+				47A0A8F923D5CA7A00FE781F /* SEGAppsFlyerIntegration.h in Headers */,
+				47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */,
+				47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47A0A8F723D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m in Sources */,
+				47A0A8F623D5CA7A00FE781F /* SEGAppsFlyerIntegration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
