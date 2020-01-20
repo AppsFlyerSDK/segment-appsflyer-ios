@@ -165,6 +165,10 @@
     return nil;
 }
 
++(NSString *) validateNil: (NSString *) value
+{
+    return value ?((value != (id)[NSNull null]) ?  value: @"" ) : @"";
+}
 
 - (void)onConversionDataSuccess:(nonnull NSDictionary *)conversionInfo {
     NSString *const key = @"AF_Install_Attr_Sent";
@@ -177,11 +181,11 @@
           [_segDelegate onConversionDataSuccess:conversionInfo];
         }
         NSDictionary *campaign = @{
-            @"source": conversionInfo[@"media_source"] ?((conversionInfo[@"media_source"] != (id)[NSNull null]) ?  conversionInfo[@"media_source"] : @"" ): @"",
-                                   @"name": conversionInfo[@"campaign"] ? ((conversionInfo[@"campaign"] != (id)[NSNull null]) ?  conversionInfo[@"campaign"] : @"" ): @"",
-                                   @"ad_group": conversionInfo[@"adgroup"] ? ((conversionInfo[@"adgroup"] != (id)[NSNull null]) ?  conversionInfo[@"adgroup"] : @"" ): @"",
-                                   };
-        
+                @"source": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"media_source"]],
+                @"name": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"campaign"]],
+                @"ad_group": [SEGAppsFlyerIntegration validateNil: conversionInfo[@"adgroup"]]
+            };
+           
         
         NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{@"provider": @"AppsFlyer"}];
         [properties addEntriesFromDictionary:conversionInfo];
@@ -235,3 +239,4 @@
 }
 
 @end
+
