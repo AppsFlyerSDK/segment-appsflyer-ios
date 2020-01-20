@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47A0A8DA23D5B13500FE781F /* segment_appsflyer_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = segment_appsflyer_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentAppsFlyeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A0A8DE23D5B13500FE781F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47A0A8F123D5CA7A00FE781F /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
 		47A0A8F223D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
@@ -53,7 +53,7 @@
 		47A0A8DB23D5B13500FE781F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				47A0A8DA23D5B13500FE781F /* segment_appsflyer_ios.framework */,
+				47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,7 +119,7 @@
 			);
 			name = "segment-appsflyer-ios";
 			productName = "segment-appsflyer-ios";
-			productReference = 47A0A8DA23D5B13500FE781F /* segment_appsflyer_ios.framework */;
+			productReference = 47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -315,7 +315,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AppsFlyer.segment-appsflyer-ios";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SegmentAppsFlyeriOS;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -343,7 +343,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AppsFlyer.segment-appsflyer-ios";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = SegmentAppsFlyeriOS;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
