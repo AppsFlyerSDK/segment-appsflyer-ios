@@ -165,26 +165,30 @@
     return nil;
 }
 
--(void)onConversionDataReceived:(NSDictionary *)installData
++(NSString *) validateNil: (NSString *) value
 {
+    return value ?((value != (id)[NSNull null]) ?  value: @"" ) : @"";
+}
+
+- (void)onConversionDataSuccess:(nonnull NSDictionary *)conversionInfo {
     NSString *const key = @"AF_Install_Attr_Sent";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     BOOL installAttrSent = [userDefaults boolForKey:key];
-   
+    
     if(!installAttrSent){
-        [userDefaults setBool:YES forKey:key];
-        if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataReceived:)]) {
-          [_segDelegate onConversionDataReceived:installData];
+  [userDefaults setBool:YES forKey:key];
+        if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataSuccess:)]) {
+          [_segDelegate onConversionDataSuccess:conversionInfo];
         }
-
         NSDictionary *campaign = @{
-                                   @"source": installData[@"media_source"] ? installData[@"media_source"] : @"",
-                                   @"name": installData[@"campaign"] ? installData[@"campaign"] : @"",
-                                   @"adGroup": installData[@"adgroup"] ? installData[@"adgroup"] : @""
-                                   };
+                @"source": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"media_source"]],
+                @"name": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"campaign"]],
+                @"ad_group": [SEGAppsFlyerIntegration validateNil: conversionInfo[@"adgroup"]]
+            };
+           
         
         NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{@"provider": @"AppsFlyer"}];
-        [properties addEntriesFromDictionary:installData];
+        [properties addEntriesFromDictionary:conversionInfo];
         
         // Delete already mapped special fields.
         [properties removeObjectForKey:@"media_source"];
@@ -197,14 +201,15 @@
         // If you are working with networks that don't allow passing user level data to 3rd parties,
         // you will need to apply code to filter out these networks before calling
         // `[self.analytics track:@"Install Attributed" properties:[properties copy]];`
-        [self.analytics track:@"Install Attributed" properties:[properties copy]];
+        [self.analytics track:@"Install Attributed" properties: [properties copy]];
+        
+      
     }
 }
 
--(void)onConversionDataRequestFailure:(NSError *) error
-{
-    if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataRequestFailure:)]) {
-        [_segDelegate onConversionDataRequestFailure:error];
+- (void)onConversionDataFail:(nonnull NSError *)error {
+    if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataFail:)]) {
+        [_segDelegate onConversionDataFail:error];
     }
     SEGLog(@"[Appsflyer] onConversionDataRequestFailure:%@]", error);
 }
@@ -225,9 +230,13 @@
     SEGLog(@"[Appsflyer] onAppOpenAttribution failure data: %@", error);
 }
 
+
+
+
 - (BOOL)trackAttributionData
 {
     return [(NSNumber *)[self.settings objectForKey:@"trackAttributionData"] boolValue];
 }
 
 @end
+
