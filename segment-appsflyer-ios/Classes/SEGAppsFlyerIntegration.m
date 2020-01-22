@@ -2,7 +2,7 @@
 //  SEGAppsFlyerIntegration.m
 //  AppsFlyerSegmentiOS
 //
-//  Created by Golan/Maxim Shoustin on 5/17/16.
+//  Created by Margot Guetta/Maxim Shoustin on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
