@@ -2,7 +2,7 @@
 //  SEGAppsFlyerIntegrationFactory.h
 //  AppsFlyerSegmentiOS
 //
-//  Created by Golan on 5/17/16.
+//  Created by Golan/Maxim Shoustin on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 + (instancetype)instance;
 + (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate;
 
-@property (unsafe_unretained, nonatomic) id<SEGAppsFlyerTrackerDelegate> delegate;
+@property (weak, nonatomic) id<SEGAppsFlyerTrackerDelegate> delegate;
 
 @end
+

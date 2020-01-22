@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-
 //! Project version number for SegmentAppsFlyeriOS.
 FOUNDATION_EXPORT double SegmentAppsFlyeriOSVersionNumber;
 
 //! Project version string for SegmentAppsFlyeriOS.
 FOUNDATION_EXPORT const unsigned char SegmentAppsFlyeriOSVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <SegmentAppsFlyeriOS/PublicHeader.h>
-
-
+#import <SegmentAppsFlyeriOS/SEGAppsFlyerIntegrationFactory.h>

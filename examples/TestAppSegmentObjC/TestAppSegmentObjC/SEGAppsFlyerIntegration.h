@@ -2,7 +2,7 @@
 //  SEGAppsFlyerIntegration.h
 //  AppsFlyerSegmentiOS
 //
-//  Created by Golan on 5/17/16.
+//  Created by Golan/Maxim Shoustin on 5/17/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 
@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSDictionary *settings;
 @property (nonatomic, strong) AppsFlyerTracker *appsflyer;
 @property (nonatomic, strong) SEGAnalytics *analytics;
-@property (unsafe_unretained, nonatomic) id<SEGAppsFlyerTrackerDelegate> segDelegate;
+@property (weak, nonatomic) id<SEGAppsFlyerTrackerDelegate> segDelegate;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *) analytics;
@@ -31,3 +31,5 @@
 
 - (void) trackLaunch;
 @end
+
+

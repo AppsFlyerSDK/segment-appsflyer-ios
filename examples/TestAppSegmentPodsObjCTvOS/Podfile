@@ -1,6 +1,6 @@
 #use_frameworks!
 target 'TestAppSegmentPodsObjCTvOS' do
   pod 'segment-appsflyer-ios'
-  pod 'Analytics', '~> 3.5'
+  pod 'Analytics', '~> 3.7'
 end
 
