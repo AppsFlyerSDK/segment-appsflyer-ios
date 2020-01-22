@@ -7,20 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86B573CA23D88E9600A7107C /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B573C723D88E9600A7107C /* SEGAppsFlyerIntegrationFactory.m */; };
+		86B573CB23D88E9600A7107C /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B573C823D88E9600A7107C /* SEGAppsFlyerIntegration.m */; };
 		946AA2D81E59BCED00359B07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2D71E59BCED00359B07 /* main.m */; };
 		946AA2DB1E59BCED00359B07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2DA1E59BCED00359B07 /* AppDelegate.m */; };
 		946AA2DE1E59BCED00359B07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2DD1E59BCED00359B07 /* ViewController.m */; };
 		946AA2E11E59BCED00359B07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946AA2DF1E59BCED00359B07 /* Main.storyboard */; };
 		946AA2E31E59BCED00359B07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 946AA2E21E59BCED00359B07 /* Assets.xcassets */; };
 		946AA2E61E59BCED00359B07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 946AA2E41E59BCED00359B07 /* LaunchScreen.storyboard */; };
-		946AA2F31E59BD4900359B07 /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2EF1E59BD4900359B07 /* SEGAppsFlyerIntegration.m */; };
-		946AA2F41E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2F11E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m */; };
 		BA70FD6EECBF0406BC8848FD /* Pods_TestAppSegmentObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800EFC047308B591C234350 /* Pods_TestAppSegmentObjC.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2800EFC047308B591C234350 /* Pods_TestAppSegmentObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAppSegmentObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B171EADF3C2254A54B867B1 /* Pods-TestAppSegmentObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppSegmentObjC.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppSegmentObjC/Pods-TestAppSegmentObjC.release.xcconfig"; sourceTree = "<group>"; };
+		86B573C523D88E9600A7107C /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGAppsFlyerIntegration.h; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegration.h"; sourceTree = "<group>"; };
+		86B573C623D88E9600A7107C /* SegmentAppsFlyeriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegmentAppsFlyeriOS.h; path = "../../../segment-appsflyer-ios/Classes/SegmentAppsFlyeriOS.h"; sourceTree = "<group>"; };
+		86B573C723D88E9600A7107C /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEGAppsFlyerIntegrationFactory.m; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegrationFactory.m"; sourceTree = "<group>"; };
+		86B573C823D88E9600A7107C /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEGAppsFlyerIntegration.m; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegration.m"; sourceTree = "<group>"; };
+		86B573C923D88E9600A7107C /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGAppsFlyerIntegrationFactory.h; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegrationFactory.h"; sourceTree = "<group>"; };
 		946AA2D31E59BCED00359B07 /* TestAppSegmentObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppSegmentObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		946AA2D71E59BCED00359B07 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		946AA2D91E59BCED00359B07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -31,11 +36,6 @@
 		946AA2E21E59BCED00359B07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		946AA2E51E59BCED00359B07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		946AA2E71E59BCED00359B07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		946AA2EE1E59BD4900359B07 /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegration.h; sourceTree = "<group>"; };
-		946AA2EF1E59BD4900359B07 /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
-		946AA2F01E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
-		946AA2F11E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
-		946AA2F21E59BD4900359B07 /* SegmentAppsFlyeriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentAppsFlyeriOS.h; sourceTree = "<group>"; };
 		D396E81FA8A2350B23551F3E /* Pods-TestAppSegmentObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppSegmentObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppSegmentObjC/Pods-TestAppSegmentObjC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,11 +105,11 @@
 		946AA2ED1E59BD3400359B07 /* af_bridge */ = {
 			isa = PBXGroup;
 			children = (
-				946AA2EE1E59BD4900359B07 /* SEGAppsFlyerIntegration.h */,
-				946AA2EF1E59BD4900359B07 /* SEGAppsFlyerIntegration.m */,
-				946AA2F01E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.h */,
-				946AA2F11E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m */,
-				946AA2F21E59BD4900359B07 /* SegmentAppsFlyeriOS.h */,
+				86B573C523D88E9600A7107C /* SEGAppsFlyerIntegration.h */,
+				86B573C823D88E9600A7107C /* SEGAppsFlyerIntegration.m */,
+				86B573C923D88E9600A7107C /* SEGAppsFlyerIntegrationFactory.h */,
+				86B573C723D88E9600A7107C /* SEGAppsFlyerIntegrationFactory.m */,
+				86B573C623D88E9600A7107C /* SegmentAppsFlyeriOS.h */,
 			);
 			name = af_bridge;
 			sourceTree = "<group>";
@@ -167,6 +167,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -246,9 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B573CA23D88E9600A7107C /* SEGAppsFlyerIntegrationFactory.m in Sources */,
+				86B573CB23D88E9600A7107C /* SEGAppsFlyerIntegration.m in Sources */,
 				946AA2DE1E59BCED00359B07 /* ViewController.m in Sources */,
-				946AA2F41E59BD4900359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */,
-				946AA2F31E59BD4900359B07 /* SEGAppsFlyerIntegration.m in Sources */,
 				946AA2DB1E59BCED00359B07 /* AppDelegate.m in Sources */,
 				946AA2D81E59BCED00359B07 /* main.m in Sources */,
 			);

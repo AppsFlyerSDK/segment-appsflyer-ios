@@ -2,7 +2,7 @@
 //  SegmentAppsFlyeriOS.h
 //  SegmentAppsFlyeriOS
 //
-//  Created by Golan on 5/5/16.
+//  Created by Margot Guetta/Maxim Shoustin on 5/5/16.
 //  Copyright © 2016 AppsFlyer. All rights reserved.
 //
 

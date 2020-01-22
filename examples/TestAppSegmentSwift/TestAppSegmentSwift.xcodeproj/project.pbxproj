@@ -8,20 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		75B272E30E7237EAD6EB1643 /* Pods_TestAppSegmentSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53B452FE5F08342D328ADDFB /* Pods_TestAppSegmentSwift.framework */; };
+		86B573D123D88EEA00A7107C /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B573CE23D88EEA00A7107C /* SEGAppsFlyerIntegration.m */; };
+		86B573D223D88EEA00A7107C /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B573CF23D88EEA00A7107C /* SEGAppsFlyerIntegrationFactory.m */; };
 		9454408C1E599D89002880B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9454408B1E599D89002880B3 /* AppDelegate.swift */; };
 		9454408E1E599D89002880B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9454408D1E599D89002880B3 /* ViewController.swift */; };
 		945440911E599D89002880B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9454408F1E599D89002880B3 /* Main.storyboard */; };
 		945440931E599D89002880B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945440921E599D89002880B3 /* Assets.xcassets */; };
 		945440961E599D89002880B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945440941E599D89002880B3 /* LaunchScreen.storyboard */; };
 		945440A81E59A69D002880B3 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 945440A71E59A69D002880B3 /* StoreKit.framework */; };
-		946AA2C51E59AAB000359B07 /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2C11E59AAB000359B07 /* SEGAppsFlyerIntegration.m */; };
-		946AA2C61E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 946AA2C31E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2CF4D6335618B83886DE0D96 /* Pods-TestAppSegmentSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppSegmentSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppSegmentSwift/Pods-TestAppSegmentSwift.release.xcconfig"; sourceTree = "<group>"; };
 		53B452FE5F08342D328ADDFB /* Pods_TestAppSegmentSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestAppSegmentSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54F20A99442F1C0BFC6F876D /* Pods-TestAppSegmentSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestAppSegmentSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestAppSegmentSwift/Pods-TestAppSegmentSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		86B573CC23D88EEA00A7107C /* SegmentAppsFlyeriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SegmentAppsFlyeriOS.h; path = "../../../segment-appsflyer-ios/Classes/SegmentAppsFlyeriOS.h"; sourceTree = "<group>"; };
+		86B573CD23D88EEA00A7107C /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGAppsFlyerIntegration.h; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegration.h"; sourceTree = "<group>"; };
+		86B573CE23D88EEA00A7107C /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEGAppsFlyerIntegration.m; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegration.m"; sourceTree = "<group>"; };
+		86B573CF23D88EEA00A7107C /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SEGAppsFlyerIntegrationFactory.m; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegrationFactory.m"; sourceTree = "<group>"; };
+		86B573D023D88EEA00A7107C /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SEGAppsFlyerIntegrationFactory.h; path = "../../../segment-appsflyer-ios/Classes/SEGAppsFlyerIntegrationFactory.h"; sourceTree = "<group>"; };
 		945440881E599D89002880B3 /* TestAppSegmentSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAppSegmentSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9454408B1E599D89002880B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9454408D1E599D89002880B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,11 +37,6 @@
 		945440A71E59A69D002880B3 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		945440A91E59A6A7002880B3 /* TestAppSegmentSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestAppSegmentSwift.entitlements; sourceTree = "<group>"; };
 		946AA2BF1E59AAAF00359B07 /* TestAppSegmentSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestAppSegmentSwift-Bridging-Header.h"; sourceTree = "<group>"; };
-		946AA2C01E59AAB000359B07 /* SEGAppsFlyerIntegration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegration.h; sourceTree = "<group>"; };
-		946AA2C11E59AAB000359B07 /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
-		946AA2C21E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
-		946AA2C31E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationFactory.m; sourceTree = "<group>"; };
-		946AA2C41E59AAB000359B07 /* SegmentAppsFlyeriOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentAppsFlyeriOS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +106,11 @@
 		946AA2BE1E59AA9700359B07 /* af_bridge */ = {
 			isa = PBXGroup;
 			children = (
-				946AA2C01E59AAB000359B07 /* SEGAppsFlyerIntegration.h */,
-				946AA2C11E59AAB000359B07 /* SEGAppsFlyerIntegration.m */,
-				946AA2C21E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.h */,
-				946AA2C31E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m */,
-				946AA2C41E59AAB000359B07 /* SegmentAppsFlyeriOS.h */,
+				86B573CD23D88EEA00A7107C /* SEGAppsFlyerIntegration.h */,
+				86B573CE23D88EEA00A7107C /* SEGAppsFlyerIntegration.m */,
+				86B573D023D88EEA00A7107C /* SEGAppsFlyerIntegrationFactory.h */,
+				86B573CF23D88EEA00A7107C /* SEGAppsFlyerIntegrationFactory.m */,
+				86B573CC23D88EEA00A7107C /* SegmentAppsFlyeriOS.h */,
 				946AA2BF1E59AAAF00359B07 /* TestAppSegmentSwift-Bridging-Header.h */,
 			);
 			name = af_bridge;
@@ -173,6 +173,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -252,8 +253,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				946AA2C61E59AAB000359B07 /* SEGAppsFlyerIntegrationFactory.m in Sources */,
-				946AA2C51E59AAB000359B07 /* SEGAppsFlyerIntegration.m in Sources */,
+				86B573D223D88EEA00A7107C /* SEGAppsFlyerIntegrationFactory.m in Sources */,
+				86B573D123D88EEA00A7107C /* SEGAppsFlyerIntegration.m in Sources */,
 				9454408E1E599D89002880B3 /* ViewController.swift in Sources */,
 				9454408C1E599D89002880B3 /* AppDelegate.swift in Sources */,
 			);
