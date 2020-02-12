@@ -26,7 +26,13 @@
         if ([self trackAttributionData]) {
             self.appsflyer.delegate = self;
         }
-        //self.appsflyer.isDebug = YES;
+//        self.appsflyer.isDebug = YES;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BOOL alreadyActive = [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive;
+            if (alreadyActive) {
+                [self applicationDidBecomeActive];
+            }
+        });
     }
     return self;
 }
