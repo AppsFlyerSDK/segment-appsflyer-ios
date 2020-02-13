@@ -27,8 +27,10 @@
             self.appsflyer.delegate = self;
         }
 //        self.appsflyer.isDebug = YES;
+        // For Segment React Native. We should call our applicationDidBecomeActive in case we were initialized too late and missed the first launch
         dispatch_async(dispatch_get_main_queue(), ^{
             BOOL alreadyActive = [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive;
+            // for regular Segment integration alreadyActive should always be false
             if (alreadyActive) {
                 [self applicationDidBecomeActive];
             }
