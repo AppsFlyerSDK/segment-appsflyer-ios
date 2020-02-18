@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "47A0A8D923D5B13500FE781F"
-               BuildableName = "SegmentAppsFlyeriOS.framework"
+               BuildableName = "segment-appsflyer-ios.framework"
                BlueprintName = "segment-appsflyer-ios"
                ReferencedContainer = "container:segment-appsflyer-ios.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47A0A8D923D5B13500FE781F"
-            BuildableName = "SegmentAppsFlyeriOS.framework"
+            BuildableName = "segment-appsflyer-ios.framework"
             BlueprintName = "segment-appsflyer-ios"
             ReferencedContainer = "container:segment-appsflyer-ios.xcodeproj">
          </BuildableReference>
