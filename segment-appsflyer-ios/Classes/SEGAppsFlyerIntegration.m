@@ -33,7 +33,7 @@
             // for regular Segment integration alreadyActive should always be false
             if (alreadyActive) {
                 [self applicationDidBecomeActive];
-                AFLogDebug(@"Segment React Native AppsFlye rintegration is used, sending first launch manually");
+                NSLog(@"Segment React Native AppsFlye rintegration is used, sending first launch manually");
             }
         });
     }
