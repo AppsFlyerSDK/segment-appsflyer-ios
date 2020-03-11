@@ -2,10 +2,7 @@
 
 
 ### 5.1.3
-* Updated Android SDK to v5.1.1
-* Updated iOS SDK to v5.1.0
-* removed sha1 & md5 email hashing
-* Bug fixes and maintenance
+* Fixed issue when first launch was not sent when SDK was initialized later than required
 
 ### 5.1.2
 * Updated iOS SDK to v5.1.0
