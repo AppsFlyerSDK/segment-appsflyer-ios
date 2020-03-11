@@ -42,7 +42,7 @@ pod 'segment-appsflyer-ios'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate AppsFlyer and Segment into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "5.1.1"
+github "AppsFlyerSDK/segment-appsflyer-ios" "5.1.3"
 ```
 
 ## <a id="usage"> Usage
@@ -137,7 +137,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
 
 @implementation AppDelegate
 
-- (void)onConversionDataReceived:(NSDictionary *)installData{
+-(void)onConversionDataSuccess:(NSDictionary*) installData {
     BOOL first_launch_flag = [[installData objectForKey:@"is_first_launch"] boolValue];
     NSString *status = [installData objectForKey:@"af_status"];
     
@@ -157,7 +157,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
 /**
  Any errors that occurred during the conversion request.
  */
-- (void)onConversionDataRequestFailure:(NSError *)error{
+-(void)onConversionDataFail:(NSError *) error {
     NSLog(@"%@", [error description]);
 };
 
@@ -195,18 +195,18 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
     
     var window: UIWindow?
     
-    func onConversionDataReceived(_ installData: [AnyHashable : Any]) {
-        guard let first_launch_flag = installData["is_first_launch"] as? Int else {
+    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        guard let first_launch_flag = conversionInfo["is_first_launch"] as? Int else {
             return
         }
         
-        guard let status = installData["af_status"] as? String else {
+        guard let status = conversionInfo["af_status"] as? String else {
             return
         }
         
         if(first_launch_flag == 1) {
             if(status == "Non-organic") {
-                if let media_source = installData["media_source"] , let campaign = installData["campaign"]{
+                if let media_source = conversionInfo["media_source"] , let campaign = conversionInfo["campaign"]{
                     print("This is a Non-Organic install. Media source: \(media_source) Campaign: \(campaign)")
                 }
             } else {
@@ -223,9 +223,10 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
           print("\(data)")
         }
     }
-    func onConversionDataRequestFailure(_ error: Error?) {
-    }
-    
+
+   func onConversionDataFail(_ error: Error) {
+        }
+
     func onAppOpenAttributionFailure(_ error: Error?) {
     }
     //rest of you AppDelegate code
