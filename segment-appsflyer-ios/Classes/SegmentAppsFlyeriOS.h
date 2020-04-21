@@ -14,5 +14,5 @@ FOUNDATION_EXPORT double SegmentAppsFlyeriOSVersionNumber;
 //! Project version string for SegmentAppsFlyeriOS.
 FOUNDATION_EXPORT const unsigned char SegmentAppsFlyeriOSVersionString[];
 
-#import <SegmentAppsFlyeriOS/SEGAppsFlyerIntegrationFactory.h>
+#import "SEGAppsFlyerIntegrationFactory.h"
 
