@@ -1,5 +1,8 @@
 # Release Notes
 
+### 5.4.0
+* Updated iOS SDK to v5.4.0
+* Removed analytics version pinning
 
 ### 5.1.3
 * Fixed issue when first launch was not sent when SDK was initialized later than required
