@@ -1,11 +1,13 @@
 <img src="https://www.appsflyer.com/wp-content/uploads/2016/11/logo-1.svg"  width="200">
 
 # AppsFlyer integration for Segment.
-This is a Segment wrapper for AppsFlyer SDK framework.
+
+## This is a BETA version of the Segment wrapper for AppsFlyer SDK that is built with BETA version of iOS SDK v6.0.1. 
+**Do not use this version on Production builds!** 
 
 
 ----------
-In order for us to provide optimal support, we would kindly ask you to submit any issues to support@appsflyer.com
+🛠 In order for us to provide optimal support, we would kindly ask you to submit any issues to support@appsflyer.com
 
 *When submitting an issue please specify your AppsFlyer sign-up (account) email , your app ID , production steps, logs, code snippets and any additional relevant information.*
 
@@ -15,7 +17,6 @@ In order for us to provide optimal support, we would kindly ask you to submit an
 ## Table of content
 
 - [Installation](#installation)
-
 - [Usage](#usage) 
   - [Objective-C](#usage-obj-c)
   - [Swift](#usage-swift)
@@ -31,18 +32,29 @@ In order for us to provide optimal support, we would kindly ask you to submit an
 
 ### Cocoapods
 
-To install the segment-appsflyer-ios integration, simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
+To install the segment-appsflyer-ios integration:
 
+1. Simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
+
+**Production** version: 
 ```ruby
 pod 'segment-appsflyer-ios'
 ```
+
+**Beta** version: 
+```ruby
+pod 'segment-appsflyer-ios', :git => 'https://github.com/AppsFlyerSDK/segment-appsflyer-ios.git', :branch => 'dev/sdk-v6-beta'
+```
+
+2. Run `pod isntall` in the project directory
 
 ### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate AppsFlyer and Segment into your Xcode project using Carthage, specify it in your `Cartfile`:
 
+**Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "5.1.3"
+github "AppsFlyerSDK/segment-appsflyer-ios" "5.4.0"
 ```
 
 ## <a id="usage"> Usage
@@ -68,41 +80,67 @@ SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWith
     config.trackApplicationLifecycleEvents = YES; //OPTIONAL
     config.trackDeepLinks = YES;                  //OPTIONAL
     config.trackPushNotifications = YES;          //OPTIONAL
-    config.trackAttributionData = YES;            //OPTIONAL   
+    config.trackAttributionData = YES;            //OPTIONAL  
     [SEGAnalytics debug:YES];                     //OPTIONAL
     [SEGAnalytics setupWithConfiguration:config];
 ```
 
 ### <a id="usage-swift"> Usage - Swift
 
-Open/Create `<Your-App-name>-Bridging-Header.h`  and add:
+1. Open/Create `<Your-App-name>-Bridging-Header.h`  and add:
 
 ```objective-c
 #import "SEGAppsFlyerIntegrationFactory.h"
 ```
+![image](https://user-images.githubusercontent.com/50541317/90022182-e5768900-dcba-11ea-8bfd-180cc6f28700.png)
 
-Open `AppDelegate.swift` ➜ `didFinishLaunchingWithOptions` and add:
+2. Add path to the Bridging header under Build Settings > Swift Compiler - General > Objective-C Bridging Header
+![image](https://user-images.githubusercontent.com/50541317/90022174-e1e30200-dcba-11ea-8785-0303aebe75e2.png)
+
+3. Open `AppDelegate.swift` and add:
 
 ```swift
-
 import Analytics
+imoport AppsFlyerLib
+```
 
-//...
+4. In `didFinishLaunchingWithOptions` add:
+``` 
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // For AppsFLyer debug logs uncomment the line below
+        // AppsFlyerLib.shared().isDebug = true
+        
+        if #available(iOS 14, *) {
+            AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
+                // ...
+            })
+        }
 
-let config:Analytics.SEGAnalyticsConfiguration = SEGAnalyticsConfiguration(writeKey: "SEGMENT_KEY")
-
-        config.use(SEGAppsFlyerIntegrationFactory())  // this line may need to be replaced if you would like to get conversion and deep link data in the app.
+        /*
+         Based on your needs you can either pass a delegate to process deferred
+         and direct deeplinking callbacks or disregard them.
+         If you choose to use the delegate, see extension to this class below
+         */
+        // let factoryWithDelegate : SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self)
+        let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
+        
+        // Segment initialization
+        let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
+        // config.use(factoryWithDelegate)  // use this if you want to get conversion data in the app. Read more 
+        config.use(factoryNoDelegate)
         config.enableAdvertisingTracking = true       //OPTIONAL
         config.trackApplicationLifecycleEvents = true //OPTIONAL
         config.trackDeepLinks = true                  //OPTIONAL
         config.trackPushNotifications = true          //OPTIONAL
         config.trackAttributionData = true            //OPTIONAL
-
-        Analytics.SEGAnalytics.debug(true)
-        Analytics.SEGAnalytics.setup(with: config)
+        
+        Analytics.debug(false)
+        Analytics.setup(with: config)
+        return true
+    }
 ```
-
-
 
 AppsFlyer integration responds to ```identify``` call.  To read more about it, visit [Segment identify method documentation](https://segment.com/docs/libraries/ios/#identify).
 In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currencyCode```
@@ -118,15 +156,15 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
     
   In order to get Conversion Data you need to:
   
-  1. Add `SEGAppsFlyerTrackerDelegate` protocol to your AppDelegate.h (or other) class
+  1. Add `SEGAppsFlyerLibDelegate` protocol to your AppDelegate.h (or other) class
 ```
 #import <UIKit/UIKit.h>
 #import "SEGAppsFlyerIntegrationFactory.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, SEGAppsFlyerTrackerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, SEGAppsFlyerLibDelegate>
 ```
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. Change line `[config use:[SEGAppsFlyerIntegrationFactory instance]];` to `[config use:[SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self]];`
-  3. In the class passed to the method above (AppDelegate.m by default) implement methods of the `SEGAppsFlyerTrackerDelegate` protocol. See sample code below:
+  3. In the class passed to the method above (AppDelegate.m by default) implement methods of the `SEGAppsFlyerLibDelegate` protocol. See sample code below:
   
 ```
 #import "AppDelegate.h"
@@ -186,12 +224,12 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   
   In order to get Conversion Data you need to:
   
-  1. Add `SEGAppsFlyerTrackerDelegate` protocol to your AppDelegate (or other) class
-  2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. Change line `config.use(SEGAppsFlyerIntegrationFactory())` to `config.use(SEGAppsFlyerIntegrationFactory.create(withLaunch: self))`
-  3. Implement methods of the protocol. See sample code below:
+  1. Add `SEGAppsFlyerLibDelegate` protocol to your AppDelegate (or other) class
+  2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. If you use sample code from above, change line `config.use(factoryNoDelegate)` to `config.use(factoryWithDelegate)`
+  3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
   
   ```
-  class AppDelegate: UIResponder, UIApplicationDelegate, SEGAppsFlyerTrackerDelegate {
+  class AppDelegate: UIResponder, UIApplicationDelegate, SEGAppsFlyerLibDelegate {
     
     var window: UIWindow?
     
@@ -263,11 +301,11 @@ If you are working with networks that don't allow passing user level data to 3rd
         /// To set Apple App ID and AppsFlyer Dev Key use Segment dashboard
         /// ...
         /// Enable ESP support for specific URLs
-        [[AppsFlyerTracker sharedTracker] setResolveDeepLinkURLs:@[@"afsdktests.com"]];
+        [[AppsFlyerLib shared] setResolveDeepLinkURLs:@[@"afsdktests.com"]];
         /// Disable printing SDK messages to the console log
-        [[AppsFlyerTracker sharedTracker] setIsDebug:NO];
+        [[AppsFlyerLib shared]  setIsDebug:NO];
         /// `OneLink ID` from OneLink configuration
-        [[AppsFlyerTracker sharedTracker] setAppInviteOneLink:@"one_link_id"];
+        [[AppsFlyerLib shared]  setAppInviteOneLink:@"one_link_id"];
     }
 }
 ```

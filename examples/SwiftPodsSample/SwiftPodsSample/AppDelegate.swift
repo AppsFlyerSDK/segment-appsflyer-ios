@@ -17,11 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // For AppsFLyer debug logs uncomment the line below
         AppsFlyerLib.shared().isDebug = true
-        
-        AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
-        ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
-            // ...
-        })
+
+        if #available(iOS 14, *) {
+            AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
+                // ...
+            })
+        }
+
 
         /*
          Based on your needs you can either pass a delegate to process deferred
@@ -32,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
         
         // Segment initialization
-        let config = AnalyticsConfiguration(writeKey: "WYsuyFINOKZuQyQAGn5JQoCgIdhOI146")
+        let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
         config.use(factoryWithDelegate)
         //      config.use(factoryNoDelegate)
         config.enableAdvertisingTracking = true       //OPTIONAL
