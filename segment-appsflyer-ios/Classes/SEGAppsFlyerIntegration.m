@@ -244,7 +244,7 @@
 
 - (BOOL)logAttributionData
 {
-    return [(NSNumber *)[self.settings objectForKey:@"logAttributionData"] boolValue];
+    return [(NSNumber *)[self.settings objectForKey:@"trackAttributionData"] boolValue];
 }
 
 @end
