@@ -75,15 +75,33 @@ Open `AppDelegate.h` and add:
 In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 
 ```objective-c
-SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
+
+    // For ApsFlyer debug logs
+    [AppsFlyerLib shared].isDebug = YES;
+
+    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com/hc/en-us/articles/360011451918-iOS-SDK-V6-beta-integration-guide-for-developers#integration-34-support-apptrackingtransparency-att 
+    if (@available(iOS 14, *)) {
+        [[AppsFlyerLib shared] waitForAdvertisingIdentifierWithTimeoutInterval:60];
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            //....
+        }];
+    }
+    /*
+     Based on your needs you can either pass a delegate to process deferred
+     and direct deeplinking callbacks or disregard them.
+     If you choose to use the delegate, see extension to this class below
+     */
+    SEGAppsFlyerIntegrationFactory* factoryNoDelegate = [SEGAppsFlyerIntegrationFactory instance];
+//    SEGAppsFlyerIntegrationFactory* factoryWithDelegate = [SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self];
     
-    [config use:[SEGAppsFlyerIntegrationFactory instance]]; // this line may need to be replaced if you would like to get conversion and deep link data in the app.
-    
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"WYsuyFINOKZuQyQAGn5JQoCgIdhOI146"];
+    [config use:factoryNoDelegate];
+//    [config use:factoryWithDelegate];  // use this if you want to get conversion data in the app. Read more in the integration guide
     config.enableAdvertisingTracking = YES;       //OPTIONAL
     config.trackApplicationLifecycleEvents = YES; //OPTIONAL
     config.trackDeepLinks = YES;                  //OPTIONAL
     config.trackPushNotifications = YES;          //OPTIONAL
-    config.trackAttributionData = YES;            //OPTIONAL  
+    config.trackAttributionData = YES;            //OPTIONAL
     [SEGAnalytics debug:YES];                     //OPTIONAL
     [SEGAnalytics setupWithConfiguration:config];
 ```
@@ -104,45 +122,42 @@ SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWith
 
 ```swift
 import Analytics
-imoport AppsFlyerLib
+import AppsFlyerLib
 ```
 
 4. In `didFinishLaunchingWithOptions` add:
 ``` 
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        // For AppsFLyer debug logs uncomment the line below
-        // AppsFlyerLib.shared().isDebug = true
-        
-        if #available(iOS 14, *) {
-            AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
-            ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
-                // ...
-            })
-        }
+    // For AppsFLyer debug logs uncomment the line below
+    // AppsFlyerLib.shared().isDebug = true
 
-        /*
-         Based on your needs you can either pass a delegate to process deferred
-         and direct deeplinking callbacks or disregard them.
-         If you choose to use the delegate, see extension to this class below
-         */
-        // let factoryWithDelegate : SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self)
-        let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
-        
-        // Segment initialization
-        let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
-        // config.use(factoryWithDelegate)  // use this if you want to get conversion data in the app. Read more 
-        config.use(factoryNoDelegate)
-        config.enableAdvertisingTracking = true       //OPTIONAL
-        config.trackApplicationLifecycleEvents = true //OPTIONAL
-        config.trackDeepLinks = true                  //OPTIONAL
-        config.trackPushNotifications = true          //OPTIONAL
-        config.trackAttributionData = true            //OPTIONAL
-        
-        Analytics.debug(false)
-        Analytics.setup(with: config)
-        return true
+    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com/hc/en-us/articles/360011451918-iOS-SDK-V6-beta-integration-guide-for-developers#integration-34-support-apptrackingtransparency-att
+    if #available(iOS 14, *) {
+        AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
+        ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
+            // ...
+        })
     }
+
+    /*
+     Based on your needs you can either pass a delegate to process deferred
+     and direct deeplinking callbacks or disregard them.
+     If you choose to use the delegate, see extension to this class below
+     */
+//    let factoryWithDelegate : SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self)
+    let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
+    
+    // Segment initialization
+    let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
+//    config.use(factoryWithDelegate)  // use this if you want to get conversion data in the app. Read more in the integration guide
+    config.use(factoryNoDelegate)
+    config.enableAdvertisingTracking = true       //OPTIONAL
+    config.trackApplicationLifecycleEvents = true //OPTIONAL
+    config.trackDeepLinks = true                  //OPTIONAL
+    config.trackPushNotifications = true          //OPTIONAL
+    config.trackAttributionData = true            //OPTIONAL
+    
+    Analytics.debug(false)
+    Analytics.setup(with: config)
 ```
 
 AppsFlyer integration responds to ```identify``` call.  To read more about it, visit [Segment identify method documentation](https://segment.com/docs/libraries/ios/#identify).
