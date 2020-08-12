@@ -27,7 +27,7 @@
     return self;
 }
 
-- (instancetype)initWithLaunchDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate
+- (instancetype)initWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate
 {
     if (self = [super init]) {
         self.delegate = delegate;
@@ -36,7 +36,7 @@
 }
 
 
-+ (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate
++ (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate
 {
     return [[self alloc] initWithLaunchDelegate:delegate];
 }

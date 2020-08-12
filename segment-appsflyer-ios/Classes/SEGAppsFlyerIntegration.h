@@ -8,27 +8,27 @@
 
 #import <Foundation/Foundation.h>
 #import <Analytics/SEGAnalytics.h>
-#import <AppsFlyerLib/AppsFlyerTracker.h>
+#import <AppsFlyerLib/AppsFlyerLib.h>
 
-@protocol SEGAppsFlyerTrackerDelegate <AppsFlyerTrackerDelegate>
+@protocol SEGAppsFlyerLibDelegate <AppsFlyerLibDelegate>
 
 @end
 
-@interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerTrackerDelegate>
+@interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerLibDelegate>
 
 @property (nonatomic, strong) NSDictionary *settings;
-@property (nonatomic, strong) AppsFlyerTracker *appsflyer;
+@property (nonatomic, strong) AppsFlyerLib *appsflyer;
 @property (nonatomic, strong) SEGAnalytics *analytics;
-@property (weak, nonatomic) id<SEGAppsFlyerTrackerDelegate> segDelegate;
+@property (weak, nonatomic) id<SEGAppsFlyerLibDelegate> segDelegate;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *) analytics;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *)analytics
-                andDelegate:(id<AppsFlyerTrackerDelegate>) delegate;
+                andDelegate:(id<AppsFlyerLibDelegate>) delegate;
 
 
-- (void) trackLaunch;
+- (void) logLaunch;
 @end
 

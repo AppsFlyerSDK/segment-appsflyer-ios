@@ -14,8 +14,8 @@
 @interface SEGAppsFlyerIntegrationFactory : NSObject <SEGIntegrationFactory>
 
 + (instancetype)instance;
-+ (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate;
++ (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate;
 
-@property (weak, nonatomic) id<SEGAppsFlyerTrackerDelegate> delegate;
+@property (weak, nonatomic) id<SEGAppsFlyerLibDelegate> delegate;
 
 @end
