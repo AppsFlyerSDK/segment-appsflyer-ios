@@ -26,7 +26,7 @@
 		9D29F72724E40820007A929A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D29F72A24E40820007A929A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D29F72C24E40820007A929A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D29F73324E40AE9007A929A /* SEGAppsFlyer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SEGAppsFlyer-Bridging-Header.h"; sourceTree = "<group>"; };
+		9D29F73324E40AE9007A929A /* SwiftPodsSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPodsSample-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F10C505DB27305DDC0B3EDD /* Pods-SwiftPodsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPodsSample.release.xcconfig"; path = "Target Support Files/Pods-SwiftPodsSample/Pods-SwiftPodsSample.release.xcconfig"; sourceTree = "<group>"; };
 		D55B32FE162D54FD3F59944C /* Pods-SwiftPodsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPodsSample.debug.xcconfig"; path = "Target Support Files/Pods-SwiftPodsSample/Pods-SwiftPodsSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +73,7 @@
 		9D29F71D24E4081F007A929A /* SwiftPodsSample */ = {
 			isa = PBXGroup;
 			children = (
-				9D29F73324E40AE9007A929A /* SEGAppsFlyer-Bridging-Header.h */,
+				9D29F73324E40AE9007A929A /* SwiftPodsSample-Bridging-Header.h */,
 				9D29F71E24E4081F007A929A /* AppDelegate.swift */,
 				9D29F72024E4081F007A929A /* SceneDelegate.swift */,
 				9D29F72224E4081F007A929A /* ViewController.swift */,
@@ -366,7 +366,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.SwiftPodsSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPodsSample/SEGAppsFlyer-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPodsSample/SwiftPodsSample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -387,7 +387,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.SwiftPodsSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPodsSample/SEGAppsFlyer-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPodsSample/SwiftPodsSample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

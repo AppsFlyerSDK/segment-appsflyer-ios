@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // For AppsFLyer debug logs uncomment the line below
-//        AppsFlyerLib.shared().isDebug = true
+        AppsFlyerLib.shared().isDebug = true
         
         AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
         ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
