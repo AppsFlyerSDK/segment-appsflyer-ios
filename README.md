@@ -57,6 +57,9 @@ pod 'segment-appsflyer-ios', :git => 'https://github.com/AppsFlyerSDK/segment-ap
 github "AppsFlyerSDK/segment-appsflyer-ios" "5.4.0"
 ```
 
+**Beta** version:  
+Beta version doesn't support Carthage
+
 ## <a id="usage"> Usage
 
 First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (iTunes) and client secret in Segment's **dashboard** for AppsFlyer integration
