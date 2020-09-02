@@ -2,7 +2,7 @@
 
 # AppsFlyer integration for Segment.
 
-## This is a BETA version of the Segment wrapper for AppsFlyer SDK that is built with BETA version of iOS SDK v6.0.1. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.0.2. 
 **Do not use this version on Production builds!** 
 
 
@@ -41,10 +41,6 @@ To install the segment-appsflyer-ios integration:
 pod 'segment-appsflyer-ios'
 ```
 
-**Beta** version: 
-```ruby
-pod 'segment-appsflyer-ios', :git => 'https://github.com/AppsFlyerSDK/segment-appsflyer-ios.git', :branch => 'dev/sdk-v6-beta'
-```
 
 2. Run `pod isntall` in the project directory
 
@@ -57,8 +53,6 @@ pod 'segment-appsflyer-ios', :git => 'https://github.com/AppsFlyerSDK/segment-ap
 github "AppsFlyerSDK/segment-appsflyer-ios" "5.4.0"
 ```
 
-**Beta** version:  
-Beta version doesn't support Carthage
 
 ## <a id="usage"> Usage
 
@@ -79,7 +73,7 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
 
-    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com/hc/en-us/articles/360011451918-iOS-SDK-V6-beta-integration-guide-for-developers#integration-34-support-apptrackingtransparency-att 
+    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
     if (@available(iOS 14, *)) {
         [[AppsFlyerLib shared] waitForAdvertisingIdentifierWithTimeoutInterval:60];
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
@@ -130,7 +124,7 @@ import AppsFlyerLib
     // For AppsFLyer debug logs uncomment the line below
     // AppsFlyerLib.shared().isDebug = true
 
-    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com/hc/en-us/articles/360011451918-iOS-SDK-V6-beta-integration-guide-for-developers#integration-34-support-apptrackingtransparency-att
+    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
     if #available(iOS 14, *) {
         AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
         ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
