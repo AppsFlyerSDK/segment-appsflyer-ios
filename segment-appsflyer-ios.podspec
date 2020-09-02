@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.dependency 'Analytics'
   s.source_files = 'segment-appsflyer-ios/Classes/**/*'
   s.ios.dependency 'AppsFlyerFramework', '~> 6.0.2' 
-  s.tvos.dependency 'AppsFlyerFramework', '~> 6.0.2'    
+  s.tvos.dependency 'AppsFlyerFramework', '~> 6.0.2'
 end
