@@ -6,5 +6,5 @@ target 'SwiftPodsSample' do
   use_frameworks!
 
   # Pods for SwiftPodsSample
-pod 'segment-appsflyer-ios', :git => 'https://github.com/AppsFlyerSDK/segment-appsflyer-ios.git'
+pod 'segment-appsflyer-ios', '~> 6.0.2'
 end
