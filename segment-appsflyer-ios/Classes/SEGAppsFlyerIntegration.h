@@ -29,6 +29,6 @@
                 andDelegate:(id<AppsFlyerLibDelegate>) delegate;
 
 
-- (void) logLaunch;
+- (void) start;
 @end
 
