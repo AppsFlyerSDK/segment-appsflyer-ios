@@ -19,11 +19,11 @@
         NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
         NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
         
-        self.appsflyer = [AppsFlyerTracker sharedTracker];
+        self.appsflyer = [AppsFlyerLib shared];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
         self.analytics = analytics;
-        if ([self trackAttributionData]) {
+        if ([self logAttributionData]) {
             self.appsflyer.delegate = self;
         }
 //        self.appsflyer.isDebug = YES;
@@ -43,13 +43,13 @@
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *)analytics
-                     andDelegate:(id<SEGAppsFlyerTrackerDelegate>) delegate
+                     andDelegate:(id<SEGAppsFlyerLibDelegate>) delegate
 {
     self.segDelegate = delegate;
     return [self initWithSettings:settings withAnalytics:analytics];
 }
 
-- (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerTracker *)aAppsflyer {
+- (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerLib *)aAppsflyer {
     
     if (self = [super init]) {
         self.settings = settings;
@@ -60,7 +60,7 @@
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
         
-        if ([self trackAttributionData]) {
+        if ([self logAttributionData]) {
             self.appsflyer.delegate = self;
         }
         
@@ -71,7 +71,7 @@
 
 
 -(void) applicationDidBecomeActive {
-    [self trackLaunch];
+    [self start];
 }
 
 
@@ -117,15 +117,15 @@
     
 }
 
-- (void) trackLaunch {
-    [self.appsflyer trackAppLaunch];
+- (void) start {
+    [self.appsflyer start];
 }
 
 
 - (void)track:(SEGTrackPayload *)payload
 {
     if (payload.properties != nil){
-        SEGLog(@"trackEvent: %@", payload.properties);
+        SEGLog(@"logEvent: %@", payload.properties);
     }
     
     // Extract the revenue / currency from the properties passed in to us with an "af_" prefix
@@ -140,12 +140,12 @@
             [af_payload_properties setObject:currency forKey:@"af_currency"];
         }
         
-        [self.appsflyer trackEvent:payload.event withValues:af_payload_properties];
+        [self.appsflyer logEvent:payload.event withValues:af_payload_properties];
     }
     
     else {
-        // Track the raw event.
-        [self.appsflyer trackEvent:payload.event withValues:payload.properties];
+        // Log the raw event.
+        [self.appsflyer logEvent:payload.event withValues:payload.properties];
     }
 }
 
@@ -242,7 +242,7 @@
 
 
 
-- (BOOL)trackAttributionData
+- (BOOL)logAttributionData
 {
     return [(NSNumber *)[self.settings objectForKey:@"trackAttributionData"] boolValue];
 }

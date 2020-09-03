@@ -1,6 +1,10 @@
 # OS X
 .DS_Store
 
+#IntelliJ
+
+.idea
+
 # Xcode
 build/
 *.pbxuser
