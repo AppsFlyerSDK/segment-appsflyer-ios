@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/AppsFlyerSDK/segment-appsflyer-ios"
   s.license          =  { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { "Appsflyer" => "maxim@appsflyer.com" }
-  s.source           = { :git => "https://github.com/AppsFlyerSDK/segment-appsflyer-ios.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/AppsFlyerSDK/segment-appsflyer-ios.git", :branch => "releases/6.0.3" }
   
 
   s.ios.deployment_target = '8.0'
