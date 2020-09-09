@@ -2,7 +2,7 @@
 
 # AppsFlyer integration for Segment.
 
-## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.0.2. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.0.3. 
 
 
 ----------
@@ -49,7 +49,7 @@ pod 'segment-appsflyer-ios'
 
 **Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.0.2"
+github "AppsFlyerSDK/segment-appsflyer-ios" "6.0.3"
 ```
 
 
