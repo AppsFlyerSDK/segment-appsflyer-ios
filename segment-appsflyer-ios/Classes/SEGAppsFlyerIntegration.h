@@ -12,6 +12,10 @@
 
 @protocol SEGAppsFlyerLibDelegate <AppsFlyerLibDelegate>
 
+@optional
+
+- (BOOL)shouldSendSegmentInstallAttributedEvent;
+
 @end
 
 @interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerLibDelegate>
