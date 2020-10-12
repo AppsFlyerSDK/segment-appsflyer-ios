@@ -23,6 +23,7 @@
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
         self.analytics = analytics;
+
         if ([self logAttributionData]) {
             self.appsflyer.delegate = self;
         }
@@ -59,7 +60,7 @@
         NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
-        
+
         if ([self logAttributionData]) {
             self.appsflyer.delegate = self;
         }
@@ -185,34 +186,45 @@
     BOOL installAttrSent = [userDefaults boolForKey:key];
     
     if(!installAttrSent){
-  [userDefaults setBool:YES forKey:key];
+        [userDefaults setBool:YES forKey:key];
+
         if(_segDelegate && [_segDelegate respondsToSelector:@selector(onConversionDataSuccess:)]) {
-          [_segDelegate onConversionDataSuccess:conversionInfo];
+            [_segDelegate onConversionDataSuccess:conversionInfo];
         }
-        NSDictionary *campaign = @{
-                @"source": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"media_source"]],
-                @"name": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"campaign"]],
-                @"ad_group": [SEGAppsFlyerIntegration validateNil: conversionInfo[@"adgroup"]]
-            };
-           
-        
-        NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{@"provider": @"AppsFlyer"}];
-        [properties addEntriesFromDictionary:conversionInfo];
-        
-        // Delete already mapped special fields.
-        [properties removeObjectForKey:@"media_source"];
-        [properties removeObjectForKey:@"adgroup"];
-        
-        // replace original campaign with new created
-        [properties removeObjectForKey:@"campaign"];
-        [properties setObject:campaign forKey:@"campaign"];
-        
-        // If you are working with networks that don't allow passing user level data to 3rd parties,
-        // you will need to apply code to filter out these networks before calling
-        // `[self.analytics track:@"Install Attributed" properties:[properties copy]];`
-        [self.analytics track:@"Install Attributed" properties: [properties copy]];
-        
-      
+
+        BOOL sendInstallEvent = true;
+
+        if(_segDelegate && [_segDelegate respondsToSelector:@selector(shouldSendSegmentInstallAttributedEvent)]) {
+            sendInstallEvent = [_segDelegate shouldSendSegmentInstallAttributedEvent];
+        }
+
+        if(sendInstallEvent) {
+            NSDictionary *campaign = @{
+                    @"source": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"media_source"]],
+                    @"name": [SEGAppsFlyerIntegration validateNil : conversionInfo[@"campaign"]],
+                    @"ad_group": [SEGAppsFlyerIntegration validateNil: conversionInfo[@"adgroup"]]
+                };
+
+            NSMutableDictionary *properties = [NSMutableDictionary dictionaryWithDictionary:@{@"provider": @"AppsFlyer"}];
+            [properties addEntriesFromDictionary:conversionInfo];
+
+            // Delete already mapped special fields.
+            [properties removeObjectForKey:@"media_source"];
+            [properties removeObjectForKey:@"adgroup"];
+
+            // replace original campaign with new created
+            [properties removeObjectForKey:@"campaign"];
+            [properties setObject:campaign forKey:@"campaign"];
+
+            if(_segDelegate && [_segDelegate respondsToSelector:@selector(shouldSendSegmentInstallAttributedEvent)]) {
+                sendInstallEvent = [_segDelegate shouldSendSegmentInstallAttributedEvent];
+            }
+
+            // If you are working with networks that don't allow passing user level data to 3rd parties,
+            // you will need to apply code to filter out these networks before calling
+            // `[self.analytics track:@"Install Attributed" properties:[properties copy]];`
+            [self.analytics track:@"Install Attributed" properties: [properties copy]];
+        }
     }
 }
 
