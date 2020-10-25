@@ -28,7 +28,7 @@
     
     // Code below is to collect IDFA. Read more here - https://support.appsflyer.com/hc/en-us/articles/360011451918-iOS-SDK-V6-beta-integration-guide-for-developers#integration-34-support-apptrackingtransparency-att
     if (@available(iOS 14, *)) {
-        [[AppsFlyerLib shared] waitForAdvertisingIdentifierWithTimeoutInterval:60];
+        [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
             //....
         }];
@@ -48,7 +48,6 @@
     config.trackApplicationLifecycleEvents = YES; //OPTIONAL
     config.trackDeepLinks = YES;                  //OPTIONAL
     config.trackPushNotifications = YES;          //OPTIONAL
-    config.trackAttributionData = YES;            //OPTIONAL
     [SEGAnalytics debug:YES];                     //OPTIONAL
     [SEGAnalytics setupWithConfiguration:config];
     return YES;
