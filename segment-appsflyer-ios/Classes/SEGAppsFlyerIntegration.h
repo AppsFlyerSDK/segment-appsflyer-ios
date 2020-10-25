@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Analytics/SEGAnalytics.h>
+#import "SEGAnalytics.h"
 #import <AppsFlyerLib/AppsFlyerLib.h>
 
 @protocol SEGAppsFlyerLibDelegate <AppsFlyerLibDelegate>

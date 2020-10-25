@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Analytics/SEGIntegrationFactory.h>
+#import "SEGIntegrationFactory.h"
 #import "SEGAppsFlyerIntegration.h"
 
 
