@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Analytics
+import Segment
 import AppsFlyerLib
 import AppTrackingTransparency
 
@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppsFlyerLib.shared().isDebug = true
 
         if #available(iOS 14, *) {
-            AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
+            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
                 // ...
             })
@@ -42,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.trackApplicationLifecycleEvents = true //OPTIONAL
         config.trackDeepLinks = true                  //OPTIONAL
         config.trackPushNotifications = true          //OPTIONAL
-        config.trackAttributionData = true            //OPTIONAL
         
         Analytics.debug(false)
         Analytics.setup(with: config)

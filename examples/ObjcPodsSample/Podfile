@@ -1,4 +1,4 @@
-# Uncomment the next line to define a global platform for your project
+# Uncomment the next line to define a global platform for your project 
 # platform :ios, '9.0'
 
 target 'ObjcPodsSample' do
@@ -6,4 +6,5 @@ target 'ObjcPodsSample' do
   use_frameworks!
 
   # Pods for ObjcPodsSample
-pod 'segment-appsflyer-ios', '~> 6.0.2'
+  pod 'segment-appsflyer-ios', '~> 6.1.0'
+end
