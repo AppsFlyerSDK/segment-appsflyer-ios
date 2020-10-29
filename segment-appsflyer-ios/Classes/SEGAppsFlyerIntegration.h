@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Segment/SEGAnalytics.h>
-#import <Segment/SEGAnalyticsUtils.h>
+#import <Analytics/SEGAnalytics.h>
+#import <Analytics/SEGAnalyticsUtils.h>
 #import <AppsFlyerLib/AppsFlyerLib.h>
 
 @protocol SEGAppsFlyerLibDelegate <AppsFlyerLibDelegate>
