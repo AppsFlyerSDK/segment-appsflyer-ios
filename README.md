@@ -76,7 +76,7 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
 
-    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
+    // Getting user consent dialog. Please read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
     if (@available(iOS 14, *)) {
         [[AppsFlyerLib shared] waitForAdvertisingIdentifierWithTimeoutInterval:60];
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
