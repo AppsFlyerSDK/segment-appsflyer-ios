@@ -7,15 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#if defined(__has_include) && __has_include(<Analytics/SEGAnalytics.h>)
-#import <Analytics/SEGAnalytics.h>
+#if defined(__has_include) && __has_include(<Analytics/SEGIntegrationFactory.h>)
+#import <Analytics/SEGIntegrationFactory.h>
 #else
-#import <Segment/SEGAnalytics.h>
-#endif
-#if defined(__has_include) && __has_include(<Analytics/SEGAnalyticsUtils.h>)
-#import <Analytics/SEGAnalyticsUtils.h>
-#else
-#import <Segment/SEGAnalyticsUtils.h>
+#import <Segment/SEGIntegrationFactory.h>
 #endif
 #import "SEGAppsFlyerIntegration.h"
 
