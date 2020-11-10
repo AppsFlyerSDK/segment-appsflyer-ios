@@ -1,7 +1,7 @@
 # Release Notes
 
-### 6.1.0
-* Update Segment SDK to v4.1.0
+### 6.0.4
+* Fix import
 
 ### 6.0.3
 * Updated iOS SDK to v6.0.3

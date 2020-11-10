@@ -15,7 +15,6 @@
 
 ## Table of content
 
--- [v6 Breaking changes](#v6.1.0-breaking-changes)
 - [Installation](#installation)
 - [Usage](#usage) 
   - [Objective-C](#usage-obj-c)
@@ -29,9 +28,6 @@
 
 
 ## <a id="installation">Installation
-
-## <a id="v6-breaking-changes"> ❗ v6.1.0 Breaking Changes
-Starting segment-appsflyer-ios v6.1.0, we support segment plugin v4.1.0 and above.
 
 ### Cocoapods
 
