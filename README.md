@@ -37,7 +37,7 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios'
+pod 'segment-appsflyer-ios', '6.0.4'
 ```
 
 
@@ -49,7 +49,7 @@ pod 'segment-appsflyer-ios'
 
 **Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.1.0"
+github "AppsFlyerSDK/segment-appsflyer-ios" "6.0.4"
 ```
 
 
