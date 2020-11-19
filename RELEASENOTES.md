@@ -1,5 +1,9 @@
 # Release Notes
 
+
+### 6.1.1
+* added Strict mode SDK
+
 ### 6.0.4
 * Fix import
 

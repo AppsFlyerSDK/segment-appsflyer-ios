@@ -37,9 +37,14 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.0.4'
+pod 'segment-appsflyer-ios', '6.1.1'
 ```
 
+**Strict mode SDK** version: 
+```ruby
+pod 'segment-appsflyer-ios/Strict', '6.1.1'
+```
+Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
 2. Run `pod isntall` in the project directory
 
