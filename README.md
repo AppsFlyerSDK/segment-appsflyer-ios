@@ -4,6 +4,8 @@
 
 ## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.0.3. 
 
+[![Version](https://img.shields.io/cocoapods/v/segment-appsflyer-ios.svg?style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
+
 
 ----------
 🛠 In order for us to provide optimal support, we would kindly ask you to submit any issues to support@appsflyer.com
