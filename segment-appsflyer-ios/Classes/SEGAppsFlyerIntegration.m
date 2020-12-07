@@ -25,7 +25,9 @@
         if ([self logAttributionData]) {
             self.appsflyer.delegate = self;
         }
-//        self.appsflyer.isDebug = YES;
+        if (_segDLDelegate)
+            self.appsflyer.deepLinkDelegate = self;
+        
         // For Segment React Native. We should call our applicationDidBecomeActive in case we were initialized too late and missed the first launch
         dispatch_async(dispatch_get_main_queue(), ^{
             BOOL alreadyActive = [[UIApplication sharedApplication] applicationState] == UIApplicationStateActive;
@@ -48,6 +50,16 @@
     return [self initWithSettings:settings withAnalytics:analytics];
 }
 
+- (instancetype)initWithSettings:(NSDictionary *)settings
+                   withAnalytics:(SEGAnalytics *)analytics
+                     andDelegate:(id<SEGAppsFlyerLibDelegate>) delegate
+                    andDeepLinkDelegate:(id<AppsFlyerDeepLinkDelegate>)DLDelegate
+{
+    self.segDelegate = delegate;
+    self.segDLDelegate = DLDelegate;
+    return [self initWithSettings:settings withAnalytics:analytics];
+}
+
 - (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerLib *)aAppsflyer {
     
     if (self = [super init]) {
@@ -61,6 +73,9 @@
         
         if ([self logAttributionData]) {
             self.appsflyer.delegate = self;
+        }
+        if (_segDLDelegate) {
+            self.appsflyer.deepLinkDelegate = self;
         }
         
     }
@@ -236,6 +251,14 @@
         [_segDelegate onAppOpenAttributionFailure:error];
     }
     SEGLog(@"[Appsflyer] onAppOpenAttribution failure data: %@", error);
+}
+
+-(void)didResolveDeepLink:(AppsFlyerDeepLinkResult *_Nonnull)result
+{
+    if (_segDLDelegate && [_segDLDelegate respondsToSelector:@selector(didResolveDeepLink:)]) {
+        [_segDLDelegate didResolveDeepLink:result];
+    }
+    SEGLog(@"[Appsflyer] didResolveDeepLink result: %@", result);
 }
 
 

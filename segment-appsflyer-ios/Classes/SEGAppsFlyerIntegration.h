@@ -26,12 +26,18 @@
 
 @end
 
-@interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerLibDelegate>
+@protocol SEGAppsFlyerDeepLinkDelegate<AppsFlyerDeepLinkDelegate>
+
+
+@end
+
+@interface SEGAppsFlyerIntegration : NSObject <SEGIntegration, AppsFlyerLibDelegate, AppsFlyerDeepLinkDelegate>
 
 @property (nonatomic, strong) NSDictionary *settings;
 @property (nonatomic, strong) AppsFlyerLib *appsflyer;
 @property (nonatomic, strong) SEGAnalytics *analytics;
 @property (weak, nonatomic) id<SEGAppsFlyerLibDelegate> segDelegate;
+@property (weak, nonatomic) id<AppsFlyerDeepLinkDelegate> segDLDelegate;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *) analytics;
@@ -39,6 +45,13 @@
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *)analytics
                 andDelegate:(id<AppsFlyerLibDelegate>) delegate;
+
+- (instancetype)initWithSettings:(NSDictionary *)settings
+                   withAnalytics:(SEGAnalytics *)analytics
+                andDelegate:(id<AppsFlyerLibDelegate>) delegate
+             andDeepLinkDelegate:(id<AppsFlyerDeepLinkDelegate>) DLDelegate;
+
+
 
 
 - (void) start;
