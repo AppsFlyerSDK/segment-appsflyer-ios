@@ -14,7 +14,7 @@ import AppTrackingTransparency
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+   
         // For AppsFLyer debug logs uncomment the line below
         AppsFlyerLib.shared().isDebug = true
 
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
         
         // Segment initialization
-        let config = AnalyticsConfiguration(writeKey: "j2UmGufOfQylfIqqUA4lVE4cYH9rcOuH")
+        let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
         config.use(factoryWithDelegate)
         //      config.use(factoryNoDelegate)
         config.enableAdvertisingTracking = true       //OPTIONAL
@@ -90,7 +90,9 @@ extension AppDelegate: SEGAppsFlyerLibDelegate {
 }
 
 extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
+    
     func didResolveDeepLink(_ result: DeepLinkResult) {
+        
         print(result)
     }
 }
