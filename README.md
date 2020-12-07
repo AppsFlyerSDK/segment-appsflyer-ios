@@ -2,7 +2,7 @@
 
 # AppsFlyer integration for Segment.
 
-## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.0.3. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.1.2. 
 
 
 ----------
@@ -39,12 +39,12 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.1.1'
+pod 'segment-appsflyer-ios', '6.1.2'
 ```
 
 **Strict mode SDK** version: 
 ```ruby
-pod 'segment-appsflyer-ios/Strict', '6.1.1'
+pod 'segment-appsflyer-ios/Strict', '6.1.2'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
@@ -56,7 +56,7 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 
 **Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.0.4"
+github "AppsFlyerSDK/segment-appsflyer-ios" "6.1.2"
 ```
 
 
