@@ -14,16 +14,17 @@ import AppTrackingTransparency
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+   
         // For AppsFLyer debug logs uncomment the line below
         AppsFlyerLib.shared().isDebug = true
 
-        if #available(iOS 14, *) {
-            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
-            ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
-                // ...
-            })
-        }
+
+//        if #available(iOS 14, *) {
+//            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+//            ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
+//                // ...
+//            })
+//        }
 
 
         /*
@@ -31,8 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          and direct deeplinking callbacks or disregard them.
          If you choose to use the delegate, see extension to this class below
          */
-        let factoryWithDelegate : SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self)
-//        let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
+//        let factoryWithDelegate : SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self)
+        let factoryWithDelegate: SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andDeepLinkDelegate: self)
+      // let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
         
         // Segment initialization
         let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
@@ -42,8 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         config.trackApplicationLifecycleEvents = true //OPTIONAL
         config.trackDeepLinks = true                  //OPTIONAL
         config.trackPushNotifications = true          //OPTIONAL
+    
         
-        Analytics.debug(false)
+        Analytics.debug(true)
         Analytics.setup(with: config)
         return true
     }
@@ -83,6 +86,14 @@ extension AppDelegate: SEGAppsFlyerLibDelegate {
     
     func onAppOpenAttributionFailure(_ error: Error) {
         print("\(error)")
+    }
+}
+
+extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
+    
+    func didResolveDeepLink(_ result: DeepLinkResult) {
+        
+        print(result)
     }
 }
 

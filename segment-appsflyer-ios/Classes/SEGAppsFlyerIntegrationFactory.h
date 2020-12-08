@@ -20,6 +20,8 @@
 + (instancetype)instance;
 + (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate;
 
-@property (weak, nonatomic) id<SEGAppsFlyerLibDelegate> delegate;
++ (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate andDeepLinkDelegate:(id<SEGAppsFlyerDeepLinkDelegate>) DLdelegate;
 
+@property (weak, nonatomic) id<SEGAppsFlyerLibDelegate> delegate;
+@property (weak, nonatomic) id<SEGAppsFlyerDeepLinkDelegate> DLDelegate;
 @end

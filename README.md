@@ -2,7 +2,7 @@
 
 # AppsFlyer integration for Segment.
 
-## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.0.3. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.1.2. 
 
 [![Version](https://img.shields.io/cocoapods/v/segment-appsflyer-ios.svg?style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
 
@@ -24,6 +24,8 @@
 - [Get Conversion Data](#getconversiondata)
   - [Objective-C](#gcd-obj-c)
   - [Swift](#gcd-swift)
+- [Unified Deep linking](#DDL)
+    - [Swift](#ddl-swift)
 - [Install Attributed event](#install_attributed)
 - [Additional AppsFlyer SDK setup](#additional_setup)
 - [Examples](#examples) 
@@ -39,12 +41,12 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.1.1'
+pod 'segment-appsflyer-ios', '6.1.2'
 ```
 
 **Strict mode SDK** version: 
 ```ruby
-pod 'segment-appsflyer-ios/Strict', '6.1.1'
+pod 'segment-appsflyer-ios/Strict', '6.1.2'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
@@ -56,7 +58,7 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 
 **Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.0.4"
+github "AppsFlyerSDK/segment-appsflyer-ios" "6.1.2"
 ```
 
 
@@ -288,6 +290,28 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
     //rest of you AppDelegate code
   }
   ```
+
+## <a id="DDL"> Unified Deep linking
+### <a id="ddl-swift"> Swift
+In order to use Unified Deep linking you need to:
+  
+  1. Add `SEGAppsFlyerDeepLinkDelegate` protocol to your AppDelegate (or other) class
+  2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. From the sample code above, change  factoryWithDelegate to :
+  ```
+  let factoryWithDelegate: SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andDeepLinkDelegate: self)
+  ```
+
+  3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
+  
+```
+extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
+    func didResolveDeepLink(_ result: DeepLinkResult) {
+        print(result)
+    }
+}
+
+```
+
 ## <a id="install_attributed"> Install Attributed event
 
 If you are working with networks that don't allow passing user level data to 3rd parties, you will need to apply code to filter out these networks before calling

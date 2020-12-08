@@ -1,5 +1,7 @@
 # Release Notes
 
+### 6.1.2
+* added support for Unified deep linking
 
 ### 6.1.1
 * added Strict mode SDK
