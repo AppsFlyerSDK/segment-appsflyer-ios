@@ -12,8 +12,26 @@
 		47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8F923D5CA7A00FE781F /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		868810B1258FB47D001F6545 /* segment_appsflyer_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86881093258F9113001F6545 /* segment_appsflyer_ios.framework */; };
+		868810BA258FB606001F6545 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
+		868810BB258FB606001F6545 /* AppsFlyerLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		868810BE258FB606001F6545 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
+		868810BF258FB606001F6545 /* Segment.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		868810BC258FB606001F6545 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				868810BF258FB606001F6545 /* Segment.framework in Embed Frameworks */,
+				868810BB258FB606001F6545 /* AppsFlyerLib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentAppsFlyeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +44,7 @@
 		47A0A8FC23D5CF8B00FE781F /* Analytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Analytics.framework; path = Carthage/Build/iOS/Analytics.framework; sourceTree = "<group>"; };
 		47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsFlyerLib.framework; path = Carthage/Build/iOS/AppsFlyerLib.framework; sourceTree = "<group>"; };
 		86881093258F9113001F6545 /* segment_appsflyer_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = segment_appsflyer_ios.framework; path = Carthage/Build/iOS/Static/segment_appsflyer_ios.framework; sourceTree = "<group>"; };
+		868810BD258FB606001F6545 /* Segment.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Segment.framework; path = Carthage/Build/iOS/Segment.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				868810B1258FB47D001F6545 /* segment_appsflyer_ios.framework in Frameworks */,
+				868810BE258FB606001F6545 /* Segment.framework in Frameworks */,
+				868810BA258FB606001F6545 /* AppsFlyerLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +101,7 @@
 		47A0A8FB23D5CF8B00FE781F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				868810BD258FB606001F6545 /* Segment.framework */,
 				86881093258F9113001F6545 /* segment_appsflyer_ios.framework */,
 				47A0A8FC23D5CF8B00FE781F /* Analytics.framework */,
 				47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */,
@@ -112,6 +133,7 @@
 				47A0A8D623D5B13500FE781F /* Sources */,
 				47A0A8D723D5B13500FE781F /* Frameworks */,
 				47A0A8D823D5B13500FE781F /* Resources */,
+				868810BC258FB606001F6545 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
