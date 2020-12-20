@@ -12,8 +12,7 @@
 		47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8F923D5CA7A00FE781F /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		47A0A8FE23D5CF8B00FE781F /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FC23D5CF8B00FE781F /* Analytics.framework */; };
-		47A0A90023D5CF8B00FE781F /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
+		86881094258F9113001F6545 /* segment_appsflyer_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86881093258F9113001F6545 /* segment_appsflyer_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +25,7 @@
 		47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEGAppsFlyerIntegrationFactory.h; sourceTree = "<group>"; };
 		47A0A8FC23D5CF8B00FE781F /* Analytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Analytics.framework; path = Carthage/Build/iOS/Analytics.framework; sourceTree = "<group>"; };
 		47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsFlyerLib.framework; path = Carthage/Build/iOS/AppsFlyerLib.framework; sourceTree = "<group>"; };
+		86881093258F9113001F6545 /* segment_appsflyer_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = segment_appsflyer_ios.framework; path = Carthage/Build/iOS/Static/segment_appsflyer_ios.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,8 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47A0A8FE23D5CF8B00FE781F /* Analytics.framework in Frameworks */,
-				47A0A90023D5CF8B00FE781F /* AppsFlyerLib.framework in Frameworks */,
+				86881094258F9113001F6545 /* segment_appsflyer_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +81,7 @@
 		47A0A8FB23D5CF8B00FE781F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86881093258F9113001F6545 /* segment_appsflyer_ios.framework */,
 				47A0A8FC23D5CF8B00FE781F /* Analytics.framework */,
 				47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */,
 			);
@@ -306,6 +306,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/Static",
 				);
 				INFOPLIST_FILE = "segment-appsflyer-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -334,6 +335,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/Static",
 				);
 				INFOPLIST_FILE = "segment-appsflyer-ios/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
