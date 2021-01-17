@@ -1,6 +1,9 @@
 # Release Notes
 
 ### 6.1.2
+* Updated iOS SDK to v6.1.4
+
+### 6.1.2
 * added support for Unified deep linking
 
 ### 6.1.1

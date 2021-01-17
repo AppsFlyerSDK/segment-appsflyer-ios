@@ -12,21 +12,21 @@
 		47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8F923D5CA7A00FE781F /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		868810BA258FB606001F6545 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
-		868810BB258FB606001F6545 /* AppsFlyerLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		868810BE258FB606001F6545 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
-		868810BF258FB606001F6545 /* Segment.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		86F885D325B086E9008DCAC6 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
+		86F885D425B086E9008DCAC6 /* Segment.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86F885D625B08704008DCAC6 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
+		86F885D725B08704008DCAC6 /* AppsFlyerLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		868810BC258FB606001F6545 /* Embed Frameworks */ = {
+		86F885D525B086EA008DCAC6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				868810BF258FB606001F6545 /* Segment.framework in Embed Frameworks */,
-				868810BB258FB606001F6545 /* AppsFlyerLib.framework in Embed Frameworks */,
+				86F885D425B086E9008DCAC6 /* Segment.framework in Embed Frameworks */,
+				86F885D725B08704008DCAC6 /* AppsFlyerLib.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,8 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				868810BE258FB606001F6545 /* Segment.framework in Frameworks */,
-				868810BA258FB606001F6545 /* AppsFlyerLib.framework in Frameworks */,
+				86F885D325B086E9008DCAC6 /* Segment.framework in Frameworks */,
+				86F885D625B08704008DCAC6 /* AppsFlyerLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 				47A0A8D623D5B13500FE781F /* Sources */,
 				47A0A8D723D5B13500FE781F /* Frameworks */,
 				47A0A8D823D5B13500FE781F /* Resources */,
-				868810BC258FB606001F6545 /* Embed Frameworks */,
+				86F885D525B086EA008DCAC6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
