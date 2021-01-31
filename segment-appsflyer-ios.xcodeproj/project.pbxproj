@@ -12,26 +12,9 @@
 		47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8F923D5CA7A00FE781F /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		86F885D325B086E9008DCAC6 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
-		86F885D425B086E9008DCAC6 /* Segment.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		86F885D625B08704008DCAC6 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
-		86F885D725B08704008DCAC6 /* AppsFlyerLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		86F430F225B4369500BD66B9 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
+		86F430F525B4369600BD66B9 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		86F885D525B086EA008DCAC6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				86F885D425B086E9008DCAC6 /* Segment.framework in Embed Frameworks */,
-				86F885D725B08704008DCAC6 /* AppsFlyerLib.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentAppsFlyeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,8 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86F885D325B086E9008DCAC6 /* Segment.framework in Frameworks */,
-				86F885D625B08704008DCAC6 /* AppsFlyerLib.framework in Frameworks */,
+				86F430F525B4369600BD66B9 /* Segment.framework in Frameworks */,
+				86F430F225B4369500BD66B9 /* AppsFlyerLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +116,6 @@
 				47A0A8D623D5B13500FE781F /* Sources */,
 				47A0A8D723D5B13500FE781F /* Frameworks */,
 				47A0A8D823D5B13500FE781F /* Resources */,
-				86F885D525B086EA008DCAC6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -150,7 +132,7 @@
 		47A0A8D123D5B13500FE781F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Andrii Hahan";
 				TargetAttributes = {
 					47A0A8D923D5B13500FE781F = {
@@ -321,6 +303,8 @@
 		47A0A8E323D5B13500FE781F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
@@ -342,6 +326,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AppsFlyer.segment-appsflyer-ios";
 				PRODUCT_NAME = SegmentAppsFlyeriOS;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -350,6 +336,8 @@
 		47A0A8E423D5B13500FE781F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
@@ -371,6 +359,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AppsFlyer.segment-appsflyer-ios";
 				PRODUCT_NAME = SegmentAppsFlyeriOS;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
