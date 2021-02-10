@@ -1,5 +1,8 @@
 # Release Notes
 
+### 6.1.5
+* Fix: remove debug logs
+
 ### 6.1.2
 * Updated iOS SDK to v6.1.4
 
