@@ -21,7 +21,7 @@
         self.appsflyer = [AppsFlyerLib shared];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
-        self.appsflyer.isDebug = true;
+        //self.appsflyer.isDebug = true;
 
         self.analytics = analytics;
         if ([self logAttributionData]) {
