@@ -72,7 +72,7 @@
         NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
-        self.appsflyer.isDebug = true;
+       // self.appsflyer.isDebug = true;
         
         if ([self logAttributionData]) {
             self.appsflyer.delegate = self;
