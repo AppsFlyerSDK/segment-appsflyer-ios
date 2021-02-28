@@ -6,6 +6,6 @@ target 'SwiftPodsSample' do
   use_frameworks!
 
   # Pods for SwiftPodsSample
-  pod 'segment-appsflyer-ios', '~> 6.2.0'
+  pod 'segment-appsflyer-ios-qa', '~> 6.2.0'
 
 end
