@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.dependency 'Analytics'
-  s.source_files = 'segment-appsflyer-ios/Classes/**/*'
 
   s.default_subspecs = 'Main'
   s.subspec 'Main' do |ss|
@@ -30,10 +29,12 @@ Pod::Spec.new do |s|
   
   s.subspec 'Strict' do |ss|
     ss.ios.dependency 'AppsFlyerFramework/Strict', '~> 6.2.6'
+    ss.tvos.dependency 'AppsFlyerFramework/Strict', '~> 6.2.6'
     ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
-  end
-s.subspec 'MacCatalyst' do |ss|
-    ss.ios.dependency 'AppsFlyerFramework/MacCatalyst', '~> 6.2.6'
-    ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
-  end
+    end
+    s.subspec 'MacCatalyst' do |ss|
+      ss.ios.dependency 'AppsFlyerFramework/MacCatalyst', '~> 6.2.6'
+      ss.tvos.dependency 'AppsFlyerFramework/MacCatalyst', '~> 6.2.6'
+      ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
+    end
 end
