@@ -20,11 +20,8 @@
 #import <Segment/SEGAnalyticsUtils.h>
 #endif
 
-#if __has_include(<AppsFlyerLib/AppsFlyerLib.h>)
 #import <AppsFlyerLib/AppsFlyerLib.h>
-#else
-#import "AppsFlyerLib.h"
-#endif
+
 
 @protocol SEGAppsFlyerLibDelegate <AppsFlyerLibDelegate>
 

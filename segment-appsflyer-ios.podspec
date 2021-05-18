@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
   s.static_framework = true
 
   s.dependency 'Analytics'
+  s.source_files = 'segment-appsflyer-ios/Classes/**/*'
 
   s.default_subspecs = 'Main'
   s.subspec 'Main' do |ss|
