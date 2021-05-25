@@ -32,9 +32,4 @@ Pod::Spec.new do |s|
     ss.tvos.dependency 'AppsFlyerFramework/Strict', '~> 6.3.0'
     ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
     end
-    s.subspec 'MacCatalyst' do |ss|
-      ss.ios.dependency 'AppsFlyerFramework/MacCatalyst', '~> 6.3.0'
-      ss.tvos.dependency 'AppsFlyerFramework/MacCatalyst', '~> 6.3.0'
-      ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
-    end
 end
