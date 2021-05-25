@@ -1,5 +1,8 @@
 # Release Notes
 
+### 6.3.0
+* Updated iOS SDK to v6.3.0
+
 ### 6.2.61
 * Fix podspec
 
