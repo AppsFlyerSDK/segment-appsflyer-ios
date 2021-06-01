@@ -23,7 +23,7 @@ let package = Package(
             name: "segment-appsflyer-ios",
             dependencies: [], 
             path: "segment-appsflyer-ios/", 
-            sources: "Classes"),
+            sources: ["Classes"]),
         .testTarget(
             name: "segment-appsflyer-iosTests",
             dependencies: ["segment-appsflyer-ios"]),
