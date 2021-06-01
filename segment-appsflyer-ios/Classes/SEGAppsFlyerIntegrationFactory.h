@@ -10,7 +10,7 @@
 #if defined(__has_include) && __has_include(<Analytics/SEGIntegrationFactory.h>)
 #import <Analytics/SEGIntegrationFactory.h>
 #else
-#import <Segment/SEGIntegrationFactory.h>
+@import Segment;
 #endif
 #import "SEGAppsFlyerIntegration.h"
 
