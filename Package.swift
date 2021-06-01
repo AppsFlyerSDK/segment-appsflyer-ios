@@ -28,7 +28,8 @@ let package = Package(
                 "Segment",
                 .product(name: "AppsFlyerLib", package: "AppsFlyerLib"),
                 ],
-            path: "segment-appsflyer-ios/Classes"
+            path: "segment-appsflyer-ios/Classes",
+            publicHeadersPath: ""
             )
     ]
 )
