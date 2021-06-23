@@ -35,7 +35,7 @@
 
 ## <a id="breaking-changes"> ❗ Breaking Changes
 
-- From version `6.3.0`, we use `xcframework` for iOS platform, then you need to use cocoapods version >= 1.10
+- From version `6.3.2`, we use `xcframework` for iOS platform, then you need to use cocoapods version >= 1.10
 
 ## <a id="installation">Installation
 
@@ -47,12 +47,12 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.3.0'
+pod 'segment-appsflyer-ios', '6.3.2'
 ```
 
 **Strict mode SDK** version: 
 ```ruby
-pod 'segment-appsflyer-ios/Strict', '6.3.0'
+pod 'segment-appsflyer-ios/Strict', '6.3.2'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
@@ -64,7 +64,7 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 
 **Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.2.4"
+github "AppsFlyerSDK/segment-appsflyer-ios" "6.3.2"
 ```
 
 
