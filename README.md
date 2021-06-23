@@ -70,7 +70,7 @@ github "AppsFlyerSDK/segment-appsflyer-ios" "6.3.2"
   
 ### Swift Package Manager
   
- In XCode, go to **File** > **Swift Package** > **Add Package dependency...** And add add https://github.com/AppsFlyerSDK/segment-appsflyer-ios for the package dependency url. 
+ In XCode, go to **File** > **Swift Package** > **Add Package dependency...** And add https://github.com/AppsFlyerSDK/segment-appsflyer-ios for the package dependency url. 
 
   
   
