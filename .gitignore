@@ -44,3 +44,5 @@ Carthage
 # Pods/
 
 carthage.sh
+
+.build/
