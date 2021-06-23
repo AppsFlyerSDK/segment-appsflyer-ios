@@ -67,7 +67,13 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 github "AppsFlyerSDK/segment-appsflyer-ios" "6.3.2"
 ```
 
+  
+### Swift Package Manager
+  
+ In XCode, go to **File** > **Swift Package** > **Add Package dependency...** And add add https://github.com/AppsFlyerSDK/segment-appsflyer-ios for the package dependency url. 
 
+  
+  
 ## <a id="usage"> Usage
 
 First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (iTunes) and client secret in Segment's **dashboard** for AppsFlyer integration
