@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "segment-appsflyer-ios"
-  s.version          = "6.3.2"
+  s.version          = "6.3.4"
   s.summary          = "AppsFlyer Integration for Segment's analytics-ios library."
 
   s.description      = <<-DESC
@@ -22,14 +22,14 @@ Pod::Spec.new do |s|
 
   s.default_subspecs = 'Main'
   s.subspec 'Main' do |ss|
-    ss.ios.dependency 'AppsFlyerFramework', '~> 6.3.2'
-    ss.tvos.dependency 'AppsFlyerFramework', '~> 6.3.2'
+    ss.ios.dependency 'AppsFlyerFramework', '~> 6.3.4'
+    ss.tvos.dependency 'AppsFlyerFramework', '~> 6.3.4'
     ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
   end
   
   s.subspec 'Strict' do |ss|
-    ss.ios.dependency 'AppsFlyerFramework/Strict', '~> 6.3.2'
-    ss.tvos.dependency 'AppsFlyerFramework/Strict', '~> 6.3.2'
+    ss.ios.dependency 'AppsFlyerFramework/Strict', '~> 6.3.4'
+    ss.tvos.dependency 'AppsFlyerFramework/Strict', '~> 6.3.4'
     ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
     end
 end
