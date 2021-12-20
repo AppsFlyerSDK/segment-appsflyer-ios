@@ -1,5 +1,8 @@
 # Release Notes
 
+### 6.4.4
+* Updated iOS SDK to v6.4.4
+
 ### 6.4.0
 * Updated iOS SDK to v6.4.0
 
