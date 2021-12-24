@@ -135,8 +135,8 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 3. Open `AppDelegate.swift` and add:
 
 ```swift
-import Analytics
-import AppsFlyerLib
+import Segment
+import segment_appsflyer_ios
 ```
 
 4. In `didFinishLaunchingWithOptions` add:
