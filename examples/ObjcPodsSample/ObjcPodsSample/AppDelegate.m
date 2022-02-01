@@ -26,13 +26,7 @@
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
     
-    // Code below is to collect IDFA. Read more here - https://support.appsflyer.com/hc/en-us/articles/360011451918-iOS-SDK-V6-beta-integration-guide-for-developers#integration-34-support-apptrackingtransparency-att
-    if (@available(iOS 14, *)) {
-        [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            //....
-        }];
-    }
+    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
     /*
      Based on your needs you can either pass a delegate to process deferred
      and direct deeplinking callbacks or disregard them.
@@ -51,6 +45,15 @@
     [SEGAnalytics debug:YES];                     //OPTIONAL
     [SEGAnalytics setupWithConfiguration:config];
     return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Code below is to collect IDFA. Read more here - https://support.appsflyer.com/hc/en-us/articles/360011451918-iOS-SDK-V6-beta-integration-guide-for-developers#integration-34-support-apptrackingtransparency-att
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            //....
+        }];
+    }
 }
 
 
