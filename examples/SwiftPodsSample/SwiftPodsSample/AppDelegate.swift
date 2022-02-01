@@ -18,15 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // For AppsFLyer debug logs uncomment the line below
         AppsFlyerLib.shared().isDebug = true
 
-
-//        if #available(iOS 14, *) {
-//            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
-//            ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
-//                // ...
-//            })
-//        }
-
-
         /*
          Based on your needs you can either pass a delegate to process deferred
          and direct deeplinking callbacks or disregard them.
@@ -49,6 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Analytics.debug(true)
         Analytics.setup(with: config)
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        if #available(iOS 14, *) {
+            AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
+                // ...
+            })
+        }
     }
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
