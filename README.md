@@ -92,14 +92,8 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
-
-    // Getting user consent dialog. Please read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
-    if (@available(iOS 14, *)) {
-        [[AppsFlyerLib shared] waitForAdvertisingIdentifierWithTimeoutInterval:60];
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            //....
-        }];
-    }
+    
+    [[AppsFlyerLib shared] waitForAdvertisingIdentifierWithTimeoutInterval:60];
     /*
      Based on your needs you can either pass a delegate to process deferred
      and direct deeplinking callbacks or disregard them.
@@ -120,6 +114,17 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
     [SEGAnalytics setupWithConfiguration:config];
 ```
 
+In `AppDelegate.m` ➜ `applicationDidBecomeActive`:
+```objective-c
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Getting user consent dialog. Please read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            //....
+        }];
+    }
+}
+```
 ### <a id="usage-swift"> Usage - Swift
 
 1. Open/Create `<Your-App-name>-Bridging-Header.h`  and add:
@@ -140,17 +145,10 @@ import AppsFlyerLib
 ```
 
 4. In `didFinishLaunchingWithOptions` add:
-``` 
+```swift 
     // For AppsFLyer debug logs uncomment the line below
     // AppsFlyerLib.shared().isDebug = true
-
-    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
-    if #available(iOS 14, *) {
-        AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
-        ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
-            // ...
-        })
-    }
+    AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
 
     /*
      Based on your needs you can either pass a delegate to process deferred
@@ -174,6 +172,17 @@ import AppsFlyerLib
     Analytics.setup(with: config)
 ```
 
+In `applicationDidBecomeActive` add:
+```swift
+func applicationDidBecomeActive(_ application: UIApplication) {
+    // If you want to collect IDFA, please add the code below and read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
+    if #available(iOS 14, *) {
+        ATTrackingManager.requestTrackingAuthorization(completionHandler: { (status) in
+            // ...
+        })
+    }
+}
+```
 AppsFlyer integration responds to ```identify``` call.  To read more about it, visit [Segment identify method documentation](https://segment.com/docs/libraries/ios/#identify).
 In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currencyCode```
 
