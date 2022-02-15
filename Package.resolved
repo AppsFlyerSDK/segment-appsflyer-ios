@@ -9,15 +9,6 @@
           "revision": "187faa897c826fe0954124da116db3318242f7c3",
           "version": "4.1.4"
         }
-      },
-      {
-        "package": "AppsFlyerLib",
-        "repositoryURL": "https://github.com/AppsFlyerSDK/AppsFlyerFramework.git",
-        "state": {
-          "branch": null,
-          "revision": "6a15b1455357725e11d086bea8b2cd4ec9d0dcef",
-          "version": "6.5.2"
-        }
       }
     ]
   },
