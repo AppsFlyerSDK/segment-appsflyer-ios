@@ -93,7 +93,7 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
     
-    [[AppsFlyerLib shared] waitForAdvertisingIdentifierWithTimeoutInterval:60];
+    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
     /*
      Based on your needs you can either pass a delegate to process deferred
      and direct deeplinking callbacks or disregard them.
@@ -117,7 +117,7 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 In `AppDelegate.m` ➜ `applicationDidBecomeActive`:
 ```objective-c
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Getting user consent dialog. Please read https://support.appsflyer.com//hc/en-us/articles/207032066#integration-35-support-apptrackingtransparency-att
+    // Getting user consent dialog. Please read https://dev.appsflyer.com/hc/docs/integrate-ios-sdk#enabling-app-tracking-transparency-att-support
     if (@available(iOS 14, *)) {
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
             //....
@@ -148,7 +148,7 @@ import AppsFlyerLib
 ```swift 
     // For AppsFLyer debug logs uncomment the line below
     // AppsFlyerLib.shared().isDebug = true
-    AppsFlyerLib.shared().waitForAdvertisingIdentifier(withTimeoutInterval: 60)
+    AppsFlyerLib.shared().waitForATTUserAuthorization(withTimeoutInterval: 60)
 
     /*
      Based on your needs you can either pass a delegate to process deferred
