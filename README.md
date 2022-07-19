@@ -2,7 +2,7 @@
 
 # AppsFlyer integration for Segment.
 
-## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.5.2. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.8.0. 
 
 [![Version](https://img.shields.io/cocoapods/v/segment-appsflyer-ios.svg?style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -28,6 +28,7 @@
   - [Swift](#gcd-swift)
 - [Unified Deep linking](#DDL)
     - [Swift](#ddl-swift)
+- [Manual mode](#manual)
 - [Install Attributed event](#install_attributed)
 - [Additional AppsFlyer SDK setup](#additional_setup)
 - [Examples](#examples) 
@@ -47,12 +48,12 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.5.2'
+pod 'segment-appsflyer-ios', '6.8.0'
 ```
 
 **Strict mode SDK** version: 
 ```ruby
-pod 'segment-appsflyer-ios/Strict', '6.5.2'
+pod 'segment-appsflyer-ios/Strict', '6.8.0'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
@@ -64,7 +65,7 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 
 **Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.5.2"
+github "AppsFlyerSDK/segment-appsflyer-ios" "6.8.0"
 ```
 
   
@@ -101,6 +102,11 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
      */
     SEGAppsFlyerIntegrationFactory* factoryNoDelegate = [SEGAppsFlyerIntegrationFactory instance];
 //    SEGAppsFlyerIntegrationFactory* factoryWithDelegate = [SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self];
+
+// To use the manual mode, use the following method
+//    SEGAppsFlyerIntegrationFactory* factoryNoDelegate = [SEGAppsFlyerIntegrationFactory createWithManualMode:YES];
+//    SEGAppsFlyerIntegrationFactory* factoryWithDelegate = [SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self andManualMode:YES];
+
     
     SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"WYsuyFINOKZuQyQAGn5JQoCgIdhOI146"];
     [config use:factoryNoDelegate];
@@ -157,6 +163,12 @@ import AppsFlyerLib
      */
 //    let factoryWithDelegate : SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self)
     let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
+    
+    /* If you want to use the manual mode, please use the following methods
+      with or without delegate */
+     //  let factoryWithDelegate : SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andManualMode:true)
+   // let factoryNoDelegate = SEGAppsFlyerIntegrationFactory.create(withManualMode: true)
+    
     
     // Segment initialization
     let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
@@ -332,6 +344,10 @@ extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
 }
 
 ```
+
+## <a id="manual"> Manual mode
+Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
+
 
 ## <a id="install_attributed"> Install Attributed event
 

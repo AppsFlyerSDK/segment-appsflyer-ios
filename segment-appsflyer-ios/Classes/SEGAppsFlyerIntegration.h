@@ -34,6 +34,7 @@
 @property (nonatomic, strong) SEGAnalytics *analytics;
 @property (weak, nonatomic) id<SEGAppsFlyerLibDelegate> segDelegate;
 @property (weak, nonatomic) id<AppsFlyerDeepLinkDelegate> segDLDelegate;
+@property BOOL manualMode;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *) analytics;
@@ -45,7 +46,8 @@
 - (instancetype)initWithSettings:(NSDictionary *)settings
                    withAnalytics:(SEGAnalytics *)analytics
                 andDelegate:(id<AppsFlyerLibDelegate>) delegate
-             andDeepLinkDelegate:(id<AppsFlyerDeepLinkDelegate>) DLDelegate;
+             andDeepLinkDelegate:(id<AppsFlyerDeepLinkDelegate>) DLDelegate
+                   andManualMode:(BOOL)manualMode;
 
 
 
