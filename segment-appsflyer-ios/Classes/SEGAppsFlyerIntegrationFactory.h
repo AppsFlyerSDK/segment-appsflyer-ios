@@ -17,9 +17,11 @@
 @interface SEGAppsFlyerIntegrationFactory : NSObject <SEGIntegrationFactory>
 
 + (instancetype)instance;
+
 + (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate;
 
 + (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate andDeepLinkDelegate:(id<SEGAppsFlyerDeepLinkDelegate>) DLdelegate;
+
 + (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate
     andManualMode:(BOOL)mode;
 
