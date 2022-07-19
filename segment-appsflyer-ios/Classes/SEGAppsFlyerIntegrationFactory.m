@@ -58,6 +58,11 @@
     return [[self alloc] initWithLaunchDelegate:delegate andDLDelegate:DLdelegate andManualMode:mode];
 }
 
++ (instancetype)createWithManualMode:(BOOL) mode
+{
+    return [[self alloc] initWithLaunchDelegate:nil andDLDelegate: nil andManualMode:mode];
+}
+
 - (id<SEGIntegration>)createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics
 {
     return [[SEGAppsFlyerIntegration alloc] initWithSettings:settings withAnalytics:analytics

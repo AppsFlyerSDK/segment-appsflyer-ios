@@ -26,8 +26,11 @@
 + (instancetype)createWithLaunchDelegate:(id<SEGAppsFlyerLibDelegate>) delegate andDeepLinkDelegate:(id<SEGAppsFlyerDeepLinkDelegate>) DLdelegate
     andManualMode:(BOOL)mode;
 
++ (instancetype)createWithManualMode:(BOOL) mode;
+
 
 @property (weak, nonatomic) id<SEGAppsFlyerLibDelegate> delegate;
 @property (weak, nonatomic) id<SEGAppsFlyerDeepLinkDelegate> DLDelegate;
-@property BOOL manualMode;
+@property(nonatomic) BOOL manualMode;
+
 @end
