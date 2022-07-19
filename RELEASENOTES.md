@@ -1,5 +1,9 @@
 # Release Notes
 
+### 6.8.0
+* Updated iOS SDK to v6.8.0
+* Add manual mode to start the AppsFlyer SDK
+
 ### 6.5.2
 * Updated iOS SDK to v6.5.2
 
