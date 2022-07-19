@@ -22,14 +22,14 @@ Pod::Spec.new do |s|
 
   s.default_subspecs = 'Main'
   s.subspec 'Main' do |ss|
-    ss.ios.dependency 'AppsFlyerFramework','~> 6.5.2'
-    ss.tvos.dependency 'AppsFlyerFramework', '~> 6.5.2'
+    ss.ios.dependency 'AppsFlyerFramework','~> 6.8.0'
+    ss.tvos.dependency 'AppsFlyerFramework', '~> 6.8.0'
     ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
   end
   
   s.subspec 'Strict' do |ss|
-    ss.ios.dependency 'AppsFlyerFramework/Strict', '~> 6.5.2'
-    ss.tvos.dependency 'AppsFlyerFramework/Strict', '~> 6.5.2'
+    ss.ios.dependency 'AppsFlyerFramework/Strict', '~> 6.8.0'
+    ss.tvos.dependency 'AppsFlyerFramework/Strict', '~> 6.8.0'
     ss.source_files = 'segment-appsflyer-ios/Classes/**/*'
     end
 end 
