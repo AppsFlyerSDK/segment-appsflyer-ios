@@ -56,9 +56,11 @@
                    withAnalytics:(SEGAnalytics *)analytics
                      andDelegate:(id<SEGAppsFlyerLibDelegate>) delegate
                     andDeepLinkDelegate:(id<AppsFlyerDeepLinkDelegate>)DLDelegate
+                    andManualMode:(BOOL)manualMode
 {
     self.segDelegate = delegate;
     self.segDLDelegate = DLDelegate;
+    self.manualMode = manualMode;
     return [self initWithSettings:settings withAnalytics:analytics];
 }
 
@@ -88,7 +90,9 @@
 
 
 -(void) applicationDidBecomeActive {
-    [self start];
+    if (!self.manualMode) {
+        [self start];
+    }
 }
 
 
