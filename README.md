@@ -20,6 +20,7 @@
 
 - [Breaking changes](#breaking-changes)
 - [Installation](#installation)
+- [Manual mode](#manual)
 - [Usage](#usage) 
   - [Objective-C](#usage-obj-c)
   - [Swift](#usage-swift)
@@ -28,7 +29,6 @@
   - [Swift](#gcd-swift)
 - [Unified Deep linking](#DDL)
     - [Swift](#ddl-swift)
-- [Manual mode](#manual)
 - [Install Attributed event](#install_attributed)
 - [Additional AppsFlyer SDK setup](#additional_setup)
 - [Examples](#examples) 
@@ -73,7 +73,19 @@ github "AppsFlyerSDK/segment-appsflyer-ios" "6.8.0"
   
  In XCode, go to **File** > **Swift Package** > **Add Package dependency...** And add https://github.com/AppsFlyerSDK/segment-appsflyer-ios for the package dependency url. 
 
-  
+## <a id="manual"> Manual mode
+By default, when using the appsflyer-segment wrapper, AppsFlyer SDK starts automatically when initializing Segment with AppsFlyer factory. In order to give the developer more freedom, we added a manual mode in version `6.8.0`. When using this manual mode, the developer is responsible to start AppsFlyer SDK. To use the manual mode, you need to create the SEGAppsFlyerIntegrationFactory with a manual mode. 
+### Example:
+```objective-c
+  [SEGAppsFlyerIntegrationFactory createWithManualMode:YES];
+``` 
+Please look at the examples below to see how to use the manual mode with delegate. \
+To start the AppsFlyer SDK, use the `start()` API, like the following :
+```objective-c
+ [[AppsFlyerLib shared] start];
+``` 
+
+Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
   
 ## <a id="usage"> Usage
 
@@ -344,9 +356,6 @@ extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
 }
 
 ```
-
-## <a id="manual"> Manual mode
-Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
 
 
 ## <a id="install_attributed"> Install Attributed event
