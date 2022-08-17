@@ -2,7 +2,7 @@
 
 # AppsFlyer integration for Segment.
 
-## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.8.0. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.8.1. 
 
 [![Version](https://img.shields.io/cocoapods/v/segment-appsflyer-ios.svg?style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -48,12 +48,12 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.8.0'
+pod 'segment-appsflyer-ios', '6.8.1'
 ```
 
 **Strict mode SDK** version: 
 ```ruby
-pod 'segment-appsflyer-ios/Strict', '6.8.0'
+pod 'segment-appsflyer-ios/Strict', '6.8.1'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
@@ -65,7 +65,7 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 
 **Production** version: 
 ```ogdl
-github "AppsFlyerSDK/segment-appsflyer-ios" "6.8.0"
+github "AppsFlyerSDK/segment-appsflyer-ios" "6.8.1"
 ```
 
   
@@ -74,7 +74,7 @@ github "AppsFlyerSDK/segment-appsflyer-ios" "6.8.0"
  In XCode, go to **File** > **Swift Package** > **Add Package dependency...** And add https://github.com/AppsFlyerSDK/segment-appsflyer-ios for the package dependency url. 
 
 ## <a id="manual"> Manual mode
-By default, when using the appsflyer-segment wrapper, AppsFlyer SDK starts automatically when initializing Segment with AppsFlyer factory. In order to give the developer more freedom, we added a manual mode in version `6.8.0`. When using this manual mode, the developer is responsible to start AppsFlyer SDK. To use the manual mode, you need to create the SEGAppsFlyerIntegrationFactory with a manual mode. 
+Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
 ### Example:
 ```objective-c
   [SEGAppsFlyerIntegrationFactory createWithManualMode:YES];
@@ -84,8 +84,6 @@ To start the AppsFlyer SDK, use the `start()` API, like the following :
 ```objective-c
  [[AppsFlyerLib shared] start];
 ``` 
-
-Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
   
 ## <a id="usage"> Usage
 
