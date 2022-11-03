@@ -93,7 +93,7 @@ First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (iTune
 
 Open `AppDelegate.h` and add:
 
-```
+```objective-c
 #import "SEGAppsFlyerIntegrationFactory.h"
 ```
 
@@ -220,7 +220,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   In order to get Conversion Data you need to:
   
   1. Add `SEGAppsFlyerLibDelegate` protocol to your AppDelegate.h (or other) class
-```
+```objective-c
 #import <UIKit/UIKit.h>
 #import "SEGAppsFlyerIntegrationFactory.h"
 
@@ -229,7 +229,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. Change line `[config use:[SEGAppsFlyerIntegrationFactory instance]];` to `[config use:[SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self]];`
   3. In the class passed to the method above (AppDelegate.m by default) implement methods of the `SEGAppsFlyerLibDelegate` protocol. See sample code below:
   
-```
+```objective-c
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -291,7 +291,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. If you use sample code from above, change line `config.use(factoryNoDelegate)` to `config.use(factoryWithDelegate)`
   3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
   
-  ```
+  ```swift
   class AppDelegate: UIResponder, UIApplicationDelegate, SEGAppsFlyerLibDelegate {
     
     var window: UIWindow?
@@ -340,13 +340,13 @@ In order to use Unified Deep linking you need to:
   
   1. Add `SEGAppsFlyerDeepLinkDelegate` protocol to your AppDelegate (or other) class
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. From the sample code above, change  factoryWithDelegate to :
-  ```
+  ```swift
   let factoryWithDelegate: SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andDeepLinkDelegate: self)
   ```
 
   3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
   
-```
+```swift
 extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
     func didResolveDeepLink(_ result: DeepLinkResult) {
         print(result)
@@ -359,7 +359,7 @@ extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
 ## <a id="install_attributed"> Install Attributed event
 
 If you are working with networks that don't allow passing user level data to 3rd parties, you will need to apply code to filter out these networks before calling
-```
+```objective-c
 // [self.analytics track:@"Install Attributed" properties:[properties copy]];
 ```
 
