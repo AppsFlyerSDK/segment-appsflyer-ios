@@ -17,6 +17,7 @@
 - (void)onConversionDataSuccess:(nonnull NSDictionary *)conversionInfo;
 - (instancetype)initWithSettings:(NSDictionary *)settings withAppsflyer:(AppsFlyerLib *)aAppsflyer;
 +(NSString *) validateNil: (NSString *) value;
+- (AppsFlyerLib *)appsflyerLib;
 @end
 
 @interface AppsFlyerLib()
@@ -72,7 +73,11 @@
     NSDictionary * dictionaryInput = @{@"appleAppID" : @"appID",
                                        @"trackAttributionData" : @"123",
     };
-    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:dictionaryInput withAnalytics:nil];
+    AppsFlyerLib * appsFlyerObject = [AppsFlyerLib new];
+    SEGAppsFlyerIntegration * SEGAppsFlyerIntegrationObject = [SEGAppsFlyerIntegration new];
+    id SEGAppsFlyerIntegrationMock = OCMPartialMock(SEGAppsFlyerIntegrationObject);
+    OCMStub([SEGAppsFlyerIntegrationMock appsflyerLib]).andReturn(appsFlyerObject);
+    SEGAppsFlyerIntegration * integrationObject = [SEGAppsFlyerIntegrationMock initWithSettings:dictionaryInput withAnalytics:nil];
     AppsFlyerLib *appsflyerObject = [integrationObject appsflyer];
     XCTAssertNotNil(appsflyerObject);
     XCTAssertTrue([[appsflyerObject appsFlyerDevKey] isEqual:@""]);
@@ -82,7 +87,12 @@
     NSDictionary * dictionaryInput = @{@"appsFlyerDevKey" : @"devKey",
                                        @"trackAttributionData" : @"123",
     };
-    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:dictionaryInput withAnalytics:nil];
+    AppsFlyerLib * appsFlyerObject = [AppsFlyerLib new];
+    SEGAppsFlyerIntegration * SEGAppsFlyerIntegrationObject = [SEGAppsFlyerIntegration new];
+    id SEGAppsFlyerIntegrationMock = OCMPartialMock(SEGAppsFlyerIntegrationObject);
+    OCMStub([SEGAppsFlyerIntegrationMock appsflyerLib]).andReturn(appsFlyerObject);
+    
+    SEGAppsFlyerIntegration *integrationObject = [SEGAppsFlyerIntegrationMock initWithSettings:dictionaryInput withAnalytics:nil];
     AppsFlyerLib *appsflyerObject = [integrationObject appsflyer];
     XCTAssertNotNil(appsflyerObject);
     XCTAssertTrue([[appsflyerObject appleAppID] isEqual:@""]);
@@ -92,7 +102,12 @@
     NSDictionary * dictionaryInput = @{@"appsFlyerDevKey" : @"devKey",
                                        @"appleAppID" : @"appID"
     };
-    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:dictionaryInput withAnalytics:nil];
+    AppsFlyerLib * appsFlyerObject = [AppsFlyerLib new];
+    SEGAppsFlyerIntegration * SEGAppsFlyerIntegrationObject = [SEGAppsFlyerIntegration new];
+    id SEGAppsFlyerIntegrationMock = OCMPartialMock(SEGAppsFlyerIntegrationObject);
+    OCMStub([SEGAppsFlyerIntegrationMock appsflyerLib]).andReturn(appsFlyerObject);
+    
+    SEGAppsFlyerIntegration *integrationObject = [SEGAppsFlyerIntegrationMock initWithSettings:dictionaryInput withAnalytics:nil];
     AppsFlyerLib *appsflyerObject = [integrationObject appsflyer];
     XCTAssertNotNil(appsflyerObject);
     XCTAssertNil([appsflyerObject delegate]);
@@ -198,7 +213,11 @@
                                        @"appleAppID" : @"appID",
                                        @"trackAttributionData" : @"123",
     };
-    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:settings withAnalytics:nil];
+    AppsFlyerLib * appsFlyerObject = [AppsFlyerLib new];
+    SEGAppsFlyerIntegration * SEGAppsFlyerIntegrationObject = [SEGAppsFlyerIntegration new];
+    id SEGAppsFlyerIntegrationMock = OCMPartialMock(SEGAppsFlyerIntegrationObject);
+    OCMStub([SEGAppsFlyerIntegrationMock appsflyerLib]).andReturn(appsFlyerObject);
+    SEGAppsFlyerIntegration *integrationObject = [SEGAppsFlyerIntegrationMock initWithSettings:settings withAnalytics:nil];
     NSMutableDictionary * traits = nil;
     SEGIdentifyPayload * payload = [[SEGIdentifyPayload alloc] initWithUserId:nil anonymousId:nil traits:traits context:nil integrations:nil];
     [integrationObject identify:payload];
@@ -230,6 +249,7 @@
     NSMutableDictionary * dictionary = @{@"revenue" : @"10.1", @"currency" : @"ILS"};
     SEGTrackPayload * payload = [[SEGTrackPayload alloc] initWithEvent:@"testEvent" properties: dictionary context:@{} integrations:@{}];
     [integrationObject track:payload];
+    [appsFlyerMock stopMocking];
 }
 
 -(void)testSEGAppsFlyerIntegration_track_nilFlow{
@@ -245,6 +265,7 @@
     [integrationObject setAppsflyer: appsFlyerMock];
     SEGTrackPayload * payload = [[SEGTrackPayload alloc] initWithEvent:nil properties: nil context:@{} integrations:@{}];
     [integrationObject track:payload];
+    [appsFlyerMock stopMocking];
 }
 
 -(void)testSEGAppsFlyerIntegration_track_negativeFlow_numberAsKeyWhenWhileLogEventExpectsString{
@@ -262,6 +283,7 @@
     NSMutableDictionary * dictionary = @{@(10):@(11)};
     SEGTrackPayload * payload = [[SEGTrackPayload alloc] initWithEvent:nil properties: dictionary context:@{} integrations:@{}];
     [integrationObject track:payload];
+    [appsFlyerMock stopMocking];
 }
 
 //
@@ -369,12 +391,135 @@
 //
 // onConversionDataSuccess
 //
-//- (void)testSEGAppsFlyerIntegration_onConversionDataSuccess_happyflow{
-//    [[NSUserDefaults standardUserDefaults] setPersistentDomain:[NSDictionary dictionary] forName:[[NSBundle mainBundle] bundleIdentifier]];
-//    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:self];
-//    [[integrationObject segDelegate] ]
-//    [integrationObject onConversionDataSuccess:@{}];
-//}
+- (void)onConversionDataSuccess:(NSDictionary *)conversionInfo{
+    
+}
+
+- (void)testSEGAppsFlyerIntegration_onConversionDataSuccess_happyflow{
+    NSDictionary * dictionaryInputToAnalytics = @{@"campaign":@{@"ad_group":@"appsflyer",
+                                                               @"name":@"gateno",
+                                                               @"source":@"moris"},
+                                                 @"provider":@"AppsFlyer"
+    };
+    NSDictionary * dictionaryInputAsParmeter = @{@"media_source":@"moris",
+                                       @"campaign":@"gateno",
+                                       @"adgroup":@"appsflyer"
+    };
+    id SEGAnalyticsMock = OCMClassMock([SEGAnalytics class]);
+    id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
+    OCMStub([SEGAppsFlyerIntegrationTestsMock onConversionDataSuccess:[OCMArg checkWithBlock:^BOOL(id obj) {
+        XCTAssertTrue([dictionaryInputAsParmeter isEqualToDictionary:obj]);
+        return YES;
+    }]]);
+    OCMStub([SEGAnalyticsMock track:[OCMArg checkWithBlock:^BOOL(id obj) {
+        XCTAssertTrue([obj isEqual:@"Install Attributed"]);
+        return YES;
+    }] properties:[OCMArg checkWithBlock:^BOOL(id obj) {
+        XCTAssertTrue([obj isEqualToDictionary:dictionaryInputToAnalytics]);
+        return YES;
+    }]]);
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:NO forKey:@"AF_Install_Attr_Sent"];
+    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:SEGAnalyticsMock andDelegate:SEGAppsFlyerIntegrationTestsMock];
+
+    [integrationObject onConversionDataSuccess:dictionaryInputAsParmeter];
+    XCTAssertTrue([userDefaults boolForKey:@"AF_Install_Attr_Sent"]);
+    
+    [SEGAnalyticsMock stopMocking];
+    [SEGAppsFlyerIntegrationTestsMock stopMocking];
+}
+
+- (void)testSEGAppsFlyerIntegration_onConversionDataSuccess_negativeflow{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    SEGAnalytics * SEGAnalyticsObject = [SEGAnalytics new];
+    id SEGAnalyticsMock = OCMPartialMock(SEGAnalyticsObject);
+    id SEGAppsFlyerIntegrationMock = OCMPartialMock(self);
+    OCMReject([SEGAppsFlyerIntegrationMock onConversionDataSuccess:[OCMArg any]]);
+    OCMReject([SEGAnalyticsMock track:[OCMArg any] properties:[OCMArg any]]);
+    [userDefaults setBool:YES forKey:@"AF_Install_Attr_Sent"];
+    
+    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:SEGAnalyticsMock andDelegate:SEGAppsFlyerIntegrationMock];
+    
+    [integrationObject onConversionDataSuccess:@{}];
+    
+    [SEGAnalyticsMock verify];
+    [SEGAppsFlyerIntegrationMock verify];
+    [SEGAnalyticsMock stopMocking];
+    [SEGAppsFlyerIntegrationMock stopMocking];
+}
+
+//
+// onConversionDataFail
+//
+- (void)onConversionDataFail:(NSError *)error{
+    
+}
+- (void)testSEGAppsFlyerIntegration_onConversionDataFail_happyflow{
+    NSError * error = [NSError new];
+    id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
+    OCMStub([SEGAppsFlyerIntegrationTestsMock onConversionDataFail:[OCMArg checkWithBlock:^BOOL(id obj) {
+        XCTAssertTrue([obj isEqual:error]);
+    }]]);
+    
+    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];
+    [integrationObject onConversionDataFail:error];
+    [SEGAppsFlyerIntegrationTestsMock stopMocking];
+}
+
+//
+// onConversionDataFail
+//
+- (void)onAppOpenAttribution:(NSDictionary *)attributionData{
+    
+}
+- (void)testSEGAppsFlyerIntegration_onAppOpenAttribution_happyflow{
+    NSDictionary * attributionData = @{@"key":@"value"};
+    id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
+    OCMStub([SEGAppsFlyerIntegrationTestsMock onAppOpenAttribution:[OCMArg checkWithBlock:^BOOL(id obj) {
+        XCTAssertTrue([obj isEqualToDictionary:attributionData]);
+    }]]);
+    
+    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];
+    [integrationObject onAppOpenAttribution:attributionData];
+    [SEGAppsFlyerIntegrationTestsMock stopMocking];
+}
+
+//
+// onConversionDataFail
+//
+- (void)onAppOpenAttributionFailure:(NSError *)error{
+    
+}
+- (void)testSEGAppsFlyerIntegration_onAppOpenAttributionFailure_happyflow{
+    NSError * error = [NSError new];
+    id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
+    OCMStub([SEGAppsFlyerIntegrationTestsMock onAppOpenAttribution:[OCMArg checkWithBlock:^BOOL(id obj) {
+        XCTAssertTrue([obj isEqual:error]);
+    }]]);
+    
+    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];
+    [integrationObject onAppOpenAttribution:error];
+    [SEGAppsFlyerIntegrationTestsMock stopMocking];
+}
+
+//
+// onConversionDataFail
+//
+- (void)didResolveDeepLink:(AppsFlyerDeepLinkResult *_Nonnull)result{
+    
+}
+- (void)testSEGAppsFlyerIntegration_didResolveDeepLink_happyflow{
+    AppsFlyerDeepLinkResult * result = [AppsFlyerDeepLinkResult alloc];
+    id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
+    OCMStub([SEGAppsFlyerIntegrationTestsMock onAppOpenAttribution:[OCMArg checkWithBlock:^BOOL(id obj) {
+        XCTAssertTrue([obj isEqual:result]);
+    }]]);
+    
+    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];
+    [integrationObject onAppOpenAttribution:result];
+    [SEGAppsFlyerIntegrationTestsMock stopMocking];
+}
 
 
 - (void)testPerformanceExample {
