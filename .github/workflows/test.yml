@@ -13,7 +13,6 @@ jobs:
       with:
          xcode-version: latest-stable
     - name: CocoaPod Install
-      run: cd testing-actions-moris-framework2
-           pod install
+      run: pod install
     - name: Test
       run: xcodebuild test -scheme segment-appsflyer-ios -workspace segment-appsflyer-ios.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 13' | xcpretty && exit ${PIPESTATUS[0]}
