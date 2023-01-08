@@ -17,7 +17,7 @@
 		86F430F225B4369500BD66B9 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
 		86F430F525B4369600BD66B9 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
 		A5201335295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */; };
-		A52E9C84295B0478004EC3DF /* SegmentAppsFlyeriOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E9C83295B0478004EC3DF /* SegmentAppsFlyeriOSTests.swift */; };
+		A52E9C84295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */; };
 		A52E9C85295B0478004EC3DF /* SegmentAppsFlyeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +52,7 @@
 		A5201333295B1A5B00B87090 /* SegmentAppsFlyeriOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SegmentAppsFlyeriOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationTests.m; sourceTree = "<group>"; };
 		A52E9C81295B0478004EC3DF /* SegmentAppsFlyeriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegmentAppsFlyeriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A52E9C83295B0478004EC3DF /* SegmentAppsFlyeriOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentAppsFlyeriOSTests.swift; sourceTree = "<group>"; };
+		A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEGAppsFlyerIntegrationFactoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,7 @@
 		A52E9C82295B0478004EC3DF /* SegmentAppsFlyeriOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				A52E9C83295B0478004EC3DF /* SegmentAppsFlyeriOSTests.swift */,
+				A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */,
 				A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */,
 				A5201333295B1A5B00B87090 /* SegmentAppsFlyeriOSTests-Bridging-Header.h */,
 			);
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A52E9C84295B0478004EC3DF /* SegmentAppsFlyeriOSTests.swift in Sources */,
+				A52E9C84295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift in Sources */,
 				A5201335295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
