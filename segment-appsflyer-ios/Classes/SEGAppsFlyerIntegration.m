@@ -18,7 +18,7 @@
         NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
         NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
         
-        self.appsflyer = [AppsFlyerLib shared];
+        self.appsflyer = [self appsflyerLib];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
         //self.appsflyer.isDebug = true;
@@ -41,6 +41,11 @@
         });
     }
     return self;
+}
+
+// Added for testabillity
+- (AppsFlyerLib *)appsflyerLib {
+    return [AppsFlyerLib shared];
 }
 
 
