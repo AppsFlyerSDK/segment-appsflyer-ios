@@ -35,7 +35,7 @@
 //    SEGAppsFlyerIntegrationFactory* factoryNoDelegate = [SEGAppsFlyerIntegrationFactory instance];
     SEGAppsFlyerIntegrationFactory* factoryWithDelegate = [SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self];
     
-    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"WYsuyFINOKZuQyQAGn5JQoCgIdhOI146"];
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
 //    [config use:factoryNoDelegate];
     [config use:factoryWithDelegate];  // use this if you want to get conversion data in the app. Read more in the integration guide
     config.enableAdvertisingTracking = YES;       //OPTIONAL
