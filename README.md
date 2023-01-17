@@ -118,14 +118,13 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 //    SEGAppsFlyerIntegrationFactory* factoryWithDelegate = [SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self andManualMode:YES];
 
     
-    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"WYsuyFINOKZuQyQAGn5JQoCgIdhOI146"];
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
     [config use:factoryNoDelegate];
 //    [config use:factoryWithDelegate];  // use this if you want to get conversion data in the app. Read more in the integration guide
     config.enableAdvertisingTracking = YES;       //OPTIONAL
     config.trackApplicationLifecycleEvents = YES; //OPTIONAL
     config.trackDeepLinks = YES;                  //OPTIONAL
     config.trackPushNotifications = YES;          //OPTIONAL
-    config.trackAttributionData = YES;            //OPTIONAL
     [SEGAnalytics debug:YES];                     //OPTIONAL
     [SEGAnalytics setupWithConfiguration:config];
 ```
@@ -158,6 +157,7 @@ In `AppDelegate.m` ➜ `applicationDidBecomeActive`:
 ```swift
 import Segment
 import AppsFlyerLib
+import segment_appsflyer_ios
 ```
 
 4. In `didFinishLaunchingWithOptions` add:
@@ -188,7 +188,6 @@ import AppsFlyerLib
     config.trackApplicationLifecycleEvents = true //OPTIONAL
     config.trackDeepLinks = true                  //OPTIONAL
     config.trackPushNotifications = true          //OPTIONAL
-    config.trackAttributionData = true            //OPTIONAL
     
     Analytics.debug(false)
     Analytics.setup(with: config)
