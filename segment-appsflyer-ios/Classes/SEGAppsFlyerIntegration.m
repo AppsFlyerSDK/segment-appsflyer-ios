@@ -15,9 +15,7 @@
 - (instancetype)initWithSettings:(NSDictionary *)settings withAnalytics:(SEGAnalytics *)analytics {
     if (self = [super init]) {
         self.settings = settings;
-        if((!self.settings) || [self.settings isEqual:[NSNull null]]){
-            self.settings = @{}.mutableCopy;
-        }
+        
         NSString *afDevKey;
         id valueForKey_appsFlyerDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
         if(valueForKey_appsFlyerDevKey){
