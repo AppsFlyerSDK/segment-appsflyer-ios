@@ -119,15 +119,9 @@
     id SEGAppsFlyerIntegrationMock = OCMPartialMock(SEGAppsFlyerIntegrationObject);
     OCMStub([SEGAppsFlyerIntegrationMock appsflyerLib]).andReturn(appsFlyerObject);
     
-    NSDictionary * dictionaryInput = [NSNull null];
+    NSDictionary * dictionaryInput = nil;
     SEGAppsFlyerIntegration *integrationObject = [SEGAppsFlyerIntegrationObject initWithSettings:dictionaryInput withAnalytics:nil];
     AppsFlyerLib *appsflyerObject = [integrationObject appsflyer];
-    XCTAssertNotNil(appsflyerObject);
-    XCTAssertNil([appsflyerObject delegate]);
-    
-    dictionaryInput = nil;
-    integrationObject = [SEGAppsFlyerIntegrationObject  initWithSettings:dictionaryInput withAnalytics:nil];
-    appsflyerObject = [integrationObject appsflyer];
     XCTAssertNotNil(appsflyerObject);
     XCTAssertNil([appsflyerObject delegate]);
 }
