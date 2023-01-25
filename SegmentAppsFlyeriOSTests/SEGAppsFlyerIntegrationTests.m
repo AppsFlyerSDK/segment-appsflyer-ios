@@ -113,18 +113,37 @@
     XCTAssertNil([appsflyerObject delegate]);
 }
 
-//this test doesn't go through because [self.appsflyer setAppsFlyerDevKey:afDevKey];
-//does not accept number value. - need to check in this function the type of devkey and apple id before setting them.
-//- (void)testSEGAppsFlyerIntegration_initWithSettings_negativeFlow_devKeyIsANumber{
-//    NSDictionary * dictionaryInput = @{@"appsFlyerDevKey" : @(123),
-//                                       @"appleAppID" : @"appID",
-//                                       @"trackAttributionData" : @"123"
-//    };
-//    SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:dictionaryInput withAnalytics:nil];
-//    AppsFlyerLib *appsflyerObject = [integrationObject appsflyer];
-//    XCTAssertNotNil(appsflyerObject);
-//    XCTAssertNil([appsflyerObject delegate]);
-//}
+-(void)testSEGAppsFlyerIntegration_initWithSettings_nilFlow_nilSettings{
+    AppsFlyerLib * appsFlyerObject = OCMClassMock([AppsFlyerLib class]);
+    SEGAppsFlyerIntegration * SEGAppsFlyerIntegrationObject = [SEGAppsFlyerIntegration new];
+    id SEGAppsFlyerIntegrationMock = OCMPartialMock(SEGAppsFlyerIntegrationObject);
+    OCMStub([SEGAppsFlyerIntegrationMock appsflyerLib]).andReturn(appsFlyerObject);
+    
+    NSDictionary * dictionaryInput = nil;
+    SEGAppsFlyerIntegration *integrationObject = [SEGAppsFlyerIntegrationObject initWithSettings:dictionaryInput withAnalytics:nil];
+    AppsFlyerLib *appsflyerObject = [integrationObject appsflyer];
+    XCTAssertNotNil(appsflyerObject);
+    XCTAssertNil([appsflyerObject delegate]);
+}
+
+
+- (void)testSEGAppsFlyerIntegration_initWithSettings_negativeFlow_devKeyIsANumber{
+    NSDictionary * dictionaryInput = @{@"appsFlyerDevKey" : @(123),
+                                       @"appleAppID" : @"appID",
+                                       @"trackAttributionData" : @"123"
+    };
+    
+    AppsFlyerLib * appsFlyerObject = [AppsFlyerLib new];;
+    SEGAppsFlyerIntegration * SEGAppsFlyerIntegrationObject = [SEGAppsFlyerIntegration new];
+    id SEGAppsFlyerIntegrationMock = OCMPartialMock(SEGAppsFlyerIntegrationObject);
+    OCMStub([SEGAppsFlyerIntegrationMock appsflyerLib]).andReturn(appsFlyerObject);
+    
+    SEGAppsFlyerIntegration *integrationObject = [SEGAppsFlyerIntegrationMock initWithSettings:dictionaryInput withAnalytics:nil];
+    AppsFlyerLib *appsflyerObject = [integrationObject appsflyer];
+    XCTAssertNotNil(appsflyerObject);
+    XCTAssertNotNil([appsflyerObject delegate]);
+}
+
 
 //
 //initWithSettings andDelegate
