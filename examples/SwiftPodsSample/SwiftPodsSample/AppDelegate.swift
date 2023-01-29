@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // For AppsFLyer debug logs uncomment the line below
         AppsFlyerLib.shared().isDebug = true
         
-        AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+//        AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
         /*
          Based on your needs you can either pass a delegate to process deferred
          and direct deeplinking callbacks or disregard them.
