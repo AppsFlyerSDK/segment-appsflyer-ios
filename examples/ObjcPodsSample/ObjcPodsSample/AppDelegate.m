@@ -26,7 +26,7 @@
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
     
-    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
+//    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
     /*
      Based on your needs you can either pass a delegate to process deferred
      and direct deeplinking callbacks or disregard them.

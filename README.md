@@ -104,7 +104,7 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
     
-    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
+//    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
     /*
      Based on your needs you can either pass a delegate to process deferred
      and direct deeplinking callbacks or disregard them.
@@ -164,7 +164,7 @@ import segment_appsflyer_ios
 ```swift 
     // For AppsFLyer debug logs uncomment the line below
     // AppsFlyerLib.shared().isDebug = true
-    AppsFlyerLib.shared().waitForATTUserAuthorization(withTimeoutInterval: 60)
+//    AppsFlyerLib.shared().waitForATTUserAuthorization(withTimeoutInterval: 60)
 
     /*
      Based on your needs you can either pass a delegate to process deferred
