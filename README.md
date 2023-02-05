@@ -93,7 +93,7 @@ First of all, you must provide values for AppsFlyer Dev Key, Apple App ID (iTune
 
 Open `AppDelegate.h` and add:
 
-```
+```objective-c
 #import "SEGAppsFlyerIntegrationFactory.h"
 ```
 
@@ -104,7 +104,7 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
     // For ApsFlyer debug logs
     [AppsFlyerLib shared].isDebug = YES;
     
-    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
+//    [[AppsFlyerLib shared] waitForATTUserAuthorizationWithTimeoutInterval:60];
     /*
      Based on your needs you can either pass a delegate to process deferred
      and direct deeplinking callbacks or disregard them.
@@ -118,14 +118,13 @@ In `AppDelegate.m` ➜ `didFinishLaunchingWithOptions`:
 //    SEGAppsFlyerIntegrationFactory* factoryWithDelegate = [SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self andManualMode:YES];
 
     
-    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"WYsuyFINOKZuQyQAGn5JQoCgIdhOI146"];
+    SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"SEGMENT_KEY"];
     [config use:factoryNoDelegate];
 //    [config use:factoryWithDelegate];  // use this if you want to get conversion data in the app. Read more in the integration guide
     config.enableAdvertisingTracking = YES;       //OPTIONAL
     config.trackApplicationLifecycleEvents = YES; //OPTIONAL
     config.trackDeepLinks = YES;                  //OPTIONAL
     config.trackPushNotifications = YES;          //OPTIONAL
-    config.trackAttributionData = YES;            //OPTIONAL
     [SEGAnalytics debug:YES];                     //OPTIONAL
     [SEGAnalytics setupWithConfiguration:config];
 ```
@@ -156,15 +155,16 @@ In `AppDelegate.m` ➜ `applicationDidBecomeActive`:
 3. Open `AppDelegate.swift` and add:
 
 ```swift
-import Analytics
+import Segment
 import AppsFlyerLib
+import segment_appsflyer_ios
 ```
 
 4. In `didFinishLaunchingWithOptions` add:
 ```swift 
     // For AppsFLyer debug logs uncomment the line below
     // AppsFlyerLib.shared().isDebug = true
-    AppsFlyerLib.shared().waitForATTUserAuthorization(withTimeoutInterval: 60)
+//    AppsFlyerLib.shared().waitForATTUserAuthorization(withTimeoutInterval: 60)
 
     /*
      Based on your needs you can either pass a delegate to process deferred
@@ -188,7 +188,6 @@ import AppsFlyerLib
     config.trackApplicationLifecycleEvents = true //OPTIONAL
     config.trackDeepLinks = true                  //OPTIONAL
     config.trackPushNotifications = true          //OPTIONAL
-    config.trackAttributionData = true            //OPTIONAL
     
     Analytics.debug(false)
     Analytics.setup(with: config)
@@ -220,7 +219,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   In order to get Conversion Data you need to:
   
   1. Add `SEGAppsFlyerLibDelegate` protocol to your AppDelegate.h (or other) class
-```
+```objective-c
 #import <UIKit/UIKit.h>
 #import "SEGAppsFlyerIntegrationFactory.h"
 
@@ -229,7 +228,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. Change line `[config use:[SEGAppsFlyerIntegrationFactory instance]];` to `[config use:[SEGAppsFlyerIntegrationFactory createWithLaunchDelegate:self]];`
   3. In the class passed to the method above (AppDelegate.m by default) implement methods of the `SEGAppsFlyerLibDelegate` protocol. See sample code below:
   
-```
+```objective-c
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -291,7 +290,7 @@ In identify call ```traits``` dictionary  ```setCustomerUserID``` and ```currenc
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. If you use sample code from above, change line `config.use(factoryNoDelegate)` to `config.use(factoryWithDelegate)`
   3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
   
-  ```
+  ```swift
   class AppDelegate: UIResponder, UIApplicationDelegate, SEGAppsFlyerLibDelegate {
     
     var window: UIWindow?
@@ -340,13 +339,13 @@ In order to use Unified Deep linking you need to:
   
   1. Add `SEGAppsFlyerDeepLinkDelegate` protocol to your AppDelegate (or other) class
   2. Pass AppDelegate (or other) class when configuring Segment Analytics with AppsFlyer. From the sample code above, change  factoryWithDelegate to :
-  ```
+  ```swift
   let factoryWithDelegate: SEGAppsFlyerIntegrationFactory = SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andDeepLinkDelegate: self)
   ```
 
   3. Implement methods of the protocol in the class, passed as a delegate. See sample code below where AppDelegate is used for that:
   
-```
+```swift
 extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
     func didResolveDeepLink(_ result: DeepLinkResult) {
         print(result)
@@ -359,7 +358,7 @@ extension AppDelegate: SEGAppsFlyerDeepLinkDelegate {
 ## <a id="install_attributed"> Install Attributed event
 
 If you are working with networks that don't allow passing user level data to 3rd parties, you will need to apply code to filter out these networks before calling
-```
+```objective-c
 // [self.analytics track:@"Install Attributed" properties:[properties copy]];
 ```
 
