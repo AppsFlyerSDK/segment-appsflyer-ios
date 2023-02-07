@@ -57,7 +57,7 @@ pod 'segment-appsflyer-ios/Strict', '6.9.1'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
-2. Run `pod isntall` in the project directory
+2. Run `pod install` in the project directory
 
 ### Carthage
 
