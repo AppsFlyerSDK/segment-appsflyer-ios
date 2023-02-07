@@ -15,13 +15,27 @@
 - (instancetype)initWithSettings:(NSDictionary *)settings withAnalytics:(SEGAnalytics *)analytics {
     if (self = [super init]) {
         self.settings = settings;
-        NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
-        NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
         
-        self.appsflyer = [AppsFlyerLib shared];
+        NSString *afDevKey;
+        id valueForKey_appsFlyerDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
+        if(valueForKey_appsFlyerDevKey){
+            afDevKey = [NSString stringWithFormat:@"%@",valueForKey_appsFlyerDevKey];
+        }
+        else{
+            afDevKey = @"";
+        }
+        NSString *appleAppId;
+        id valueForKey_appleAppID = [self.settings objectForKey:@"appleAppID"];
+        if(valueForKey_appleAppID){
+            appleAppId= [NSString stringWithFormat:@"%@", valueForKey_appleAppID];
+        }
+        else{
+            appleAppId = @"";
+        }
+        
+        self.appsflyer = [self appsflyerLib];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
-        //self.appsflyer.isDebug = true;
 
         self.analytics = analytics;
         if ([self logAttributionData]) {
@@ -41,6 +55,11 @@
         });
     }
     return self;
+}
+
+// Added for testabillity
+- (AppsFlyerLib *)appsflyerLib {
+    return [AppsFlyerLib shared];
 }
 
 
