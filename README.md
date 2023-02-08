@@ -4,7 +4,7 @@
 
 ## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.9.1. 
 
-[![Version](https://img.shields.io/cocoapods/v/segment-appsflyer-ios.svg?style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
+[![Version](https://img.shields.io/badge/cocoapods-compatible-brightgreen?logo=cocoapods&logoColor=green&style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CI - Tests](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/test.yml/badge.svg?branch=dev%2FDELIVRY-17805%2Funit-tests&event=push)](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/test.yml)
 
