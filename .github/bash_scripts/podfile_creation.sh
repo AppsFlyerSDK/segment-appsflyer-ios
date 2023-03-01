@@ -19,5 +19,5 @@ target 'SegmentAppsFlyeriOSTests' do
   # Pods for SegmentAppsFlyeriOSTests
   pod 'OCMock'
 
-end" > Podfile
+end" > ../../Podfile
 
