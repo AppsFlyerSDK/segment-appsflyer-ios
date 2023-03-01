@@ -14,8 +14,6 @@ jobs:
          xcode-version: latest-stable
     - name: create Podfile
       run: bash .github/bash_scripts/podfile_creation.sh
-    - name: check files
-      run: ls -a
     - name: CocoaPod Install
       run:  pod install
     - name: Test
