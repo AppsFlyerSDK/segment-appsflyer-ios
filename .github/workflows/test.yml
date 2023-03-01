@@ -14,8 +14,9 @@ jobs:
          xcode-version: latest-stable
     - name: create Podfile
       run: bash .github/bash_scripts/podfile_creation.sh
+    - name: check files
+      run: ls -a
     - name: CocoaPod Install
-      run:  ls -a
       run:  pod install
     - name: Test
       run: xcodebuild test -scheme segment-appsflyer-ios -workspace segment-appsflyer-ios.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 13' | xcpretty && exit ${PIPESTATUS[0]}
