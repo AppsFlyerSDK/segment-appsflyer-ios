@@ -1,0 +1,5 @@
+#!/bin/bash
+prereleaseversion=6.9.5
+releaseversion=6.9.3
+sed "s/version_pre_release = \'[0-99]\.[0-99]\.[0-99]\'/version_pre_release = \'$prereleaseversion\'/g" segment-appsflyer-ios.podspec
+echo segment-appsflyer-ios.podspec
