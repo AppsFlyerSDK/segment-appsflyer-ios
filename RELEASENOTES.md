@@ -1,5 +1,10 @@
 # Release Notes
 
+### 6.9.1
+* Updated iOS SDK to v6.9.1
+* Added unit tests.
+* Added github workflows. 
+
 ### 6.8.0
 * Updated iOS SDK to v6.8.0
 * Add manual mode to start the AppsFlyer SDK
