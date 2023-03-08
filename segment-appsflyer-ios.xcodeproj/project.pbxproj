@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A3CCD9C585BAFEE9F613B34 /* Pods_segment_appsflyer_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437DD4AF7134A231805D0B6A /* Pods_segment_appsflyer_ios.framework */; };
-		346AB37FAF5A3B97A508A009 /* Pods_SegmentAppsFlyeriOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C52ECF9F96ADBC1AD50CBE /* Pods_SegmentAppsFlyeriOSTests.framework */; };
 		47A0A8F623D5CA7A00FE781F /* SEGAppsFlyerIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0A8F123D5CA7A00FE781F /* SEGAppsFlyerIntegration.m */; };
 		47A0A8F723D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0A8F223D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.m */; };
 		47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,11 +30,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07C52ECF9F96ADBC1AD50CBE /* Pods_SegmentAppsFlyeriOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentAppsFlyeriOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		11D1EE0DB4918D94DDCA0894 /* Pods-SegmentAppsFlyeriOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentAppsFlyeriOSTests.release.xcconfig"; path = "Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		1548A28C2E5C46E858B31098 /* Pods-SegmentAppsFlyeriOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentAppsFlyeriOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		383CE4C70EA898B25B26039C /* Pods-segment-appsflyer-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-segment-appsflyer-ios.release.xcconfig"; path = "Target Support Files/Pods-segment-appsflyer-ios/Pods-segment-appsflyer-ios.release.xcconfig"; sourceTree = "<group>"; };
-		437DD4AF7134A231805D0B6A /* Pods_segment_appsflyer_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_segment_appsflyer_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentAppsFlyeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A0A8DE23D5B13500FE781F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47A0A8F123D5CA7A00FE781F /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
@@ -48,7 +41,6 @@
 		47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppsFlyerLib.framework; path = Carthage/Build/iOS/AppsFlyerLib.framework; sourceTree = "<group>"; };
 		86881093258F9113001F6545 /* segment_appsflyer_ios.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = segment_appsflyer_ios.framework; path = Carthage/Build/iOS/Static/segment_appsflyer_ios.framework; sourceTree = "<group>"; };
 		868810BD258FB606001F6545 /* Segment.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Segment.framework; path = Carthage/Build/iOS/Segment.framework; sourceTree = "<group>"; };
-		99A7276F2E4C0F6453ECA910 /* Pods-segment-appsflyer-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-segment-appsflyer-ios.debug.xcconfig"; path = "Target Support Files/Pods-segment-appsflyer-ios/Pods-segment-appsflyer-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A5201333295B1A5B00B87090 /* SegmentAppsFlyeriOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SegmentAppsFlyeriOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationTests.m; sourceTree = "<group>"; };
 		A52E9C81295B0478004EC3DF /* SegmentAppsFlyeriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegmentAppsFlyeriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +54,6 @@
 			files = (
 				86F430F525B4369600BD66B9 /* Segment.framework in Frameworks */,
 				86F430F225B4369500BD66B9 /* AppsFlyerLib.framework in Frameworks */,
-				2A3CCD9C585BAFEE9F613B34 /* Pods_segment_appsflyer_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +62,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A52E9C85295B0478004EC3DF /* SegmentAppsFlyeriOS.framework in Frameworks */,
-				346AB37FAF5A3B97A508A009 /* Pods_SegmentAppsFlyeriOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,8 +116,6 @@
 				86881093258F9113001F6545 /* segment_appsflyer_ios.framework */,
 				47A0A8FC23D5CF8B00FE781F /* Analytics.framework */,
 				47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */,
-				07C52ECF9F96ADBC1AD50CBE /* Pods_SegmentAppsFlyeriOSTests.framework */,
-				437DD4AF7134A231805D0B6A /* Pods_segment_appsflyer_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,10 +133,6 @@
 		A7E5A8BDE3AE44B9A11797D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1548A28C2E5C46E858B31098 /* Pods-SegmentAppsFlyeriOSTests.debug.xcconfig */,
-				11D1EE0DB4918D94DDCA0894 /* Pods-SegmentAppsFlyeriOSTests.release.xcconfig */,
-				99A7276F2E4C0F6453ECA910 /* Pods-segment-appsflyer-ios.debug.xcconfig */,
-				383CE4C70EA898B25B26039C /* Pods-segment-appsflyer-ios.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -173,7 +157,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47A0A8E223D5B13500FE781F /* Build configuration list for PBXNativeTarget "segment-appsflyer-ios" */;
 			buildPhases = (
-				C5EA81FA1F91B439A397062C /* [CP] Check Pods Manifest.lock */,
 				47A0A8D523D5B13500FE781F /* Headers */,
 				47A0A8D623D5B13500FE781F /* Sources */,
 				47A0A8D723D5B13500FE781F /* Frameworks */,
@@ -192,11 +175,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A52E9C8A295B0478004EC3DF /* Build configuration list for PBXNativeTarget "SegmentAppsFlyeriOSTests" */;
 			buildPhases = (
-				3CDF7EA87A7C169A0A162476 /* [CP] Check Pods Manifest.lock */,
 				A52E9C7D295B0478004EC3DF /* Sources */,
 				A52E9C7E295B0478004EC3DF /* Frameworks */,
 				A52E9C7F295B0478004EC3DF /* Resources */,
-				E7E438810DBA7433C972DB6D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,70 +243,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3CDF7EA87A7C169A0A162476 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SegmentAppsFlyeriOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5EA81FA1F91B439A397062C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-segment-appsflyer-ios-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E7E438810DBA7433C972DB6D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		47A0A8D623D5B13500FE781F /* Sources */ = {
@@ -478,7 +395,6 @@
 		};
 		47A0A8E323D5B13500FE781F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 99A7276F2E4C0F6453ECA910 /* Pods-segment-appsflyer-ios.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -512,7 +428,6 @@
 		};
 		47A0A8E423D5B13500FE781F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 383CE4C70EA898B25B26039C /* Pods-segment-appsflyer-ios.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -546,7 +461,6 @@
 		};
 		A52E9C88295B0478004EC3DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1548A28C2E5C46E858B31098 /* Pods-SegmentAppsFlyeriOSTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
@@ -574,7 +488,6 @@
 		};
 		A52E9C89295B0478004EC3DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11D1EE0DB4918D94DDCA0894 /* Pods-SegmentAppsFlyeriOSTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
