@@ -1,6 +1,6 @@
 #!/bin/bash
 
-releaseversion=$(grep 'version_release' Appsflyer-exact-version| cut -d" " -f3)
+releaseversion=$(grep 'version_release' .github/bash_scripts/Appsflyer-exact-version| cut -d" " -f3)
 
 sed -r -i '' "s/version_release = \'[0-9]+\.[0-9]+\.[0-9]+\'/version_release = \'$releaseversion\'/g" segment-appsflyer-ios.podspec
 
