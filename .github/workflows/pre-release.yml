@@ -1,0 +1,29 @@
+name: pre-release
+
+on:
+  workflow_call:
+
+jobs:
+  Change-HardCoded-Version:
+    name: Pre Release
+    runs-on: macos-latest
+    steps:
+      - name: Set branch name
+        id: brnach_step
+        run: |
+          time=$(date +%s)
+          echo "branch_name=releases/pre-release-$Repo_Name-$time" >> $GITHUB_OUTPUT
+        env:
+          Repo_Name: ${{github.event.repository.name}}
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: run script
+        run: bash .github/bash_scripts/pre_release.sh
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Moris Gateno
+          author_email: moris.gateno@appsflyer.com
+          message: 'Commited from github action'
+          add: '.'  
+          # new_branch: ${{ steps.brnach_step.outputs.branch_name }}
