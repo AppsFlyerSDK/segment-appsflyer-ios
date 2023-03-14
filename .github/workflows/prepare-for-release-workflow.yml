@@ -1,0 +1,26 @@
+name: Prepare plugin for production
+
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - 'master'
+
+jobs:
+  Prepare-Plugin-For-Production:
+    if: startsWith(github.head_ref, 'releases/')
+    name: Pre release after testing the plugin
+    runs-on: macos-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+        - name: run script
+          run: bash .github/bash_scripts/release.sh
+        - name: Commit changes
+          uses: EndBug/add-and-commit@v9
+          with:
+            author_name: Moris Gateno
+            author_email: moris.gateno@appsflyer.com
+            message: 'Commited from github action - prepaing the repo for production.'
+            add: '.'  

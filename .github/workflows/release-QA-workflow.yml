@@ -12,6 +12,4 @@ jobs:
 
   Deploy-Locally-To-QA:
     needs: [Run-Unit-Tests]
-    # uses: ./.github/workflows/deploy-locally-to-QA.yml
     uses: ./.github/workflows/pre-release.yml
-    # secrets: inherit

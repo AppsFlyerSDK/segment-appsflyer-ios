@@ -24,6 +24,6 @@ jobs:
         with:
           author_name: Moris Gateno
           author_email: moris.gateno@appsflyer.com
-          message: 'Commited from github action'
+          message: 'Commited from github action - prepaing the repo for QA locally.'
           add: '.'  
           # new_branch: ${{ steps.brnach_step.outputs.branch_name }}
