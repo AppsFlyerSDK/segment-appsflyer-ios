@@ -43,19 +43,19 @@ jobs:
           }
     - name: Install Cocoapods
       run: gem install cocoapods      
-    - name: Push to COCOAPODS
-      uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.10
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.CI_COCOAPODS_TOKEN }}
-    - name: Determine release tag and release branch
-      uses: slackapi/slack-github-action@v1.23.0
-      with:
-        payload: |
-          {
-            "appsflyer_version": "${{env.PLUGIN_VERSION}}"
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.CI_SLACK_WEBHOOK_URL }}    
+    # - name: Push to COCOAPODS
+    #   uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.10
+    #   env:
+    #     COCOAPODS_TRUNK_TOKEN: ${{ secrets.CI_COCOAPODS_TOKEN }}
+    # - name: Notify with SLack
+    #   uses: slackapi/slack-github-action@v1.23.0
+    #   with:
+    #     payload: |
+    #       {
+    #         "appsflyer_version": "${{env.PLUGIN_VERSION}}"
+    #       }
+    #   env:
+    #     SLACK_WEBHOOK_URL: ${{ secrets.CI_SLACK_WEBHOOK_URL }}    
 
   # Notify-on-Slack:
   #   name: Notify on Slack
