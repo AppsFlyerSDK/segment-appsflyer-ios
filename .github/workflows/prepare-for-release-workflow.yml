@@ -19,10 +19,17 @@ jobs:
       uses: actions/checkout@v3
     - name: run script
       run: bash .github/bash_scripts/release.sh
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v9
+    - uses: mdecoleman/pr-branch-name@1.2.0
+      id: vars
       with:
-        author_name: Moris Gateno
-        author_email: moris.gateno@appsflyer.com
-        message: 'Commited from github action - prepaing the repo for production.'
-        add: '.'  
+        repo-token: ${{ secrets.CI_GITHUB_TOKEN }}  
+    # - name: Commit changes
+    #   uses: EndBug/add-and-commit@v9
+    #   with:
+    #     author_name: Moris Gateno
+    #     author_email: moris.gateno@appsflyer.com
+    #     message: 'Commited from github action - prepaing the repo for production.'
+    #     add: '.'  
+    - name: Commit and Push
+      run : |
+        git push origin HEAD:${{ steps.vars.outputs.branch }} --force
