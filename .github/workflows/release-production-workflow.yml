@@ -5,8 +5,9 @@ on:
     types:
       - closed
     branches:
-      - 'master'
-      - 'main'
+      # - 'master'
+      # - 'main'
+      - 'dev/add-release-workflow'
 
 jobs:
   Deploy-To-Production:

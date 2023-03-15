@@ -5,8 +5,9 @@ on:
     types:
       - opened
     branches:
-      - 'master'
-      - 'main'
+      # - 'master'
+      # - 'main'
+      - 'dev/add-release-workflow'
 
 jobs:
   Prepare-Plugin-For-Production:
