@@ -34,4 +34,4 @@ jobs:
       run : |
         git add .
         git commit -m"Commited from github action - prepaing the repo for production."
-        git push
+        git push origin HEAD:${{ steps.vars.outputs.branch }} --force
