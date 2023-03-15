@@ -16,7 +16,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - uses: mdecoleman/pr-branch-name@1.2.0
+    - name: PR branch check
+      uses: mdecoleman/pr-branch-name@1.2.0
       id: vars
       with:
         repo-token: ${{ secrets.CI_GITHUB_TOKEN }}       
@@ -26,7 +27,7 @@ jobs:
         echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV
         echo "RELEASE_BRANCH_NAME=${{ steps.vars.outputs.branch }}" >> $GITHUB_ENV
         echo "push new release >> $TAG"   
-    - name: Create release
+    - name: Create release and tag
       env:
         TAG: ${{env.PLUGIN_VERSION}}
       uses: "actions/github-script@v5"
