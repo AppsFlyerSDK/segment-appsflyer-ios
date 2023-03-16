@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# releaseversion=$(grep 'version_release' .github/bash_scripts/Appsflyer-exact-version| cut -d" " -f3)
 releaseversion=$1
 
 sed -i '' "s/version_pre_release = \'.*\'/version_pre_release = \'$releaseversion\'/g" segment-appsflyer-ios.podspec
@@ -14,11 +13,3 @@ sed -r -i '' "s/(## This is a Segment wrapper for AppsFlyer SDK that is built wi
 sed -r -i '' "s/(.*pod \'segment-appsflyer-ios.*)([0-9]+\.[0-9]+\.[0-9]+)(.*)/\1$releaseversion\3/g" README.md
 
 touch "releasenotes.$releaseversion"
-
-# sed -i.bak "/# Release Notes/a \\
-# \\
-# ### $releaseversion\\
-# * Updated iOS SDK to v$releaseversion\\
-# " RELEASENOTES.md
-
-# rm -r RELEASENOTES.md.bak
