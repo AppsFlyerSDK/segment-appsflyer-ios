@@ -19,5 +19,5 @@ sed -r -i '' "s/(.*pod \'segment-appsflyer-ios\')(.*)/\1,\'$releaseversion\'/g" 
 # rm -r RELEASENOTES.md.bak
 sed -i '' 's/^/* /' "releasenotes.$releaseversion"
 NEW_VERSION_RELEASE_NOTES=$(cat "releasenotes.$releaseversion")
-NEW_VERSION_SECTION="### $releaseversion\n \n$NEW_VERSION_RELEASE_NOTES\n\n"
+NEW_VERSION_SECTION="### $releaseversion\n* Updated iOS SDK to v$releaseversion\n$NEW_VERSION_RELEASE_NOTES\n\n"
 echo -e "$NEW_VERSION_SECTION$(cat RELEASENOTES.md)" > RELEASENOTES.md
