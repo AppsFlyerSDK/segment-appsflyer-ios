@@ -1,3 +1,7 @@
+### 6.10.0
+* Updated iOS SDK to v6.10.0
+
+
 ### 6.9.1
 * Updated iOS SDK to v6.9.1
 * Added unit tests.
