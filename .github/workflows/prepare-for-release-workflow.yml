@@ -17,13 +17,17 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: run script
-      run: bash .github/bash_scripts/release.sh
     - name: PR branch check
       uses: mdecoleman/pr-branch-name@1.2.0
       id: vars
       with:
-        repo-token: ${{ secrets.CI_GITHUB_TOKEN }}  
+        repo-token: ${{ secrets.CI_GITHUB_TOKEN }}       
+    - name: Determine release tag and release branch
+      run: |
+        TAG=$(echo "${{ steps.vars.outputs.branch }}" | grep -Eo '[0-9]+.[0-9]+.[0-9]+')
+        echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV  
+    - name: run script
+      run: bash .github/bash_scripts/release.sh ${{env.PLUGIN_VERSION}}  
     - name: Commit and Push
       run : |
         git add .
