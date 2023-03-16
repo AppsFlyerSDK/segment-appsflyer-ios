@@ -1,5 +1,5 @@
 version_pre_release = '6.10.4'
-version_release = '6.9.1'
+version_release = '6.10.4'
 
 Pod::Spec.new do |s|
   s.name             = "segment-appsflyer-ios"
