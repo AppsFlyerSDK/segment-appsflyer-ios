@@ -29,8 +29,11 @@ jobs:
 
 
   Run-Unit-Tests:
+    needs: paths-filter
+    if: needs.paths-filter.outputs.output1 == 'false'
     uses: ./.github/workflows/unit-tests-workflow.yml
 
   Deploy-Locally-To-QA:
-    needs: [Run-Unit-Tests]
+    needs: [Run-Unit-Tests,paths-filter]
+    if: needs.paths-filter.outputs.output1 == 'false'
     uses: ./.github/workflows/prepare-for-QA-release.yml
