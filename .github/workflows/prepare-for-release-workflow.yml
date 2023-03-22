@@ -5,8 +5,8 @@ on:
     types:
       - opened
     branches:
-      # - 'master'
-      - 'dev/add-release-workflow'
+      - 'master'
+      # - 'dev/add-release-workflow'
 
 jobs:
   Prepare-Plugin-For-Production:
@@ -24,7 +24,7 @@ jobs:
     - name: Determine release tag and release branch
       run: |
         TAG=$(echo "${{ steps.vars.outputs.branch }}" | grep -Eo '[0-9]+.[0-9]+.[0-9]+')
-        echo "${{github.head_ref}}"
+        echo "from branch: ${{github.head_ref}}"
         echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV  
     - name: run script
       run: bash .github/bash_scripts/release.sh ${{env.PLUGIN_VERSION}}  
