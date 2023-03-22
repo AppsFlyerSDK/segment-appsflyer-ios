@@ -26,6 +26,7 @@ jobs:
         echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV
         echo "RELEASE_BRANCH_NAME=${{ steps.vars.outputs.branch }}" >> $GITHUB_ENV
         echo "push new release >> $TAG"   
+        echo "${{github.head_ref}}"
     # - name: Create release and tag
     #   env:
     #     TAG: ${{env.PLUGIN_VERSION}}
