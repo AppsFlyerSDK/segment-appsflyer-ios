@@ -1,5 +1,3 @@
-# Release Notes
-
 ### 6.9.1
 * Updated iOS SDK to v6.9.1
 * Added unit tests.

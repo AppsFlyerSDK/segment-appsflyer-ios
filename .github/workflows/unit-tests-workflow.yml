@@ -2,8 +2,9 @@ name: CI - Tests
 on: 
   push:
     branches-ignore:
-        - 'main'
+        - 'master'
         - 'releases/**'
+  workflow_call:      
 jobs:
   Tests:
     runs-on: macos-12
