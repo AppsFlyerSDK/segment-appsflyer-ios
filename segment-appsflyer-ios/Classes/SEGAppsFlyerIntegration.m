@@ -16,6 +16,10 @@
     if (self = [super init]) {
         self.settings = settings;
         
+        [[AppsFlyerLib shared] setPluginInfoWith: AFSDKPluginSegment
+                                           pluginVersion:@"6.10.1"
+                                        additionalParams:nil];
+        
         NSString *afDevKey;
         id valueForKey_appsFlyerDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
         if(valueForKey_appsFlyerDevKey){
@@ -88,6 +92,10 @@
     if (self = [super init]) {
         self.settings = settings;
         self.appsflyer = aAppsflyer;
+        
+        [[AppsFlyerLib shared] setPluginInfoWith: AFSDKPluginSegment
+                                           pluginVersion:@"6.10.1"
+                                        additionalParams:nil];
         
         NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
         NSString *appleAppId = [self.settings objectForKey:@"appleAppID"];
