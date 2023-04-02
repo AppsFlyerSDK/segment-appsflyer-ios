@@ -8,7 +8,7 @@ target 'segment-appsflyer-ios' do
 
   # Pods for segment-appsflyer-ios
   pod 'Analytics'
-  pod 'AppsFlyerFramework', '6.10.1'
+  pod 'AppsFlyerFramework'
 
 end
 
