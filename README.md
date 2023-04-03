@@ -6,7 +6,7 @@
 
 [![Version](https://img.shields.io/badge/cocoapods-compatible-brightgreen?logo=cocoapods&logoColor=green&style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-not_compatible-C20000.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CI - Tests](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/test.yml/badge.svg?branch=dev%2FDELIVRY-17805%2Funit-tests&event=push)](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/test.yml)
+[![CI - Tests](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/unit-tests-workflow.yml/badge.svg)](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/unit-tests-workflow.yml)
 
 ----------
 🛠 In order for us to provide optimal support, we would kindly ask you to submit any issues to support@appsflyer.com
