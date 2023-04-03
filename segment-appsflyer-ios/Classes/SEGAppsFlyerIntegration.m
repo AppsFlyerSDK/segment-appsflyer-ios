@@ -15,10 +15,6 @@
 - (instancetype)initWithSettings:(NSDictionary *)settings withAnalytics:(SEGAnalytics *)analytics {
     if (self = [super init]) {
         self.settings = settings;
-
-        [self.appsflyer setPluginInfoWith:AFSDKPluginSegment
-                            pluginVersion:@"6.10.1"
-                         additionalParams:nil];
         
         NSString *afDevKey;
         id valueForKey_appsFlyerDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
@@ -38,6 +34,9 @@
         }
         
         self.appsflyer = [self appsflyerLib];
+        [self.appsflyer setPluginInfoWith:AFSDKPluginSegment
+                            pluginVersion:@"6.10.1"
+                         additionalParams:nil];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
 
