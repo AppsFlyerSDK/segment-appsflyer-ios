@@ -1,0 +1,21 @@
+name: CI - Tests
+on: 
+  push:
+    branches-ignore:
+        - 'master'
+        - 'releases/**'
+  workflow_call:      
+jobs:
+  Tests:
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v2
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+         xcode-version: latest-stable
+    - name: create Podfile
+      run: bash .github/bash_scripts/podfile_creation.sh
+    - name: CocoaPod Install
+      run:  pod install
+    - name: Test
+      run: xcodebuild test -scheme segment-appsflyer-ios -workspace segment-appsflyer-ios.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 13' | xcpretty && exit ${PIPESTATUS[0]}
