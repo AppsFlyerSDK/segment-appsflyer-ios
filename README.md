@@ -2,11 +2,11 @@
 
 # AppsFlyer integration for Segment.
 
-## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.9.1. 
+## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.10.1.
 
 [![Version](https://img.shields.io/badge/cocoapods-compatible-brightgreen?logo=cocoapods&logoColor=green&style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-not_compatible-C20000.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CI - Tests](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/test.yml/badge.svg?branch=dev%2FDELIVRY-17805%2Funit-tests&event=push)](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/test.yml)
+[![CI - Tests](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/unit-tests-workflow.yml/badge.svg)](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/actions/workflows/unit-tests-workflow.yml)
 
 ----------
 🛠 In order for us to provide optimal support, we would kindly ask you to submit any issues to support@appsflyer.com
@@ -48,12 +48,12 @@ To install the segment-appsflyer-ios integration:
 
 **Production** version: 
 ```ruby
-pod 'segment-appsflyer-ios', '6.9.1'
+pod 'segment-appsflyer-ios', '6.10.1'
 ```
 
 **Strict mode SDK** version: 
 ```ruby
-pod 'segment-appsflyer-ios/Strict', '6.9.1'
+pod 'segment-appsflyer-ios/Strict', '6.10.1'
 ```
 Use the strict mode SDK to completely remove IDFA collection functionality and AdSupport framework dependencies (for example, when developing apps for kids).
 
