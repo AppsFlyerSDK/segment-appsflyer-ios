@@ -66,14 +66,31 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 ## <a id="manual"> Manual mode
 Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
 ### Example:
+#### objective-c:  
 ```objective-c
-  [SEGAppsFlyerIntegrationFactory createWithManualMode:YES];
+  SEGAppsFlyerIntegrationFactory* factoryWithManualMode = [SEGAppsFlyerIntegrationFactory createWithManualMode:YES];
+``` 
+#### swift  
+```swift
+  let factoryWithManualMode = SEGAppsFlyerIntegrationFactory.create(withManualMode: true);
 ``` 
 Please look at the examples below to see how to use the manual mode with delegate. \
 To start the AppsFlyer SDK, use the `start()` API, like the following :
+#### objective-c:  
 ```objective-c
  [[AppsFlyerLib shared] start];
+ [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue: nil usingBlock:^(NSNotification * _Nonnull note) {
+     [[AppsFlyerLib shared] start];
+ }]; 
 ``` 
+#### swift  
+```swift
+ AppsFlyerLib.shared().start()
+ NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { Notification in
+     AppsFlyerLib.shared().start()
+ }
+```   
+Note - The `addObserver` call ensures that every launch of the app (from background to foreground) is recorded correctly. </br>See a more detailed explanation [here](https://dev.appsflyer.com/hc/docs/integrate-ios-sdk#full-example)
   
 ## <a id="usage"> Usage
 
