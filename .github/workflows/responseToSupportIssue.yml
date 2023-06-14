@@ -17,7 +17,7 @@ jobs:
         uses: peter-evans/close-issue@v2
         with:
           issue-number: ${{ github.event.issue.number }}
-          body: |
+          comment: |
             👋 Hi @${{ github.event.issue.user.login }} and Thank you for reaching out to us.
             In order for us to provide optimal support, please submit a ticket to our support team at support@appsflyer.com.
             When submitting the ticket, please specify:
