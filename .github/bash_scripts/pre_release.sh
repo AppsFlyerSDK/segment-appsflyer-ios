@@ -12,4 +12,6 @@ sed -r -i '' "s/(.*pod \'segment-appsflyer-ios\')(.*\'[0-9]+\.[0-9]+\.[0-9]+\')/
 sed -r -i '' "s/(## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v)(.*)/\1$appsflyerLibVersion./g" README.md
 sed -r -i '' "s/(.*pod \'segment-appsflyer-ios.*)([0-9]+\.[0-9]+\.[0-9]+)(.*)/\1$appsflyerLibVersion\3/g" README.md
 
+sed -r -i '' "s/(.*pluginVersion.*)([0-9]+\.[0-9]+\.[0-9]+)(.*)/\1$appsflyerLibVersion\3/g" segment-appsflyer-ios/Classes/SEGAppsFlyerIntegration.m
+
 touch "releasenotes.$appsflyerLibVersion"
