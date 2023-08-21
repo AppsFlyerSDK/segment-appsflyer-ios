@@ -1,3 +1,6 @@
+### 6.12.1
+* * Update to Appsflyer SDK 6.12.1.
+
 ### 6.10.1
 * Update iOS SDK to v6.10.1
 * Added ci-cd.
