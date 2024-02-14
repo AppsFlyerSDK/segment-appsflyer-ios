@@ -1,3 +1,6 @@
+### 6.13.0
+
+
 ### 6.12.2
 * Update to Appsflyer SDK 6.12.2.
 
