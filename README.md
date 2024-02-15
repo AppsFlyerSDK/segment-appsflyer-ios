@@ -420,6 +420,60 @@ A CMP compatible with TCF v2.2 collects DMA consent data and stores it in <code>
   <li> Call <code>AppsFlyerLib.shared().start()</code>.
 </ol>
 
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    // For AppsFLyer debug logs uncomment the line below
+    AppsFlyerLib.shared().isDebug = true
+    AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+    AppsFlyerLib.shared().enableTCFDataCollection(true)
+    let factoryWithDelegateAndManual: SEGAppsFlyerIntegrationFactory =SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andDeepLinkDelegate: self, andManualMode: true)
+  
+    // Segment initialization
+    let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
+    config.use(factoryWithDelegateAndManual)
+    config.enableAdvertisingTracking = true       //OPTIONAL
+    config.trackApplicationLifecycleEvents = true //OPTIONAL
+    config.trackDeepLinks = true                  //OPTIONAL
+    config.trackPushNotifications = true          //OPTIONAL
+  
+    Analytics.debug(true)
+    Analytics.setup(with: config)
+    return true
+}
+
+func applicationDidBecomeActive(_ application: UIApplication) {
+    if(cmpManager!.hasConsent()){
+        //CMP manager already has consent ready - you can start
+        AppsFlyerLib.shared().start()
+    }else{
+        //CMP doesn't have consent data ready yet
+        //Waiting for CMP completion and data ready and then start
+        cmpManager?.withOnCmpButtonClickedCallback({ CmpButtonEvent in
+            AppsFlyerLib.shared().start()
+        })
+    }
+    
+    if #available(iOS 14, *) {
+        ATTrackingManager.requestTrackingAuthorization { (status) in
+            switch status {
+            case .denied:
+                print("AuthorizationSatus is denied")
+            case .notDetermined:
+                print("AuthorizationSatus is notDetermined")
+            case .restricted:
+                print("AuthorizationSatus is restricted")
+            case .authorized:
+                print("AuthorizationSatus is authorized")
+            @unknown default:
+                fatalError("Invalid authorization status")
+            }
+        }
+    }
+}
+```
+
 ### Manually collect consent data
 If your app does not use a CMP compatible with TCF v2.2, use the SDK API detailed below to provide the consent data directly to the SDK.
 <ol>
@@ -444,6 +498,7 @@ If your app does not use a CMP compatible with TCF v2.2, use the SDK API detaile
         <li> It is optional to initialize <code>SEGAppsFlyerIntegrationFactory</code> using manual mode not mandatory as before.
       </ol>
 </ol>
+
 
 ## <a id="examples"> Examples
 
