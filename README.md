@@ -66,7 +66,7 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 
 ## <a id="manual"> Manual mode
 Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
-<br>If you are using CMP to collect consent data this feature is needed. See explanation [here]((#dma_support)).
+<br>If you are using CMP to collect consent data this feature is needed. See explanation [here](#dma_support).
 ### Example:
 #### objective-c:  
 ```objective-c
