@@ -31,6 +31,7 @@
     - [Swift](#ddl-swift)
 - [Install Attributed event](#install_attributed)
 - [Additional AppsFlyer SDK setup](#additional_setup)
+- [Send consent for DMA compliance](#dma_support)
 - [Examples](#examples) 
 
 
@@ -65,6 +66,7 @@ Use the strict mode SDK to completely remove IDFA collection functionality and A
 
 ## <a id="manual"> Manual mode
 Starting version `6.8.0`, we support a manual mode to seperate the initialization of the AppsFlyer SDK and the start of the SDK. In this case, the AppsFlyer SDK won't start automatically, giving the developper more freedom when to start the AppsFlyer SDK. Please note that in manual mode, the developper is required to implement the API ``AppsFlyerLib.shared().start()`` in order to start the SDK. 
+<br>If you are using CMP to collect consent data this feature is needed. See explanation [here](#dma_support).
 ### Example:
 #### objective-c:  
 ```objective-c
@@ -401,6 +403,102 @@ If you are working with networks that don't allow passing user level data to 3rd
     }
 }
 ```
+
+## <a id="dma_support"> Send consent for DMA compliance
+For a general introduction to DMA consent data, see [here](https://dev.appsflyer.com/hc/docs/send-consent-for-dma-compliance).<be>
+The SDK offers two alternative methods for gathering consent data:<br>
+- **Through a Consent Management Platform (CMP)**: If the app uses a CMP that complies with the [Transparency and Consent Framework (TCF) v2.2 protocol](https://iabeurope.eu/tcf-supporting-resources/), the SDK can automatically retrieve the consent details.<br>
+<br>OR<br><br>
+- **Through a dedicated SDK API**: Developers can pass Google's required consent data directly to the SDK using a specific API designed for this purpose.
+### Use CMP to collect consent data
+A CMP compatible with TCF v2.2 collects DMA consent data and stores it in <code>NSUserDefaults</code>. To enable the SDK to access this data and include it with every event, follow these steps:<br>
+<ol>
+  <li> Call <code>AppsFlyerLib.shared().enableTCFDataCollection(true)</code> to instruct the SDK to collect the TCF data from the device.
+  <li> Initialize <code>SEGAppsFlyerIntegrationFactory</code> using manual mode. This will allow us to delay the Conversion call in order to provide the SDK with the user consent.
+  <li> In the <code>applicationDidBecomeActive</code> lifecycle method, use the CMP to decide if you need the consent dialog in the current session to acquire the consent data. If you need the consent dialog move to step 4; otherwise move to step 5.
+  <li> Get confirmation from the CMP that the user has made their consent decision and the data is available in <code>NSUserDefaults</code>.
+  <li> Call <code>AppsFlyerLib.shared().start()</code>.
+</ol>
+
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+    // For AppsFLyer debug logs uncomment the line below
+    AppsFlyerLib.shared().isDebug = true
+    AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+    AppsFlyerLib.shared().enableTCFDataCollection(true)
+    let factoryWithDelegateAndManual: SEGAppsFlyerIntegrationFactory =SEGAppsFlyerIntegrationFactory.create(withLaunch: self, andDeepLinkDelegate: self, andManualMode: true)
+  
+    // Segment initialization
+    let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEY")
+    config.use(factoryWithDelegateAndManual)
+    config.enableAdvertisingTracking = true       //OPTIONAL
+    config.trackApplicationLifecycleEvents = true //OPTIONAL
+    config.trackDeepLinks = true                  //OPTIONAL
+    config.trackPushNotifications = true          //OPTIONAL
+  
+    Analytics.debug(true)
+    Analytics.setup(with: config)
+    return true
+}
+
+func applicationDidBecomeActive(_ application: UIApplication) {
+    if(cmpManager!.hasConsent()){
+        //CMP manager already has consent ready - you can start
+        AppsFlyerLib.shared().start()
+    }else{
+        //CMP doesn't have consent data ready yet
+        //Waiting for CMP completion and data ready and then start
+        cmpManager?.withOnCmpButtonClickedCallback({ CmpButtonEvent in
+            AppsFlyerLib.shared().start()
+        })
+    }
+    
+    if #available(iOS 14, *) {
+        ATTrackingManager.requestTrackingAuthorization { (status) in
+            switch status {
+            case .denied:
+                print("AuthorizationSatus is denied")
+            case .notDetermined:
+                print("AuthorizationSatus is notDetermined")
+            case .restricted:
+                print("AuthorizationSatus is restricted")
+            case .authorized:
+                print("AuthorizationSatus is authorized")
+            @unknown default:
+                fatalError("Invalid authorization status")
+            }
+        }
+    }
+}
+```
+
+### Manually collect consent data
+If your app does not use a CMP compatible with TCF v2.2, use the SDK API detailed below to provide the consent data directly to the SDK.
+<ol>
+  <li> Initialize <code>SEGAppsFlyerIntegrationFactory</code> using manual mode. This will allow us to delay the Conversion call in order to provide the SDK with the user consent.
+  <li> In the <code>applicationDidBecomeActive</code> lifecycle method determine whether the GDPR applies or not to the user.<br>
+  - If GDPR applies to the user, perform the following: 
+      <ol>
+        <li> Given that GDPR is applicable to the user, determine whether the consent data is already stored for this session.
+            <ol>
+              <li> If there is no consent data stored, show the consent dialog to capture the user consent decision.
+              <li> If there is consent data stored continue to the next step.
+            </ol>
+        <li> To transfer the consent data to the SDK create an AppsFlyerConsent object with the following parameters:<br>
+          - <code>forGDPRUserWithHasConsentForDataUsage</code>- Indicates whether the user has consented to use their data for advertising purposes.
+          - <code>hasConsentForAdsPersonalization</code>- Indicates whether the user has consented to use their data for personalized advertising.
+        <li> Call <code>AppsFlyerLib.shared().setConsentData(AppsFlyerConsent(forGDPRUserWithHasConsentForDataUsage: Bool, hasConsentForAdsPersonalization: Bool))</code>. 
+        <li> Call <code>AppsFlyerLib.shared().start()</code>.
+      </ol><br>
+    - If GDPR doesn’t apply to the user perform the following:
+      <ol>
+        <li> Call <code>AppsFlyerLib.shared().setConsentData(AppsFlyerConsent(nonGDPRUser: ()))</code>.
+        <li> It is optional to initialize <code>SEGAppsFlyerIntegrationFactory</code> using manual mode not mandatory as before.
+      </ol>
+</ol>
+
 
 ## <a id="examples"> Examples
 
