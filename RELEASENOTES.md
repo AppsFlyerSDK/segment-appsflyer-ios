@@ -1,3 +1,6 @@
+### 6.13.1
+
+
 ### 6.13.0
 * Update to Appsflyer SDK 6.13.0.
 * Added support for Google's new EU consent policy
