@@ -1,4 +1,4 @@
-version_appsflyerLib = '6.13.1'
+version_appsflyerLib = '6.14.2'
 version_plugin = '6.13.1'
 
 Pod::Spec.new do |s|
