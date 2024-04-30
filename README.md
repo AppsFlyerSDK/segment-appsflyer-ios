@@ -2,7 +2,9 @@
 
 # AppsFlyer integration for Segment.
 
+
 ## This is a Segment wrapper for AppsFlyer SDK that is built with iOS SDK v6.14.3.
+
 
 [![Version](https://img.shields.io/badge/cocoapods-compatible-brightgreen?logo=cocoapods&logoColor=green&style=flat)](http://cocoapods.org/pods/segment-appsflyer-ios)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-not_compatible-C20000.svg?style=flat)](https://github.com/Carthage/Carthage)
