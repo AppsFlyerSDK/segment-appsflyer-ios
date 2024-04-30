@@ -1,3 +1,7 @@
+### 6.14.3
+* Update to Appsflyer SDK 6.14.3.
+* Added Privacy Manifest
+
 ### 6.13.0
 * Update to Appsflyer SDK 6.13.0.
 * Added support for Google's new EU consent policy
