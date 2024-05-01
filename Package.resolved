@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/segmentio/analytics-ios.git",
         "state": {
           "branch": null,
-          "revision": "78423aaae2e48e32a07246850f37c76f3d34cb84",
-          "version": "4.1.8"
+          "revision": "187faa897c826fe0954124da116db3318242f7c3",
+          "version": "4.1.4"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/AppsFlyerSDK/AppsFlyerFramework.git",
         "state": {
           "branch": null,
-          "revision": "e248ac38ac97ab6926e500ace97e220d10df7d41",
-          "version": "6.14.3"
+          "revision": "7a3cd712a77b30e487e53102b101c5e9ff96a95e",
+          "version": "6.9.1"
         }
       }
     ]
