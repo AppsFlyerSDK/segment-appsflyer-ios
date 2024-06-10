@@ -25,7 +25,20 @@ jobs:
     if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
     uses: ./.github/workflows/unit-tests-workflow.yml
 
-  Deploy-Locally-To-QA:
+  Prepere-To-QA:
     needs: [Run-Unit-Tests,Check-If-ReleaseNotes-Pushed]
     if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
     uses: ./.github/workflows/prepare-for-QA-release.yml
+  
+  Release-To-QA:
+    needs: [Run-Unit-Tests,Check-If-ReleaseNotes-Pushed,Prepere-To-QA]
+    if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
+    steps:
+      - name: Install Cocoapods
+        run: gem install cocoapods      
+      - name: Push to COCOAPODS
+        uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.10
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.CI_COCOAPODS_TOKEN }}
+
+
