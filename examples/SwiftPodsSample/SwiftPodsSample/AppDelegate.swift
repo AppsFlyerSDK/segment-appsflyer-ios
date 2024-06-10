@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       // let factoryNoDelegate = SEGAppsFlyerIntegrationFactory()
         
         // Segment initialization
-        let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEYY")
+        let config = AnalyticsConfiguration(writeKey: "SEGMENT_KEYYy")
         config.use(factoryWithDelegate)
         //      config.use(factoryNoDelegate)
         config.enableAdvertisingTracking = true       //OPTIONAL
