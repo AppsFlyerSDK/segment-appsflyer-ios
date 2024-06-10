@@ -3,6 +3,7 @@
 appsflyerLibVersion=$1
 
 sed -i '' "s/version_appsflyerLib = \'.*\'/version_appsflyerLib = \'$appsflyerLibVersion\'/g" segment-appsflyer-ios.podspec
+sed -i '' "s/s.name             = \"segment-appsflyer-ios\"/s.name             = \"segment-appsflyer-ios-qa\"/g" segment-appsflyer-ios.podspec
 
 sed -r -i '' "s/(.*AppsFlyerLib.*)([0-9]+\.[0-9]+\.[0-9]+)(.*)/\1$appsflyerLibVersion\3/g" Package.swift
 
