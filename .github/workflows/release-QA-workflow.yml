@@ -31,6 +31,7 @@ jobs:
     uses: ./.github/workflows/prepare-for-QA-release.yml
   
   Release-To-QA:
+    runs-on: macos-latest
     needs: [Run-Unit-Tests,Check-If-ReleaseNotes-Pushed,Prepere-To-QA]
     if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
     steps:
