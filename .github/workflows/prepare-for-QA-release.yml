@@ -14,14 +14,20 @@ jobs:
         run: |
           echo ${{github.ref_name}}
           TAG=$(echo "${{github.ref_name}}" | grep -Eo '[0-9]+.[0-9]+.[0-9]+')
-          echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV  
+          echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV
+          TAG_RC=$(echo "${{github.ref_name}}" | grep -Eo '[0-9]+.[0-9]+.[0-9]+-rc[0-9]+')
+          echo "PLUGIN_VERSION_RC=$TAG_RC" >> $GITHUB_ENV  
+      
       - name: run script
-        run: bash .github/bash_scripts/pre_release.sh ${{env.PLUGIN_VERSION}} ${{github.ref_name}}
+        run: bash .github/bash_scripts/pre_release.sh ${{env.PLUGIN_VERSION}} ${{env.PLUGIN_VERSION_RC}}
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           author_name: Moris Gateno
           author_email: moris.gateno@appsflyer.com
           message: 'Commited from github action - prepaing the repo for QA locally.'
-          add: '.'  
+          add: '.' 
+          tag: "${{env.PLUGIN_VERSION_RC}} --force"
+          tag_push: '--force'
+
 
