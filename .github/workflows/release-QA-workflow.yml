@@ -26,7 +26,7 @@ jobs:
   #   uses: ./.github/workflows/unit-tests-workflow.yml
 
   Prepere-To-QA:
-    needs: [Run-Unit-Tests,Check-If-ReleaseNotes-Pushed]
+    needs: [Check-If-ReleaseNotes-Pushed]
     if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
     uses: ./.github/workflows/prepare-for-QA-&-release.yml
 
