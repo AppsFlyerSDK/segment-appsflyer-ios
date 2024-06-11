@@ -30,9 +30,8 @@ jobs:
           tag: "${{env.PLUGIN_VERSION_RC}} --force"
           tag_push: '--force'    
       - name: Push to COCOAPODS
-        uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.10
-        env:
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: |
+          pod trunk push segment-appsflyer-ios-qa.podspec
 
 
 
