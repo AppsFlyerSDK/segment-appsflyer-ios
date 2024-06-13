@@ -20,10 +20,10 @@ jobs:
           releasenotesfile:
             - 'releasenotes.**'
 
-  # Run-Unit-Tests:
-  #   needs: Check-If-ReleaseNotes-Pushed
-  #   if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
-  #   uses: ./.github/workflows/unit-tests-workflow.yml
+  Run-Unit-Tests:
+    needs: Check-If-ReleaseNotes-Pushed
+    if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
+    uses: ./.github/workflows/unit-tests-workflow.yml
 
   Prepere-To-QA:
     needs: [Check-If-ReleaseNotes-Pushed]
