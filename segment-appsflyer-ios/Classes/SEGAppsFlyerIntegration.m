@@ -165,13 +165,7 @@
 }
 
 - (void) start {
-    [self.appsflyer startWithCompletionHandler:^(NSDictionary<NSString *,id> * _Nullable dictionary, NSError * _Nullable error) {
-        if(error == nil){
-
-            [self.appsflyer logEvent:@"Start-Success" withValues:@{}];
-
-        }
-    }];
+    [self.appsflyer start];
 }
 
 
