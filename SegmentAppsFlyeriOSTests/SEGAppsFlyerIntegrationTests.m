@@ -431,7 +431,7 @@
         return YES;
     }]]);
     OCMStub([SEGAnalyticsMock track:[OCMArg checkWithBlock:^BOOL(id obj) {
-        XCTAssertTrue([obj isEqual:@"GCD-Success"]);
+        XCTAssertTrue([obj isEqual:@"Install Attributed"]);
         return YES;
     }] properties:[OCMArg checkWithBlock:^BOOL(id obj) {
         XCTAssertTrue([obj isEqualToDictionary:dictionaryInputToAnalytics]);

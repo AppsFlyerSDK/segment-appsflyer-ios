@@ -257,7 +257,7 @@
         // If you are working with networks that don't allow passing user level data to 3rd parties,
         // you will need to apply code to filter out these networks before calling
         // `[self.analytics track:@"Install Attributed" properties:[properties copy]];`
-        [self.analytics track:@"GCD-Success" properties: [properties copy]];
+        [self.analytics track:@"Install Attributed" properties: [properties copy]];
         
       
     }
