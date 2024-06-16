@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  Change-HardCoded-Version:
+  Change-HardCoded-Version-And-Then-Release:
     name: Pre Release
     runs-on: [ios, self-hosted]
     steps:
