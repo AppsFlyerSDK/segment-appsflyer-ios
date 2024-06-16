@@ -25,7 +25,8 @@ jobs:
     if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
     uses: ./.github/workflows/unit-tests-workflow.yml
 
-  Deploy-Locally-To-QA:
-    needs: [Run-Unit-Tests,Check-If-ReleaseNotes-Pushed]
+  Prepere-To-QA-&-Release:
+    needs: [Check-If-ReleaseNotes-Pushed]
     if: needs.Check-If-ReleaseNotes-Pushed.outputs.answer == 'false'
-    uses: ./.github/workflows/prepare-for-QA-release.yml
+    uses: ./.github/workflows/prepare-for-QA-&-release.yml
+

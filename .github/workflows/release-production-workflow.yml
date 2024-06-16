@@ -11,7 +11,7 @@ on:
 jobs:
   Deploy-To-Production:
     if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'releases/')
-    runs-on: macos-latest
+    runs-on: [ios, self-hosted]
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -49,9 +49,9 @@ jobs:
     - name: Install Cocoapods
       run: gem install cocoapods      
     - name: Push to COCOAPODS
-      uses: michaelhenry/deploy-to-cocoapods-github-action@1.0.10
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.CI_COCOAPODS_TOKEN }}
+      run: |
+        pod trunk me
+        pod trunk push segment-appsflyer-ios.podspec
     - name: Notify with SLack
       uses: slackapi/slack-github-action@v1.23.0
       with:
