@@ -18,4 +18,4 @@ jobs:
     - name: CocoaPod Install
       run:  pod install
     - name: Test
-      run: xcodebuild test -scheme segment-appsflyer-ios -workspace segment-appsflyer-ios.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 13' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme segment-appsflyer-ios -workspace segment-appsflyer-ios.xcworkspace -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4' | xcpretty && exit ${PIPESTATUS[0]}
