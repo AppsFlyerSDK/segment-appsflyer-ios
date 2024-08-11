@@ -32,7 +32,7 @@ jobs:
       - name: Push to COCOAPODS
         run: |
           pod trunk me
-          pod trunk push segment-appsflyer-ios-qa.podspec
+          pod trunk push segment-appsflyer-ios-qa.podspec --verbose --use-libraries --allow-warnings
 
 
 
