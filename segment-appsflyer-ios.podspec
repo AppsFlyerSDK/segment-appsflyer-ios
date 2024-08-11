@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '12.0'
   s.requires_arc = true
   s.static_framework = true
+  s.swift_version = '4.0'
 
   s.dependency 'Analytics'
 
