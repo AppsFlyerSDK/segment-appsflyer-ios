@@ -51,7 +51,7 @@ jobs:
     - name: Push to COCOAPODS
       run: |
         pod trunk me
-        pod trunk push segment-appsflyer-ios.podspec
+        pod trunk push segment-appsflyer-ios.podspec  --verbose --use-libraries --allow-warnings
     - name: Notify with SLack
       uses: slackapi/slack-github-action@v1.23.0
       with:
