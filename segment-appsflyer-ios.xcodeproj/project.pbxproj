@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,11 +12,13 @@
 		47A0A8F823D5CA7A00FE781F /* SegmentAppsFlyeriOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F323D5CA7A00FE781F /* SegmentAppsFlyeriOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8F923D5CA7A00FE781F /* SEGAppsFlyerIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F423D5CA7A00FE781F /* SEGAppsFlyerIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47A0A8FA23D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 47A0A8F523D5CA7A00FE781F /* SEGAppsFlyerIntegrationFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		532F5B68C04C9B7505074D3D /* Pods_SegmentAppsFlyeriOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C514E1E9C6226888E04C56C5 /* Pods_SegmentAppsFlyeriOSTests.framework */; };
 		86F430F225B4369500BD66B9 /* AppsFlyerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */; };
 		86F430F525B4369600BD66B9 /* Segment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868810BD258FB606001F6545 /* Segment.framework */; };
 		A5201335295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */; };
 		A52E9C84295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */; };
 		A52E9C85295B0478004EC3DF /* SegmentAppsFlyeriOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */; };
+		B3BC2B4E90E770C30670D879 /* Pods_segment_appsflyer_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2251986739F57303C16AA90C /* Pods_segment_appsflyer_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		117E50BC57E8FE27F9E1C2BF /* Pods-SegmentAppsFlyeriOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentAppsFlyeriOSTests.release.xcconfig"; path = "Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		14B1B6446A9CC81F261A8CDD /* Pods-segment-appsflyer-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-segment-appsflyer-ios.debug.xcconfig"; path = "Target Support Files/Pods-segment-appsflyer-ios/Pods-segment-appsflyer-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		2016CB37383438EE71FC13C8 /* Pods-SegmentAppsFlyeriOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SegmentAppsFlyeriOSTests.debug.xcconfig"; path = "Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2251986739F57303C16AA90C /* Pods_segment_appsflyer_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_segment_appsflyer_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A0A8DA23D5B13500FE781F /* SegmentAppsFlyeriOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SegmentAppsFlyeriOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A0A8DE23D5B13500FE781F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47A0A8F123D5CA7A00FE781F /* SEGAppsFlyerIntegration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegration.m; sourceTree = "<group>"; };
@@ -45,6 +51,8 @@
 		A5201334295B1A5B00B87090 /* SEGAppsFlyerIntegrationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SEGAppsFlyerIntegrationTests.m; sourceTree = "<group>"; };
 		A52E9C81295B0478004EC3DF /* SegmentAppsFlyeriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SegmentAppsFlyeriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A52E9C83295B0478004EC3DF /* SEGAppsFlyerIntegrationFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEGAppsFlyerIntegrationFactoryTests.swift; sourceTree = "<group>"; };
+		C514E1E9C6226888E04C56C5 /* Pods_SegmentAppsFlyeriOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SegmentAppsFlyeriOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF2C5E1ABF8F45D3BA890D46 /* Pods-segment-appsflyer-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-segment-appsflyer-ios.release.xcconfig"; path = "Target Support Files/Pods-segment-appsflyer-ios/Pods-segment-appsflyer-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			files = (
 				86F430F525B4369600BD66B9 /* Segment.framework in Frameworks */,
 				86F430F225B4369500BD66B9 /* AppsFlyerLib.framework in Frameworks */,
+				B3BC2B4E90E770C30670D879 /* Pods_segment_appsflyer_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A52E9C85295B0478004EC3DF /* SegmentAppsFlyeriOS.framework in Frameworks */,
+				532F5B68C04C9B7505074D3D /* Pods_SegmentAppsFlyeriOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +126,8 @@
 				86881093258F9113001F6545 /* segment_appsflyer_ios.framework */,
 				47A0A8FC23D5CF8B00FE781F /* Analytics.framework */,
 				47A0A8FD23D5CF8B00FE781F /* AppsFlyerLib.framework */,
+				C514E1E9C6226888E04C56C5 /* Pods_SegmentAppsFlyeriOSTests.framework */,
+				2251986739F57303C16AA90C /* Pods_segment_appsflyer_ios.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +145,10 @@
 		A7E5A8BDE3AE44B9A11797D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				2016CB37383438EE71FC13C8 /* Pods-SegmentAppsFlyeriOSTests.debug.xcconfig */,
+				117E50BC57E8FE27F9E1C2BF /* Pods-SegmentAppsFlyeriOSTests.release.xcconfig */,
+				14B1B6446A9CC81F261A8CDD /* Pods-segment-appsflyer-ios.debug.xcconfig */,
+				DF2C5E1ABF8F45D3BA890D46 /* Pods-segment-appsflyer-ios.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -157,10 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47A0A8E223D5B13500FE781F /* Build configuration list for PBXNativeTarget "segment-appsflyer-ios" */;
 			buildPhases = (
+				320D0B50869D6B4AC466C411 /* [CP] Check Pods Manifest.lock */,
 				47A0A8D523D5B13500FE781F /* Headers */,
 				47A0A8D623D5B13500FE781F /* Sources */,
 				47A0A8D723D5B13500FE781F /* Frameworks */,
 				47A0A8D823D5B13500FE781F /* Resources */,
+				07C5D16CA9538BA91FEEC402 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -175,9 +193,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A52E9C8A295B0478004EC3DF /* Build configuration list for PBXNativeTarget "SegmentAppsFlyeriOSTests" */;
 			buildPhases = (
+				956AAF3F7EA6B8B2ED039C44 /* [CP] Check Pods Manifest.lock */,
 				A52E9C7D295B0478004EC3DF /* Sources */,
 				A52E9C7E295B0478004EC3DF /* Frameworks */,
 				A52E9C7F295B0478004EC3DF /* Resources */,
+				8D7143CA5604001596A00707 /* [CP] Embed Pods Frameworks */,
+				146EE4D0A647CC4492BFC8FB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +264,104 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07C5D16CA9538BA91FEEC402 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-segment-appsflyer-ios/Pods-segment-appsflyer-ios-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-segment-appsflyer-ios/Pods-segment-appsflyer-ios-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-segment-appsflyer-ios/Pods-segment-appsflyer-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		146EE4D0A647CC4492BFC8FB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		320D0B50869D6B4AC466C411 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-segment-appsflyer-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D7143CA5604001596A00707 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SegmentAppsFlyeriOSTests/Pods-SegmentAppsFlyeriOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		956AAF3F7EA6B8B2ED039C44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SegmentAppsFlyeriOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		47A0A8D623D5B13500FE781F /* Sources */ = {
@@ -395,6 +514,7 @@
 		};
 		47A0A8E323D5B13500FE781F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B1B6446A9CC81F261A8CDD /* Pods-segment-appsflyer-ios.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -422,12 +542,16 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		47A0A8E423D5B13500FE781F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF2C5E1ABF8F45D3BA890D46 /* Pods-segment-appsflyer-ios.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
@@ -455,12 +579,16 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		A52E9C88295B0478004EC3DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2016CB37383438EE71FC13C8 /* Pods-SegmentAppsFlyeriOSTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
@@ -477,6 +605,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MorisGateno.SegmentAppsFlyeriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SegmentAppsFlyeriOSTests/SegmentAppsFlyeriOSTests-Bridging-Header.h";
@@ -488,6 +619,7 @@
 		};
 		A52E9C89295B0478004EC3DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 117E50BC57E8FE27F9E1C2BF /* Pods-SegmentAppsFlyeriOSTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
@@ -504,6 +636,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MorisGateno.SegmentAppsFlyeriOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "SegmentAppsFlyeriOSTests/SegmentAppsFlyeriOSTests-Bridging-Header.h";

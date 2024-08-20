@@ -12,7 +12,7 @@ import AppTrackingTransparency
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
    
         // For AppsFLyer debug logs uncomment the line below
@@ -51,24 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    // For Swift version < 4.2 replace function signature with the commented out code
+//     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool { // this line for Swift < 4.2
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
-        return true
-    }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        AppsFlyerLib.shared().continue(userActivity, restorationHandler: restorationHandler)
-        return true
+      AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
+      return true
     }
 
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        AppsFlyerLib.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
-        return true
-    }
-    
+    // Open URI-scheme for iOS 9 and above
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        AppsFlyerLib.shared().handleOpen(url, options: options)
-        return true
+      AppsFlyerLib.shared().handleOpen(url, options: options)
+      return true
     }
 }
 

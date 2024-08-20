@@ -1,5 +1,5 @@
-version_appsflyerLib = '6.14.3'
-version_plugin = '6.14.3'
+version_appsflyerLib = '6.15.1'
+version_plugin = '6.15.1'
 
 Pod::Spec.new do |s|
   s.name             = "segment-appsflyer-ios"
@@ -20,6 +20,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '12.0'
   s.requires_arc = true
   s.static_framework = true
+  s.swift_version = '4.0'
 
   s.dependency 'Analytics'
 
