@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		954064F38BF10350BB5B1DAC /* Pods_SwiftPodsSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D615F2D019A120C8773288D /* Pods_SwiftPodsSample.framework */; };
 		9D29F71F24E4081F007A929A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D29F71E24E4081F007A929A /* AppDelegate.swift */; };
-		9D29F72124E4081F007A929A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D29F72024E4081F007A929A /* SceneDelegate.swift */; };
 		9D29F72324E4081F007A929A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D29F72224E4081F007A929A /* ViewController.swift */; };
 		9D29F72624E4081F007A929A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D29F72424E4081F007A929A /* Main.storyboard */; };
 		9D29F72824E40820007A929A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D29F72724E40820007A929A /* Assets.xcassets */; };
@@ -20,7 +19,6 @@
 		2D615F2D019A120C8773288D /* Pods_SwiftPodsSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftPodsSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D29F71B24E4081F007A929A /* SwiftPodsSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftPodsSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D29F71E24E4081F007A929A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D29F72024E4081F007A929A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9D29F72224E4081F007A929A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D29F72524E4081F007A929A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D29F72724E40820007A929A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,6 +26,7 @@
 		9D29F72C24E40820007A929A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D29F73324E40AE9007A929A /* SwiftPodsSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPodsSample-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F10C505DB27305DDC0B3EDD /* Pods-SwiftPodsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPodsSample.release.xcconfig"; path = "Target Support Files/Pods-SwiftPodsSample/Pods-SwiftPodsSample.release.xcconfig"; sourceTree = "<group>"; };
+		B3619ED32C74A6770067E195 /* SwiftPodsSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftPodsSample.entitlements; sourceTree = "<group>"; };
 		D55B32FE162D54FD3F59944C /* Pods-SwiftPodsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftPodsSample.debug.xcconfig"; path = "Target Support Files/Pods-SwiftPodsSample/Pods-SwiftPodsSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,9 +72,9 @@
 		9D29F71D24E4081F007A929A /* SwiftPodsSample */ = {
 			isa = PBXGroup;
 			children = (
+				B3619ED32C74A6770067E195 /* SwiftPodsSample.entitlements */,
 				9D29F73324E40AE9007A929A /* SwiftPodsSample-Bridging-Header.h */,
 				9D29F71E24E4081F007A929A /* AppDelegate.swift */,
-				9D29F72024E4081F007A929A /* SceneDelegate.swift */,
 				9D29F72224E4081F007A929A /* ViewController.swift */,
 				9D29F72424E4081F007A929A /* Main.storyboard */,
 				9D29F72724E40820007A929A /* Assets.xcassets */,
@@ -105,6 +104,7 @@
 				9D29F71824E4081F007A929A /* Frameworks */,
 				9D29F71924E4081F007A929A /* Resources */,
 				F6332A18B9239844E271B4AD /* [CP] Embed Pods Frameworks */,
+				AE2D77C364B498651EBB1DB7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,6 +183,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AE2D77C364B498651EBB1DB7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftPodsSample/Pods-SwiftPodsSample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftPodsSample/Pods-SwiftPodsSample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftPodsSample/Pods-SwiftPodsSample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F6332A18B9239844E271B4AD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,7 +226,6 @@
 			files = (
 				9D29F72324E4081F007A929A /* ViewController.swift in Sources */,
 				9D29F71F24E4081F007A929A /* AppDelegate.swift in Sources */,
-				9D29F72124E4081F007A929A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftPodsSample/SwiftPodsSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				INFOPLIST_FILE = SwiftPodsSample/Info.plist;
@@ -364,7 +381,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.SwiftPodsSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.SwiftPodsSampleMoris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPodsSample/SwiftPodsSample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -378,6 +395,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SwiftPodsSample/SwiftPodsSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6UQAD4B3U2;
 				INFOPLIST_FILE = SwiftPodsSample/Info.plist;
@@ -385,7 +403,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.SwiftPodsSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appsflyer.SwiftPodsSampleMoris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftPodsSample/SwiftPodsSample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

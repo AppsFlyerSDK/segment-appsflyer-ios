@@ -479,6 +479,7 @@
     id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
     OCMStub([SEGAppsFlyerIntegrationTestsMock onConversionDataFail:[OCMArg checkWithBlock:^BOOL(id obj) {
         XCTAssertTrue([obj isEqual:error]);
+        return true;
     }]]);
     
     SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];
@@ -497,6 +498,7 @@
     id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
     OCMStub([SEGAppsFlyerIntegrationTestsMock onAppOpenAttribution:[OCMArg checkWithBlock:^BOOL(id obj) {
         XCTAssertTrue([obj isEqualToDictionary:attributionData]);
+        return true;
     }]]);
     
     SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];
@@ -515,6 +517,7 @@
     id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
     OCMStub([SEGAppsFlyerIntegrationTestsMock onAppOpenAttribution:[OCMArg checkWithBlock:^BOOL(id obj) {
         XCTAssertTrue([obj isEqual:error]);
+        return true;
     }]]);
     
     SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];
@@ -533,6 +536,7 @@
     id SEGAppsFlyerIntegrationTestsMock = OCMClassMock([SEGAppsFlyerIntegrationTests class]);
     OCMStub([SEGAppsFlyerIntegrationTestsMock onAppOpenAttribution:[OCMArg checkWithBlock:^BOOL(id obj) {
         XCTAssertTrue([obj isEqual:result]);
+        return true;
     }]]);
     
     SEGAppsFlyerIntegration *integrationObject = [[SEGAppsFlyerIntegration alloc] initWithSettings:@{} withAnalytics:nil andDelegate:SEGAppsFlyerIntegrationTestsMock];

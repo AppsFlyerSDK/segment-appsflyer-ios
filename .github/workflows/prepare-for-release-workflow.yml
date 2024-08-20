@@ -6,7 +6,6 @@ on:
       - opened
     branches:
       - 'master'
-      # - 'dev/add-release-workflow'
 
 jobs:
   Prepare-Plugin-For-Production:
