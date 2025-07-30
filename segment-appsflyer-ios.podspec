@@ -1,5 +1,5 @@
-version_appsflyerLib = '6.15.1'
-version_plugin = '6.15.1'
+version_appsflyerLib = '6.17.2'
+version_plugin = '6.17.2'
 
 Pod::Spec.new do |s|
   s.name             = "segment-appsflyer-ios"
