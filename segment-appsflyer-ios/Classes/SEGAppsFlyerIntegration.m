@@ -35,7 +35,7 @@
         
         self.appsflyer = [self appsflyerLib];
         [self.appsflyer setPluginInfoWith:AFSDKPluginSegment
-                            pluginVersion:@"6.13.1"
+                            pluginVersion:@"6.17.3"
                          additionalParams:nil];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
@@ -93,7 +93,7 @@
         self.appsflyer = aAppsflyer;
         
         [self.appsflyer setPluginInfoWith:AFSDKPluginSegment
-                            pluginVersion:@"6.13.1"
+                            pluginVersion:@"6.17.3"
                          additionalParams:nil];
         
         NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
