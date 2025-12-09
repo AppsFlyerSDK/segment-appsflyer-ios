@@ -20,20 +20,19 @@ jobs:
     - name: Detect Available iOS Simulator
       id: detect-simulator
       run: |
-        # Try to find specific iPhone simulators first
-        SIMULATOR_OUTPUT=$(xcrun simctl list devices available | grep -B 1 "iPhone" | head -2)
+        echo "Listing available iOS Simulators..."
+        xcrun simctl list devices available iOS
         
-        if [ -n "$SIMULATOR_OUTPUT" ]; then
-          # Specific iPhone simulator found - extract details
-          IOS_VERSION=$(echo "$SIMULATOR_OUTPUT" | grep -oE "iOS [0-9]+\.[0-9]+" | sed 's/iOS //')
-          SIMULATOR_NAME=$(echo "$SIMULATOR_OUTPUT" | grep "iPhone" | grep -oE "iPhone [^(]+" | sed 's/[[:space:]]*$//')
-          
-          echo "Found specific simulator: $SIMULATOR_NAME with iOS $IOS_VERSION"
-          echo "destination=platform=iOS Simulator,name=$SIMULATOR_NAME,OS=$IOS_VERSION" >> $GITHUB_OUTPUT
+        # Find the first available and booted/bootable iPhone simulator
+        SIMULATOR_ID=$(xcrun simctl list devices available iOS | grep -m 1 "iPhone" | grep -oE '\([A-Z0-9-]+\)' | tr -d '()')
+        
+        if [ -n "$SIMULATOR_ID" ]; then
+          echo "Using simulator ID: $SIMULATOR_ID"
+          echo "destination=platform=iOS Simulator,id=$SIMULATOR_ID" >> $GITHUB_OUTPUT
         else
-          # No specific simulators found - use generic placeholder
-          echo "No specific iPhone simulators found, using generic 'Any iOS Simulator Device'"
-          echo "destination=platform=iOS Simulator,name=Any iOS Simulator Device" >> $GITHUB_OUTPUT
+          # Fallback to generic iOS Simulator (uses default for the Xcode version)
+          echo "No specific iPhone found, using generic iOS Simulator"
+          echo "destination=generic/platform=iOS Simulator" >> $GITHUB_OUTPUT
         fi
     - name: Test
       run: xcodebuild test -scheme segment-appsflyer-ios -workspace segment-appsflyer-ios.xcworkspace -destination '${{ steps.detect-simulator.outputs.destination }}' | xcpretty && exit ${PIPESTATUS[0]}
