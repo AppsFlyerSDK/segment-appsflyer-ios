@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: maxim-lobanov/setup-xcode@v1
       with:
-         xcode-version: '15.4'
+         xcode-version: '16.0'
     - name: create Podfile
       run: bash .github/bash_scripts/podfile_creation.sh
     - name: CocoaPod Install
