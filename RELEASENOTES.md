@@ -1,3 +1,8 @@
+### 6.17.8
+* Updated AppsFlyer iOS SDK to 6.17.8
+* Refactored plugin version to use a single internal constant for improved maintainability
+* Improved CI workflow with dynamic iOS simulator detection for enhanced compatibility
+
 ### 6.17.7
 * Update to Appsflyer SDK 6.17.7.
 

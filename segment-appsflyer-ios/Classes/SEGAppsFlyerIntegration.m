@@ -9,8 +9,9 @@
 #import "SEGAppsFlyerIntegration.h"
 #import "SEGAppsFlyerIntegrationFactory.h"
 
-@implementation SEGAppsFlyerIntegration
+static NSString *const kSEGAFPluginVersion = @"6.17.8";
 
+@implementation SEGAppsFlyerIntegration
 
 - (instancetype)initWithSettings:(NSDictionary *)settings withAnalytics:(SEGAnalytics *)analytics {
     if (self = [super init]) {
@@ -35,7 +36,7 @@
         
         self.appsflyer = [self appsflyerLib];
         [self.appsflyer setPluginInfoWith:AFSDKPluginSegment
-                            pluginVersion:@"6.17.7"
+                            pluginVersion:kSEGAFPluginVersion
                          additionalParams:nil];
         [self.appsflyer setAppsFlyerDevKey:afDevKey];
         [self.appsflyer setAppleAppID:appleAppId];
@@ -93,7 +94,7 @@
         self.appsflyer = aAppsflyer;
         
         [self.appsflyer setPluginInfoWith:AFSDKPluginSegment
-                            pluginVersion:@"6.17.7"
+                            pluginVersion:kSEGAFPluginVersion
                          additionalParams:nil];
         
         NSString *afDevKey = [self.settings objectForKey:@"appsFlyerDevKey"];
