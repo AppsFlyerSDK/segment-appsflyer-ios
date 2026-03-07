@@ -118,3 +118,5 @@
             @"source" : @"Email"
         }
 * fix bug duplicate Install Attributed events sent
+
+test_ci
