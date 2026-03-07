@@ -501,6 +501,8 @@ If your app does not use a CMP compatible with TCF v2.2, use the SDK API detaile
 
 
 ## <a id="examples"> Examples
+test
 
 This project  has [4 examples](https://github.com/AppsFlyerSDK/segment-appsflyer-ios/tree/master/examples) for objective-C and Swift (with troubleshooting). To give it a try , clone this repo and from each example first run `pod install` to install project dependancies.
+
 
