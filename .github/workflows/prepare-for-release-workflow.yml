@@ -21,13 +21,17 @@ jobs:
       with:
         repo-token: ${{ secrets.CI_GITHUB_TOKEN }}       
     - name: Determine release tag and release branch
+      env:
+        BRANCH_NAME: ${{ steps.vars.outputs.branch }}
       run: |
-        TAG=$(echo "${{ steps.vars.outputs.branch }}" | grep -Eo '[0-9]+.[0-9]+.[0-9]+')
-        echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV  
+        TAG=$(echo "${BRANCH_NAME}" | grep -Eo '[0-9]+.[0-9]+.[0-9]+')
+        echo "PLUGIN_VERSION=$TAG" >> $GITHUB_ENV
     - name: run script
-      run: bash .github/bash_scripts/release.sh ${{env.PLUGIN_VERSION}}  
+      run: bash .github/bash_scripts/release.sh ${{env.PLUGIN_VERSION}}
     - name: Commit and Push
+      env:
+        BRANCH_NAME: ${{ steps.vars.outputs.branch }}
       run : |
         git add .
         git commit -m"Commited from github action - prepaing the repo for production."
-        git push origin HEAD:${{ steps.vars.outputs.branch }} --force
+        git push origin HEAD:${BRANCH_NAME} --force
