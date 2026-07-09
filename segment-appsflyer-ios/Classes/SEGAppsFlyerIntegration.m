@@ -9,7 +9,7 @@
 #import "SEGAppsFlyerIntegration.h"
 #import "SEGAppsFlyerIntegrationFactory.h"
 
-static NSString *const kSEGAFPluginVersion = @"6.17.8";
+static NSString *const kSEGAFPluginVersion = @"6.18.1";
 
 @implementation SEGAppsFlyerIntegration
 

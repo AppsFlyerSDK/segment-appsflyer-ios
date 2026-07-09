@@ -1,3 +1,6 @@
+### 6.18.1
+* Updated AppsFlyer iOS SDK to 6.18.1
+
 ### 6.17.8
 * Updated AppsFlyer iOS SDK to 6.17.8
 * Refactored plugin version to use a single internal constant for improved maintainability
